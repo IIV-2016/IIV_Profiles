@@ -1,0 +1,14 @@
+1. META-INF - context.xml
+ - db connect
+2. WEB-INF - web.xml
+ - servlet
+3. WEB-INF - lib
+ - cos.jar
+ - jstl.jar
+ - standard.jar
+4. Java Resources - src
+ - controller : servlet
+ - model.dao : db
+ - model.domain : bean
+5. start page
+ - index.jsp
