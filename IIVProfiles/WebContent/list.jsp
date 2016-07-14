@@ -57,7 +57,7 @@
 		<div class="header">
 			<div class="container">
 				<!-- Logo -->
-				<a class="logo" href="index.html">
+				<a class="logo" href="volunteer.do">
 					<img src="assets/img/logo1-default.png" alt="Logo"">
 				</a>
 				<!-- End Logo -->

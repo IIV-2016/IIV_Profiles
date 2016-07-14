@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
-<%@ page import="model.domain.VolunteerBean" %> 
+<%@ page import="model.domain.VolunteerBean" %>
+<%@ page import="model.domain.TeamBean" %>
 <%
-	VolunteerBean volunteer = (VolunteerBean)request.getAttribute("volunteer");
+	TeamBean[] teamList = (TeamBean[])request.getAttribute("teamList");
+	String country = (String)request.getAttribute("country");
+	TeamBean team = null;
  %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -54,7 +57,7 @@
 		<div class="header">
 			<div class="container">
 				<!-- Logo -->
-				<a class="logo" href="index.html">
+				<a class="logo" href="volunteer.do">
 					<img src="assets/img/logo1-default.png" alt="Logo"">
 				</a>
 				<!-- End Logo -->
@@ -109,66 +112,81 @@
 			</div><!--/navbar-collapse-->
 		</div>
 		<!--=== End Header ===-->
-		
-		<!--=== Interactive Slider ===-->
-		<div class="breadcrumbs-v3 breadcrumbs-lg img-v2" style="background:url(<%=volunteer.getLink()%>);"></div>
+
+		<!--=== Breadcrumbs ===-->
+		<div class="breadcrumbs">
 			<div class="container">
-				<h1><%= volunteer.getFirstname() %></h1>
-				<p><span><%= volunteer.getTeam() %></span>,
-					<span><%= volunteer.getRole() %></span></p>
-			</div>
-		</div>
-		<!--=== End Interactive Slider ===-->
+				<h1 class="pull-left"><%=country%></h1>
+				<ul class="pull-right breadcrumb">
+				<%
+				for(int i = 0; i < teamList.length; i++){
+				team = teamList[i];
+				%>
+				<li><a href="#<%=team.getTeam() %>"><%=team.getTeam() %></a></li>
+				<%
+					}
+				%>
+				</ul>
+			</div><!--/container-->
+		</div><!--/breadcrumbs-->
+		<!--=== End Breadcrumbs ===-->
 
-		<!--=== Container Part ===-->
-		<div class="container content-sm">
-			<div class="row">
-				<!-- Social Network -->
-				<div class="col-md-6 md-margin-bottom-50">
-					<div class="headline-left margin-bottom-30">
-						<h2 class="headline-brd heading-md">IIV <span class="color-green">MEMBER</span></h2>
-					</div>
-					<p><h4 class="heading-xs">Gender<span class="pull-right"><%= volunteer.getGender() %></span></h4></p>
-					<p><h4 class="heading-xs">Year of Service<span class="pull-right"><%= volunteer.getYear() %></span></h4></p>
-					<p><h4 class="heading-xs">Country<span class="pull-right"><%= volunteer.getCountry() %></span></h4></p>
-					<p><h4 class="heading-xs">Host Organization<span class="pull-right"><%= volunteer.getOrg() %></span></h4></p>
-					<br>
+		<!--=== Content Part ===-->
+		<div class="container content">
+		<%
+			VolunteerBean volunteer = null;
+			for(int i = 0; i < teamList.length; i++){
+				team = teamList[i];
+		%>	
+			<div class="row portfolio-item margin-bottom-10">
+				<!-- Content Info -->
+				<section id="<%=team.getTeam()%>">
+				<div class="col-md-5">
+					<h2><%=team.getTeam()%></h2>  
 				</div>
-				<!-- End Social Network -->
-
-				<!-- Social Network2 -->
-				<div class="col-md-6 md-margin-bottom-50">
-					<div class="headline-left margin-bottom-30">
-						<h2 class="headline-brd heading-md">PERSONAL <span class="color-green">INFORMATION</span></h2>
-					</div>
-					<p><h4 class="heading-xs">Date of Birth<span class="pull-right"><%= volunteer.getBirth() %></span></h4></p>
-					<p><h4 class="heading-xs">University<span class="pull-right"><%= volunteer.getUniversity() %></span></h4></p>
-					<p><h4 class="heading-xs">Major<span class="pull-right"><%= volunteer.getMajor() %></span></h4></p>
-					<br>
+				</section>
+				<!-- End Content Info -->
+			</div><!--/row-->  
+			<br>
+			<!-- Recent Works -->
+			<div class="owl-carousel-v1 owl-work-v1">
+				<div class="headline"><h2 class="pull-left">Team Members</h2>
+					<div class="owl-navigation">
+						<div class="customNavigation">
+							<a class="owl-btn prev-v2"><i class="fa fa-angle-left"></i></a>
+							<a class="owl-btn next-v2"><i class="fa fa-angle-right"></i></a>
+						</div>
+					</div><!--/navigation-->
 				</div>
-				<!-- End Social Network2 -->
 
-				<!-- Progress Bar -->
-				<div class="col-md-6 progress-box md-margin-bottom-50">
-					<div class="headline-left margin-bottom-30">
-						<h2 class="headline-brd heading-md">MY <span class="color-green">SKILLS</span></h2>
+				<div class="owl-recent-works-v1">
+					<% 
+						for(int j = 0; j < team.getVolunteer().length; j++){
+						volunteer = team.getVolunteer()[j];
+					%>
+					<div class="item">
+						<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getMemberNum()%>">
+							<em class="overflow-hidden">
+								<img class="img-responsive" src="<%=volunteer.getLink() %>" alt="<%=volunteer.getFirstname() %><%=volunteer.getLastname() %>">
+							</em>
+							<span>
+								<strong><%=volunteer.getFirstname() %><%=volunteer.getLastname() %></strong>
+								<i><%=volunteer.getRole() %></i>
+							</span>
+						</a>
 					</div>
-					<h4 class="heading-xs"><%= volunteer.getExpertise() %><br><%= volunteer.getExperience() %><span class="pull-right"></span></h4>
+					<%
+						}
+					%>
 				</div>
 			</div>
-				<!-- End Progress Bar -->
-		</div><!--/end row-->
-		<!--=== End Container Part ===-->
-
-		<!--=== Call To Action v2 ===-->
-		<div class="call-action-v2 parallaxBg">
-			<div class="container">
-				<h2>CONTACT ME!</h2>
-				<p>This is my e-mail address :)</p>
-				<a href="mailto:<%=volunteer.getEmail()%>" class="btn-u">Get In Touch</a>
-			</div>
-		</div>
-<!--=== End Content Part ===-->
+			<br><br><br>
+				<%
+					}
+				%>	
+			<!-- End Recent Works -->
+		</div><!--/container-->
+		<!--=== End Content Part ===-->
 			<div class="copyright">
 				<div class="container">
 					<div class="row">
@@ -230,26 +248,28 @@
 	<!-- JS Global Compulsory -->
 	<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
-	<script type="text/javascript" src="assets/plugins/jquery/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<!-- JS Implementing Plugins -->
-	<script type="text/javascript" src="assets/plugins/js/back-to-top.js"></script>
-	<script type="text/javascript" src="assets/plugins/js/smoothScroll.js"></script>
-	<script type="text/javascript" src="assets/plugins/js/jquery-appear.js"></script>
-	<script type="text/javascript" src="assets/plugins/js/jquery.parallax.js"></script>
-	<script type="text/javascript" src="assets/plugins/jquery/jquery.cubeportfolio.min.js"></script>
+	<script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
+	<script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
+	<script type="text/javascript" src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
 	<!-- JS Customization -->
-	<script type="text/javascript" src="assets/plugins/js/custom.js"></script>
+	<script type="text/javascript" src="assets/js/custom.js"></script>
 	<!-- JS Page Level -->
-	<script type="text/javascript" src="assets/plugins/js/app.js"></script>
-	<script type="text/javascript" src="assets/plugins/js/cube-portfolio-lightbox.js"></script>
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/owl-recent-works.js"></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function() {
 			App.init();
-			App.initParallaxBg();
 			StyleSwitcher.initStyleSwitcher();
-			ProgressBar.initProgressBarHorizontal();
+			OwlRecentWorks.initOwlRecentWorksV1();
 		});
 	</script>
+	<!--[if lt IE 9]>
+	<script src="assets/plugins/respond.js"></script>
+	<script src="assets/plugins/html5shiv.js"></script>
+	<script src="assets/plugins/placeholder-IE-fixes.js"></script>
+	<![endif]-->
 </body>
 </html>
-
