@@ -65,7 +65,7 @@ public class VolunteerDAO{
 		ResultSet rset = null;
 		TeamBean[] list  = null;
 		ArrayList alist = new ArrayList();
-		String sql="SELECT TEAM FROM member WHERE COUNTRY = ? AND YEAR = ?";	
+		String sql="SELECT DISTINCT TEAM FROM member WHERE COUNTRY = ? AND YEAR = ?";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);

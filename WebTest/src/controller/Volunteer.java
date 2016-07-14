@@ -52,6 +52,7 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			
 			TeamBean [] teamList = VolunteerDAO.readTeam(country, year);
 			request.setAttribute("teamList", teamList);
+			request.setAttribute("country", country);
 			RequestDispatcher rd = request.getRequestDispatcher("team.jsp");
 			rd.forward(request, response);
 			

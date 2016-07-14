@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
-<%@ page import="model.domain.TeamBean" %> 
-<%@ page import="model.domain.VolunteerBean" %> 
+<%@ page import="model.domain.VolunteerBean" %>
+<%@ page import="model.domain.TeamBean" %>
 <%
 	TeamBean[] teamList = (TeamBean[])request.getAttribute("teamList");
+	String country = (String)request.getAttribute("country");
  %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -127,11 +128,11 @@
 						team = teamList[i];
 			%>	
 			<div class="container">
-				<h1 class="pull-left"><%=team.getTeamCountry()%></h1>
+				<h1 class="pull-left"><%=country%></h1>
 				<ul class="pull-right breadcrumb">
 					<li><a href="index.html">Home</a></li>
 					<li><a href="">IIV-2016</a></li>
-					<li class="active"><%=team.getTeamCountry()%></li>
+					<li class="active"><%=country%></li>
 				</ul>
 			</div><!--/container-->
 		</div><!--/breadcrumbs-->
