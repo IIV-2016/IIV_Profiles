@@ -165,7 +165,7 @@
 						volunteer = team.getVolunteer()[j];
 					%>
 					<div class="item">
-						<a href="page_about_me2.html">
+						<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getMemberNum()%>">
 							<em class="overflow-hidden">
 								<img class="img-responsive" src="<%=volunteer.getLink() %>" alt="<%=volunteer.getFirstname() %><%=volunteer.getLastname() %>">
 							</em>

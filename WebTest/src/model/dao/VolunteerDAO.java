@@ -12,8 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import controller.Volunteer;
-import model.domain.NoteBean;
 import model.domain.TeamBean;
 import model.domain.VolunteerBean;
 
@@ -116,6 +114,29 @@ public class VolunteerDAO{
 			close(rset, pstmt, con);
 		}
 		return new TeamBean(team, list);
+	}
+	
+	public static VolunteerBean readMember(int memberNum){
+		Connection con = null;	
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		VolunteerBean volunteer  = null;
+		String sql="SELECT * FROM member WHERE MEMBER_NUM = ?";	
+		try {
+			con = source.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, memberNum);
+			rset = pstmt.executeQuery();
+			if (rset.next()) {
+				volunteer = new VolunteerBean(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7), rset.getString(8), rset.getString(9),
+						rset.getString(10), rset.getString(11), rset.getString(12), rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getString(17));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(rset, pstmt, con);
+		}
+		return volunteer;
 	}
 	
 	public static void close(Statement stmt, Connection con){

@@ -58,7 +58,7 @@
 			<div class="container">
 				<!-- Logo -->
 				<a class="logo" href="index.html">
-					<img src="assets/img/logo1-default.png" alt="Logo" style="height: 40px;">
+					<img src="assets/img/logo1-default.png" alt="Logo"">
 				</a>
 				<!-- End Logo -->
 
