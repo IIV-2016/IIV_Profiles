@@ -62,26 +62,6 @@
 				</a>
 				<!-- End Logo -->
 
-				<!-- Topbar -->
-				<div class="topbar">
-					<ul class="loginbar pull-right">
-						<li class="hoverSelector">
-							<i class="fa fa-globe"></i>
-							<a>Languages</a>
-							<ul class="languages hoverSelectorBlock">
-								<li class="active">
-									<a href="#">English <i class="fa fa-check"></i></a>
-								</li>
-							</ul>
-						</li>
-						<li class="topbar-devider"></li>
-						<li><a href="page_faq.html">Help</a></li>
-						<li class="topbar-devider"></li>
-						<li><a href="page_login.html">Login</a></li>
-					</ul>
-				</div>
-				<!-- End Topbar -->
-
 				<!-- Toggle get grouped for better mobile display -->
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 					<span class="sr-only">Toggle navigation</span>
@@ -95,16 +75,38 @@
 				<div class="container">
 					<ul class="nav navbar-nav">
 						<!-- Home -->
-						<li>
+						<li class="dropdown">
 							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
 								Home
 							</a>
 						</li>
-						<li>
+						<!-- End Home -->
+						<!-- Pages -->
+						<li class="dropdown">
 							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-								About
+								Pages
+							</a>
+						<!-- Blog -->
+						<li class="dropdown">
+							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+								Blog
 							</a>
 						</li>
+						<!-- Portfolio -->
+						<li class="dropdown active">
+							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+								Portfolio
+							</a>
+						</li>
+						<!-- End Portfolio -->
+
+						<!-- Features -->
+						<li class="dropdown">
+							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+								Features
+							</a>
+						</li>
+						<!-- End Features -->
 					</ul>
 				</div><!--/end container-->
 			</div><!--/navbar-collapse-->
@@ -149,7 +151,139 @@
 			</div><!--/end Grid Container-->
 		</div>
 		<!--=== End Cube-Portfdlio ===-->
+<!--=== End Content Part ===-->
+			<div class="copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<p>
+								2016 &copy; All Rights Reserved.
+								<a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+							</p>
+						</div>
 
+						<!-- Social Links -->
+						<div class="col-md-6">
+							<ul class="footer-socials list-inline">
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+										<i class="fa fa-facebook"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype">
+										<i class="fa fa-skype"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
+										<i class="fa fa-google-plus"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
+										<i class="fa fa-linkedin"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest">
+										<i class="fa fa-pinterest"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+										<i class="fa fa-twitter"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble">
+										<i class="fa fa-dribbble"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<!-- End Social Links -->
+					</div>
+				</div>
+			</div><!--/copyright-->
+		</div>
+		<!--=== End Footer Version 1 ===-->
+	</div><!--/wrapper-->
+
+	<!--=== Style Switcher ===-->
+	<i class="style-switcher-btn fa fa-cogs hidden-xs"></i>
+	<div class="style-switcher animated fadeInRight">
+		<div class="style-swticher-header">
+			<div class="style-switcher-heading">Style Switcher</div>
+			<div class="theme-close"><i class="icon-close"></i></div>
+		</div>
+
+		<div class="style-swticher-body">
+			<!-- Theme Colors -->
+			<div class="style-switcher-heading">Theme Colors</div>
+			<ul class="list-unstyled">
+				<li class="theme-default theme-active" data-style="default" data-header="light"></li>
+				<li class="theme-blue" data-style="blue" data-header="light"></li>
+				<li class="theme-orange" data-style="orange" data-header="light"></li>
+				<li class="theme-red" data-style="red" data-header="light"></li>
+				<li class="theme-light" data-style="light" data-header="light"></li>
+				<li class="theme-purple last" data-style="purple" data-header="light"></li>
+				<li class="theme-aqua" data-style="aqua" data-header="light"></li>
+				<li class="theme-brown" data-style="brown" data-header="light"></li>
+				<li class="theme-dark-blue" data-style="dark-blue" data-header="light"></li>
+				<li class="theme-light-green" data-style="light-green" data-header="light"></li>
+				<li class="theme-dark-red" data-style="dark-red" data-header="light"></li>
+				<li class="theme-teal last" data-style="teal" data-header="light"></li>
+			</ul>
+
+			<!-- Theme Skins -->
+			<div class="style-switcher-heading">Theme Skins</div>
+			<div class="row no-col-space margin-bottom-20 skins-section">
+				<div class="col-xs-6">
+					<button data-skins="default" class="btn-u btn-u-xs btn-u-dark btn-block active-switcher-btn handle-skins-btn">Light</button>
+				</div>
+				<div class="col-xs-6">
+					<button data-skins="dark" class="btn-u btn-u-xs btn-u-dark btn-block skins-btn">Dark</button>
+				</div>
+			</div>
+
+			<hr>
+
+			<!-- Layout Styles -->
+			<div class="style-switcher-heading">Layout Styles</div>
+			<div class="row no-col-space margin-bottom-20">
+				<div class="col-xs-6">
+					<a href="javascript:void(0);" class="btn-u btn-u-xs btn-u-dark btn-block active-switcher-btn wide-layout-btn">Wide</a>
+				</div>
+				<div class="col-xs-6">
+					<a href="javascript:void(0);" class="btn-u btn-u-xs btn-u-dark btn-block boxed-layout-btn">Boxed</a>
+				</div>
+			</div>
+
+			<hr>
+
+			<!-- Theme Type -->
+			<div class="style-switcher-heading">Theme Types and Versions</div>
+			<div class="row no-col-space margin-bottom-10">
+				<div class="col-xs-6">
+					<a href="E-Commerce/index.html" class="btn-u btn-u-xs btn-u-dark btn-block">Shop UI <small class="dp-block">Template</small></a>
+				</div>
+				<div class="col-xs-6">
+					<a href="One-Pages/Classic/index.html" class="btn-u btn-u-xs btn-u-dark btn-block">One Page <small class="dp-block">Template</small></a>
+				</div>
+			</div>
+
+			<div class="row no-col-space">
+				<div class="col-xs-6">
+					<a href="Blog-Magazine/index.html" class="btn-u btn-u-xs btn-u-dark btn-block">Blog <small class="dp-block">Template</small></a>
+				</div>
+				<div class="col-xs-6">
+					<a href="RTL/index.html" class="btn-u btn-u-xs btn-u-dark btn-block">RTL <small class="dp-block">Version</small></a>
+				</div>
+			</div>
+		</div>
+	</div><!--/style-switcher-->
+	<!--=== End Style Switcher ===-->
 	<!-- JS Global Compulsory -->
 	<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>

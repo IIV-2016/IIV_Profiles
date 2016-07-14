@@ -57,10 +57,9 @@
 			<div class="container">
 				<!-- Logo -->
 				<a class="logo" href="index.html">
-					<img src="assets/img/logo1-default.png" alt="Logo">
+					<img src="assets/img/logo1-default.png" alt="Logo"">
 				</a>
 				<!-- End Logo -->
-
 
 				<!-- Toggle get grouped for better mobile display -->
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -81,7 +80,6 @@
 							</a>
 						</li>
 						<!-- End Home -->
-
 						<!-- Pages -->
 						<li class="dropdown">
 							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
