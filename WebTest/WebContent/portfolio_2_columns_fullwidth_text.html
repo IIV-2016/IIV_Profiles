@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<title>IIV_Country_Info</title>
+
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Web Fonts -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
+
+	<!-- CSS Global Compulsory -->
+	<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	<!-- CSS Header and Footer -->
+	<link rel="stylesheet" href="assets/css/headers/header-default.css">
+
+	<!-- CSS Implementing Plugins -->
+	<link rel="stylesheet" href="assets/plugins/animate.css">
+	<link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+	<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
+	<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
+
+	<!-- CSS Theme -->
+	<link rel="stylesheet" href="assets/css/theme-colors/default.css" id="style_color">
+	<link rel="stylesheet" href="assets/css/theme-skins/dark.css">
+
+</head>
+
+<body class="header-fixed">
+	<div class="wrapper">
+		<!--=== Header ===-->
+		<div class="header">
+			<div class="container">
+				<!-- Logo -->
+				<a class="logo" href="index.html">
+					<img src="assets/img/logo1-default.png" alt="Logo" style="height: 40px;">
+				</a>
+				<!-- End Logo -->
+
+				<!-- Topbar -->
+				<div class="topbar">
+					<ul class="loginbar pull-right">
+						<li class="hoverSelector">
+							<i class="fa fa-globe"></i>
+							<a>Languages</a>
+							<ul class="languages hoverSelectorBlock">
+								<li class="active">
+									<a href="#">English <i class="fa fa-check"></i></a>
+								</li>
+								<li><a href="#">Spanish</a></li>
+								<li><a href="#">Russian</a></li>
+								<li><a href="#">German</a></li>
+							</ul>
+						</li>
+						<li class="topbar-devider"></li>
+						<li><a href="page_faq.html">Help</a></li>
+						<li class="topbar-devider"></li>
+						<li><a href="page_login.html">Login</a></li>
+					</ul>
+				</div>
+				<!-- End Topbar -->
+
+				<!-- Toggle get grouped for better mobile display -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="fa fa-bars"></span>
+				</button>
+				<!-- End Toggle -->
+			</div><!--/end container-->
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+				<div class="container">
+					<ul class="nav navbar-nav">
+						<!-- Home -->
+						<li>
+							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+								Home
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+								About
+							</a>
+						</li>
+					</ul>
+				</div><!--/end container-->
+			</div><!--/navbar-collapse-->
+		</div>
+		<!--=== End Header ===-->
+
+		<!--=== Cube-Portfdlio ===-->
+		<div class="cube-portfolio margin-bottom-20">
+			<div class="content-xs">
+				<div id="filters-container" class="cbp-l-filters-text content-xs">
+					<div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> 2016 </div> |
+					<div data-filter=".identity" class="cbp-filter-item"> 2015 </div> |
+					<div data-filter=".web-design" class="cbp-filter-item"> 2014 </div> |
+					<div data-filter=".graphic" class="cbp-filter-item"> 2013 </div>
+				</div><!--/end Filters Container-->
+			</div>
+
+			<div id="grid-container" class="cbp-l-grid-agency">
+				<div class="cbp-item graphic">
+					<div class="cbp-caption margin-bottom-20">
+						<div class="cbp-caption-defaultWrap">
+							<img src="data:image/png;base64,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" alt="">
+						</div>
+						<div class="cbp-caption-activeWrap">
+							<div class="cbp-l-caption-alignCenter">
+								<div class="cbp-l-caption-body">
+									<ul class="link-captions no-bottom-space">
+										<li><a href="assets/img/main/img12.jpg" class="cbp-lightbox" data-title="Design Object"><i class="rounded-x fa fa-search"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cbp-title-dark">
+						<div class="cbp-l-grid-agency-title">Cambodia</div>
+						<div class="cbp-l-grid-agency-desc">파견 인원</div>
+					</div>
+				</div>
+				<div class="cbp-item graphic">
+					<div class="cbp-caption margin-bottom-20">
+						<div class="cbp-caption-defaultWrap">
+							<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAACXCAMAAADQ4xypAAAADFBMVEX////OESbKAADnp6pfbnyrAAAAg0lEQVR4nO3PgQmAQADEsFP339klxIeSTNDu6tvpgB94bPDY4LHBY4PHBo8NHhs8Nnhs8NjgscFjg8cGjw0eGzw2eGzw2OCxwWODxwaPDR4bPDZ4bPDY4LHBY4PHBo8NHhs8Nnhs8NjgscFjw+6+PX0DAAAAAAAAAAAAAAAAAAAAgI+8BLJGDl7CA5IAAAAASUVORK5CYII=" alt="">
+						</div>
+						<div class="cbp-caption-activeWrap">
+							<div class="cbp-l-caption-alignCenter">
+								<div class="cbp-l-caption-body">
+									<ul class="link-captions no-bottom-space">
+										<li><a href="assets/img/main/img12.jpg" class="cbp-lightbox" data-title="Design Object"><i class="rounded-x fa fa-search"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cbp-title-dark">
+						<div class="cbp-l-grid-agency-title">Indonesia</div>
+						<div class="cbp-l-grid-agency-desc">파견 인원</div>
+					</div>
+				</div>
+			</div><!--/end Grid Container-->
+		</div>
+		<!--=== End Cube-Portfdlio ===-->
+
+	<!-- JS Global Compulsory -->
+	<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+	<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<!-- JS Implementing Plugins -->
+	<script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
+	<script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
+	<script type="text/javascript" src="assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+	<!-- JS Page Level -->
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/cube-portfolio/cube-portfolio-2.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
+	<!--[if lt IE 9]>
+	<script src="assets/plugins/respond.js"></script>
+	<script src="assets/plugins/html5shiv.js"></script>
+	<script src="assets/plugins/placeholder-IE-fixes.js"></script>
+	<![endif]-->
+</body>
+</html>

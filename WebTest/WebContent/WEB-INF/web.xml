@@ -9,6 +9,14 @@
     <servlet-name>Note</servlet-name>
     <url-pattern>/note.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Volunteer</servlet-name>
+    <servlet-class>controller.Volunteer</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Volunteer</servlet-name>
+    <url-pattern>/volunteer.do</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
