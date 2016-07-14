@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dao.VolunteerDAO;
+import model.domain.TeamBean;
 import model.domain.VolunteerBean;
 
 @SuppressWarnings("serial")
@@ -38,10 +39,22 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			if(year == null){
 				year = "2016";
 			}
+			
 			VolunteerBean [] list = VolunteerDAO.readCountry(year);	
 			request.setAttribute("list", list);
 			RequestDispatcher rd = request.getRequestDispatcher("list.jsp");
 			rd.forward(request, response);
+			
+			return;
+		}else if(command.equals("team")){
+			String country = request.getParameter("country");
+			String year = request.getParameter("year");
+			
+			TeamBean [] teamList = VolunteerDAO.readTeam(country, year);
+			request.setAttribute("teamList", teamList);
+			RequestDispatcher rd = request.getRequestDispatcher("team.jsp");
+			rd.forward(request, response);
+			
 			return;
 		}
 	}

@@ -3,12 +3,23 @@
 <%@ page import="model.domain.VolunteerBean" %> 
 <%
 	VolunteerBean [] list = (VolunteerBean[])request.getAttribute("list");
+	String year = "2016";
  %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
+	<script language=javascript>
+		function getParameterByName(name) {
+		    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		        results = regex.exec(location.search);
+		    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+		var year = getParameterByName('year');
+		<%=year%> = year;
+	</script>
 	<title>IIV_Country_Info</title>
 
 	<!-- Meta -->
@@ -113,7 +124,7 @@
 			<div id="grid-container" class="cbp-l-grid-agency">
 			<%
 				if(list == null || list.length == 0){
-			%>ss
+			%>
 			<p>empty</p>
 			<%
 				}else{
@@ -123,18 +134,8 @@
 			%>
 				<div class="cbp-item graphic">
 					<div class="cbp-caption margin-bottom-20">
-						<div class="cbp-caption-defaultWrap">
-							<img src="assets/img/country/<%=volunteer.getCountry()%>.png" alt="">
-						</div>
-						<div class="cbp-caption-activeWrap">
-							<div class="cbp-l-caption-alignCenter">
-								<div class="cbp-l-caption-body">
-									<ul class="link-captions no-bottom-space">
-										<li><a href="assets/img/main/img12.jpg" class="cbp-lightbox" data-title="Design Object"><i class="rounded-x fa fa-search"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
+							<a href="<%=request.getContextPath()%>/volunteer.do?command=team&country=<%=volunteer.getCountry()%>&year=<%=year%>">
+							<img src="assets/img/country/<%=volunteer.getCountry()%>.png" alt=""></a>
 					</div>
 					<div class="cbp-title-dark">
 						<div class="cbp-l-grid-agency-title"><%=volunteer.getCountry()%></div>

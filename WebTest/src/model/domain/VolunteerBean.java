@@ -7,17 +7,18 @@ public class VolunteerBean {
 	private String birth;
 	private String gender;
 	private String university;
+	private String majorclass;
 	private String major;
 	private String expertise;
 	private String experience;
 	private String team;
 	private String country;
-	private String organisation;
+	private String org;
 	private String role;
 	private String email;
-	private String img;
+	private String link;
 	private String year;
-	
+
 	public VolunteerBean() { }
 
 	public VolunteerBean(int memberNum, String country) {
@@ -26,23 +27,24 @@ public class VolunteerBean {
 	}
 
 	public VolunteerBean(int memberNum, String firstname, String lastname, String birth, String gender,
-			String university, String major, String expertise, String experience, String team, String country,
-			String organisation, String role, String email, String img, String year) {
+			String university, String majorclass, String major, String expertise, String experience, String team,
+			String country, String org, String role, String email, String link, String year) {
 		this.memberNum = memberNum;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.birth = birth;
 		this.gender = gender;
 		this.university = university;
+		this.majorclass = majorclass;
 		this.major = major;
 		this.expertise = expertise;
 		this.experience = experience;
 		this.team = team;
 		this.country = country;
-		this.organisation = organisation;
+		this.org = org;
 		this.role = role;
 		this.email = email;
-		this.img = img;
+		this.link = link;
 		this.year = year;
 	}
 
@@ -94,6 +96,14 @@ public class VolunteerBean {
 		this.university = university;
 	}
 
+	public String getMajorclass() {
+		return majorclass;
+	}
+
+	public void setMajorclass(String majorclass) {
+		this.majorclass = majorclass;
+	}
+
 	public String getMajor() {
 		return major;
 	}
@@ -134,12 +144,12 @@ public class VolunteerBean {
 		this.country = country;
 	}
 
-	public String getOrganisation() {
-		return organisation;
+	public String getOrg() {
+		return org;
 	}
 
-	public void setOrganisation(String organisation) {
-		this.organisation = organisation;
+	public void setOrg(String org) {
+		this.org = org;
 	}
 
 	public String getRole() {
@@ -158,12 +168,12 @@ public class VolunteerBean {
 		this.email = email;
 	}
 
-	public String getImg() {
-		return img;
+	public String getLink() {
+		return link;
 	}
 
-	public void setImg(String img) {
-		this.img = img;
+	public void setLink(String link) {
+		this.link = link;
 	}
 
 	public String getYear() {
@@ -189,6 +199,8 @@ public class VolunteerBean {
 		builder.append(gender);
 		builder.append(", university=");
 		builder.append(university);
+		builder.append(", majorclass=");
+		builder.append(majorclass);
 		builder.append(", major=");
 		builder.append(major);
 		builder.append(", expertise=");
@@ -199,14 +211,14 @@ public class VolunteerBean {
 		builder.append(team);
 		builder.append(", country=");
 		builder.append(country);
-		builder.append(", organisation=");
-		builder.append(organisation);
+		builder.append(", org=");
+		builder.append(org);
 		builder.append(", role=");
 		builder.append(role);
 		builder.append(", email=");
 		builder.append(email);
-		builder.append(", img=");
-		builder.append(img);
+		builder.append(", link=");
+		builder.append(link);
 		builder.append(", year=");
 		builder.append(year);
 		builder.append("]");
