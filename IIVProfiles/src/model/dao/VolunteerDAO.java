@@ -139,13 +139,13 @@ public class VolunteerDAO{
 		return volunteer;
 	}
 	
-	public static VolunteerBean[] searchRole(String keyword){
+	public static VolunteerBean[] searchMajor(String keyword){
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		VolunteerBean[] list  = null;
 		ArrayList alist = new ArrayList();
-		String sql="SELECT * FROM member WHERE ROLE LIKE CONCAT('%', ?, '%')";	
+		String sql="SELECT * FROM member WHERE MAJOR LIKE CONCAT('%', ?, '%')";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);

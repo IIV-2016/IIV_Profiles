@@ -111,7 +111,7 @@
                   </div>
                         
                   <div class="container">
-                     <h1><%= volunteer.getFirstname() %></h1>
+                     <h1><%= volunteer.getFirstname() %> <%= volunteer.getLastname() %></h1>
                      <p><span><%= volunteer.getTeam() %></span>,
                         <span><%= volunteer.getRole() %></span></p>
                   </div>

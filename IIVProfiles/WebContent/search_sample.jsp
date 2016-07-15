@@ -109,18 +109,17 @@
 				</div>
 			</div>
 			 </form>
-			 <div class="content-xs">
-				 <div id="filters-container" class="cbp-l-filters-text content-xs">
-					<div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All </div> |
-				 	<div data-filter=".IT" class="cbp-filter-item"> IT </div>
-				 	<div data-filter=".Culture" class="cbp-filter-item"> Culture </div>
-				 	<div data-filter=".Languge" class="cbp-filter-item"> Language </div>
-				</div>
-			</div>
 		</div>
-		<!--=== Cube-Portfdlio ===-->
-			<div id="grid-container" class="cbp-l-grid-agency">
-				<%
+		<!--=== End Job Img ===-->
+		
+		<!--=== Content Part ===-->
+		<div class="container content">
+			<div class="headline margin-bottom-35"><h2>Search Results</h2></div>
+
+			<!-- Easy Blocks v1 -->
+			<div class="row high-rated margin-bottom-20">
+				<!-- Easy Block -->
+							<%
 				if(list == null || list.length == 0){
 				%>
 				<%
@@ -128,44 +127,43 @@
 					VolunteerBean volunteer = null;
 					for(int i = 0; i <list.length ; i++){
 						volunteer = list[i];
-				%>			
+				%>
+				<div class="cbp-l-grid-agency">
 				<div class="cbp-item <%=volunteer.getRole() %>">
-					<div class="cbp-caption margin-bottom-20">
-							<div class="col-md-3 col-sm-6 md-margin-bottom-40">
-								<div class="easy-block-v1">
-									<div class="easy-block-v1-badge rgba-default"><%=volunteer.getRole() %></div>
-									<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-										<div class="carousel-inner">
-											<div class="item active">
-												<img alt="<%=volunteer.getFirstname() %><%=volunteer.getLastname() %>" src="<%=volunteer.getLink() %>">
-											</div>
-										</div>
-									</div>
-									<div class="overflow-h">
-										<h3><%=volunteer.getFirstname() %> <%=volunteer.getLastname() %></h3>
-										<div class="star-vote pull-right">
-											<ul class="list-inline">
-												<li><i class="color-green fa fa-star"></i></li>
-											</ul>
-										</div>
-									</div>
-									<ul class="list-unstyled">
-										<li><span class="color-green">Country:</span> <%=volunteer.getCountry() %></li>
-										<li><span class="color-green">Major:</span> <%=volunteer.getMajor() %></li>
-									</ul>
-									<a class="btn-u btn-u-sm" href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getMemberNum()%>">View More</a>				
+				<div class="col-md-3 col-sm-6 md-margin-bottom-40">
+					<div class="easy-block-v1">
+						<div class="easy-block-v1-badge rgba-default"><%=volunteer.getRole() %></div>
+						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+								<div class="item active">
+									<img alt="<%=volunteer.getFirstname() %><%=volunteer.getLastname() %>" src="<%=volunteer.getLink() %>">
 								</div>
 							</div>
+						</div>
+						<div class="overflow-h">
+							<h3><%=volunteer.getFirstname() %> <%=volunteer.getLastname() %></h3>
+							<div class="star-vote pull-right">
+								<ul class="list-inline">
+									<li><i class="color-green fa fa-star"></i></li>
+								</ul>
+							</div>
+						</div>
+						<ul class="list-unstyled">
+							<li><span class="color-green">Country:</span> <%=volunteer.getCountry() %></li>
+							<li><span class="color-green">Major:</span> <%=volunteer.getMajor() %></li>
+						</ul>
+						<a class="btn-u btn-u-sm" href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getMemberNum()%>">View More</a>				
 					</div>
+				</div>
 				</div>
 				<%
 					}
 				}
-				%>				
-			</div><!--/end Grid Container-->
-		
-		<!--=== End Job Img ===-->
-		
+				%>
+			</div>
+		</div>
+		<!--=== End Content Part ===-->
+		</div>
 		<div class="footer-v1">
 			<div class="footer">
 				<div class="copyright">
