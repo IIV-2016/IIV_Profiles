@@ -72,7 +72,7 @@
 					<ul class="nav navbar-nav">
 						<!-- Home -->
 						<li class="dropdown active">
-							<a href="<%=request.getContextPath()%>/list.jsp">
+							<a href="<%=request.getContextPath()%>/volunteer.do">
 								Home
 							</a>
 						</li>
