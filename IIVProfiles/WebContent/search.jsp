@@ -1,18 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
-<%@ page import="model.domain.VolunteerBean" %>
-<%@ page import="model.domain.TeamBean" %>
+<%@ page import="model.domain.VolunteerBean" %> 
 <%
-	TeamBean[] teamList = (TeamBean[])request.getAttribute("teamList");
-	String country = (String)request.getAttribute("country");
-	TeamBean team = null;
+	VolunteerBean [] list = (VolunteerBean[])request.getAttribute("list");
  %>
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-	<title>Thailand | Total 4 teams work</title>
+	<title>Jobs | Unify - Responsive Website Template</title>
 
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -24,7 +21,7 @@
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<!-- Web Fonts -->
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
+	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
 
 	<!-- CSS Global Compulsory -->
 	<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -32,16 +29,16 @@
 
 	<!-- CSS Header and Footer -->
 	<link rel="stylesheet" href="assets/css/headers/header-default.css">
-	<link rel="stylesheet" href="assets/css/footers/footer-v1.css">
+	<link rel="stylesheet" href="assets/css/footers/footer-v3.css">
 
 	<!-- CSS Implementing Plugins -->
 	<link rel="stylesheet" href="assets/plugins/animate.css">
 	<link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
 	<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+	<link rel="stylesheet" href="assets/plugins/image-hover/css/img-hover.css">
 
 	<!-- CSS Page Style -->
-	<link rel="stylesheet" href="assets/css/pages/portfolio-v1.css">
+	<link rel="stylesheet" href="assets/css/pages/page_job.css">
 
 	<!-- CSS Theme -->
 	<link rel="stylesheet" href="assets/css/theme-colors/default.css" id="style_color">
@@ -51,7 +48,7 @@
 	<link rel="stylesheet" href="assets/css/custom.css">
 </head>
 
-<body>
+<body class="header-fixed">
 	<div class="wrapper">
 		<!--=== Header ===-->
 		<div class="header">
@@ -93,83 +90,82 @@
 		</div>
 		<!--=== End Header ===-->
 
-		<!--=== Breadcrumbs ===-->
-		<div class="breadcrumbs">
-			<div class="container">
-				<h1 class="pull-left"><%=country%></h1>
-				<ul class="pull-right breadcrumb">
-				<%
-				for(int i = 0; i < teamList.length; i++){
-				team = teamList[i];
-				%>
-				<li><a href="#<%=team.getTeam() %>"><%=team.getTeam() %></a></li>
-				<%
-					}
-				%>
-				</ul>
-			</div><!--/container-->
-		</div><!--/breadcrumbs-->
-		<!--=== End Breadcrumbs ===-->
+		<!--=== Job Img ===-->
+		<div class="job-img margin-bottom-30">
+			<div class="title-box-v2">
+				<h2>IIV Profiles <span class="color-green">Search</span></h2>
+			</div>
+			<form name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
+			<input type="hidden" name="command" value="search">
+			<div class="job-img-inputs">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-4 md-margin-bottom-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-tag"></i></span>
+								<input type="text" name="role" placeholder="what role you are looking for" class="form-control">
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<input type=submit class="btn-u btn-block btn-u-dark" value="Search Volunteer"> 
+						</div>
+					</div>
+				</div>
+			</div>
+			 </form>
+		</div>
+		<!--=== End Job Img ===-->
 
 		<!--=== Content Part ===-->
 		<div class="container content">
-		<%
-			VolunteerBean volunteer = null;
-			for(int i = 0; i < teamList.length; i++){
-				team = teamList[i];
-		%>	
-			<div class="row portfolio-item margin-bottom-10">
-				<!-- Content Info -->
-				<section id="<%=team.getTeam()%>">
-				<div class="col-md-5">
-					<h2><%=team.getTeam()%></h2>  
-				</div>
-				</section>
-				<!-- End Content Info -->
-			</div><!--/row-->  
-			<br>
-			<!-- Recent Works -->
-			<div class="owl-carousel-v1 owl-work-v1">
-				<div class="headline"><h2 class="pull-left">Team Members</h2>
-					<div class="owl-navigation">
-						<div class="customNavigation">
-							<a class="owl-btn prev-v2"><i class="fa fa-angle-left"></i></a>
-							<a class="owl-btn next-v2"><i class="fa fa-angle-right"></i></a>
-						</div>
-					</div><!--/navigation-->
-				</div>
+			<div class="headline margin-bottom-35"><h2>Search Results</h2></div>
 
-				<div class="owl-recent-works-v1">
-					<% 
-						for(int j = 0; j < team.getVolunteer().length; j++){
-						volunteer = team.getVolunteer()[j];
-					%>
-					<div class="item">
-						<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getMemberNum()%>">
-							<em class="overflow-hidden">
-								<img class="img-responsive" src="<%=volunteer.getLink() %>" alt="<%=volunteer.getFirstname() %><%=volunteer.getLastname() %>">
-							</em>
-							<span>
-								<strong><%=volunteer.getFirstname() %><%=volunteer.getLastname() %></strong>
-								<i><%=volunteer.getRole() %></i>
-							</span>
-						</a>
+			<!-- Easy Blocks v1 -->
+			<div class="row high-rated margin-bottom-20">
+				<!-- Easy Block -->
+							<%
+				if(list == null || list.length == 0){
+				%>
+				<p>empty</p>
+				<%
+				}else{
+					VolunteerBean volunteer = null;
+					for(int i = 0; i <list.length ; i++){
+						volunteer = list[i];
+				%>
+				<div class="col-md-3 col-sm-6 md-margin-bottom-40">
+					<div class="easy-block-v1">
+						<div class="easy-block-v1-badge rgba-default"><%=volunteer.getRole() %></div>
+						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+								<div class="item active">
+									<img alt="<%=volunteer.getFirstname() %><%=volunteer.getLastname() %>" src="<%=volunteer.getLink() %>">
+								</div>
+							</div>
+						</div>
+						<div class="overflow-h">
+							<h3><%=volunteer.getFirstname() %> <%=volunteer.getLastname() %></h3>
+							<div class="star-vote pull-right">
+								<ul class="list-inline">
+									<li><i class="color-green fa fa-star"></i></li>
+								</ul>
+							</div>
+						</div>
+						<ul class="list-unstyled">
+							<li><span class="color-green">Country:</span> <%=volunteer.getCountry() %></li>
+							<li><span class="color-green">Major:</span> <%=volunteer.getMajor() %></li>
+						</ul>
+						<a class="btn-u btn-u-sm" href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getMemberNum()%>">View More</a>				
 					</div>
-					<%
-						}
-					%>
 				</div>
-			</div><div class="clearfix margin-bottom-20"><hr></div>
 				<%
 					}
-				%>	
-			<!-- End Recent Works -->
-			<br>
-		</div><!--/container-->
-		
-		<br>
-		
+				}
+				%>
+				<!-- End Easy Block -->
+		</div>
 		<!--=== End Content Part ===-->
+
 		<div class="footer-v1">
 			<div class="footer">
 				<div class="copyright">
@@ -196,20 +192,11 @@
 	<!-- JS Implementing Plugins -->
 	<script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
 	<script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
-	<script type="text/javascript" src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
-	<!-- JS Customization -->
-	<script type="text/javascript" src="assets/js/custom.js"></script>
+	<script type="text/javascript" src="assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
 	<!-- JS Page Level -->
 	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/cube-portfolio/cube-portfolio-2.js"></script>
 	<script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/owl-recent-works.js"></script>
-	<script type="text/javascript">
-		jQuery(document).ready(function() {
-			App.init();
-			StyleSwitcher.initStyleSwitcher();
-			OwlRecentWorks.initOwlRecentWorksV1();
-		});
-	</script>
 	<!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>
 	<script src="assets/plugins/html5shiv.js"></script>

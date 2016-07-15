@@ -66,6 +66,14 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			rd.forward(request, response);
 			
 			return;
+		}else if(command.equals("search")){
+			String keyword = request.getParameter("role");
+			System.out.println(keyword);
+			VolunteerBean[] volunteer = VolunteerDAO.searchRole(keyword);
+			request.setAttribute("list", volunteer);
+			RequestDispatcher rd = request.getRequestDispatcher("search.jsp");
+			rd.forward(request, response);
+			return;
 		}
 	}
 }

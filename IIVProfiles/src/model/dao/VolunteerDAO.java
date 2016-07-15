@@ -139,6 +139,32 @@ public class VolunteerDAO{
 		return volunteer;
 	}
 	
+	public static VolunteerBean[] searchRole(String keyword){
+		Connection con = null;	
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		VolunteerBean[] list  = null;
+		ArrayList alist = new ArrayList();
+		String sql="SELECT * FROM member WHERE ROLE LIKE CONCAT('%', ?, '%')";	
+		try {
+			con = source.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, keyword);
+			rset = pstmt.executeQuery();
+			while(rset.next()){
+				alist.add(new VolunteerBean(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7), rset.getString(8), rset.getString(9),
+						rset.getString(10), rset.getString(11), rset.getString(12), rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getString(17)));
+			}
+			list = new VolunteerBean[alist.size()];
+			alist.toArray(list);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(rset, pstmt, con);
+		}
+		return list;
+	}
+	
 	public static void close(Statement stmt, Connection con){
 		try{
 			if(stmt != null){
