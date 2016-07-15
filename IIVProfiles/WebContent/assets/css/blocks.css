@@ -444,7 +444,7 @@
 }
 
 .breadcrumbs-v3.img-v1 {
-  background: url(../img/breadcrumbs/img1.jpg) no-repeat;
+  background: url(../img/breadcrumbs/img2.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
 }
@@ -456,7 +456,7 @@
 }
 
 .breadcrumbs-v3.img-v3 {
-  background: url(../img/breadcrumbs/img3.jpg) no-repeat;
+  background: url(../img/breadcrumbs/img2.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
 }
@@ -2452,7 +2452,7 @@
 ------------------------------------*/
 .parallax-counter {
   padding: 30px 0;
-  background: url(../img/patterns/5.png) repeat fixed;
+  background: url(../img/main/3.jpg) repeat fixed;
 }
 
 .parallax-counter .counters {
@@ -2643,7 +2643,7 @@
   overflow: hidden;
   text-align: center;
   position: relative;
-  background: url(../img/bg/19.jpg) 50% 0 fixed;
+  background: url(../img/main/3.jpg) 50% 0 fixed;
 }
 
 .parallax-counter-v4:after {
@@ -2767,12 +2767,12 @@
 }
 
 .flat-testimonials .flat-testimonials-in p:before {
-  content: "“";
+  content: "��";
   padding-right: 5px;
 }
 
 .flat-testimonials .flat-testimonials-in p:after {
-  content: "”";
+  content: "��";
   padding-left: 5px;
 }
 

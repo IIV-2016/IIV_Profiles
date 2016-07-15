@@ -1,57 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
-<%@ page import="model.domain.VolunteerBean" %> 
-<%
-	VolunteerBean [] list = (VolunteerBean[])request.getAttribute("list");
-	String year = "2016";
- %>
+<%@ page import="model.domain.VolunteerBean" %>  
+
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
-	<script language=javascript>
-		function getParameterByName(name) {
-		    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-		    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-		        results = regex.exec(location.search);
-		    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-		}
-		var year = getParameterByName('year');
-		<%=year%> = year;
-	</script>
-	<title>IIV_Country_Info</title>
+    <title>About Us | International ICT Volunteers</title>
 
-	<!-- Meta -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-	<!-- Web Fonts -->
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
 
-	<!-- CSS Global Compulsory -->
-	<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/style.css">
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
 
-	<!-- CSS Header and Footer -->
-	<link rel="stylesheet" href="assets/css/headers/header-default.css">
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-	<!-- CSS Implementing Plugins -->
-	<link rel="stylesheet" href="assets/plugins/animate.css">
-	<link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
-	<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
-	<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="assets/css/headers/header-default.css">
+    <link rel="stylesheet" href="assets/css/footers/footer-v1.css">
 
-	<!-- CSS Theme -->
-	<link rel="stylesheet" href="assets/css/theme-colors/default.css" id="style_color">
-	<link rel="stylesheet" href="assets/css/theme-skins/dark.css">
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/plugins/animate.css">
+    <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/plugins/parallax-slider/css/parallax-slider.css">
+    <link rel="stylesheet" href="assets/plugins/owl-carousel2/assets/owl.carousel.css">
 
-</head>
+    <!-- CSS Page Style -->    
+    <link rel="stylesheet" href="assets/css/plugins/style-switcher.css">
+    
+    <!-- CSS Theme --> 
+    <link rel="stylesheet" href="assets/css/theme-colors/default.css" id="style_color">
+    <link rel="stylesheet" href="assets/css/theme-skins/dark.css">
 
-<body class="header-fixed">
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="assets/css/custom.css">  
+</head>	
+
+<body>
 	<div class="wrapper">
 		<!--=== Header ===-->
 		<div class="header">
@@ -84,7 +80,7 @@
 						<!-- Pages -->
 						<li class="dropdown">
 							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-								About IIV
+								Pages
 							</a>
 						<!-- Blog -->
 						<li class="dropdown">
@@ -113,47 +109,26 @@
 		</div>
 		<!--=== End Header ===-->
 
-		<!--=== Cube-Portfdlio ===-->
-		<div class="cube-portfolio margin-bottom-20">
-			<div class="content-xs">
-				<div id="filters-container" class="cbp-l-filters-text content-xs">
-					<div class="cbp-filter-item"><a href="<%=request.getContextPath()%>/volunteer.do?command=read&year=2016"> 2016 </a></div> |
-					<div class="cbp-filter-item"><a href="<%=request.getContextPath()%>/volunteer.do?command=read&year=2015"> 2015 </a></div> |
-					<div class="cbp-filter-item"><a href="<%=request.getContextPath()%>/volunteer.do?command=read&year=2014"> 2014 </a></div> |
-					<div class="cbp-filter-item"><a href="<%=request.getContextPath()%>/volunteer.do?command=read&year=2013"> 2013 </a></div>
-				</div><!--/end Filters Container-->
-			</div>
-			<div id="grid-container" class="cbp-l-grid-agency">
-			<%
-				if(list == null || list.length == 0){
-			%>
-			<p>empty</p>
-			<%
-				}else{
-					VolunteerBean volunteer = null;
-					for(int i = 0; i <list.length ; i++){
-						volunteer = list[i];
-			%>
-				<div class="cbp-item graphic">
-					<div class="cbp-caption margin-bottom-20">
-							<a href="<%=request.getContextPath()%>/volunteer.do?command=team&country=<%=volunteer.getCountry()%>&year=<%=year%>">
-							<img src="assets/img/country/<%=volunteer.getCountry()%>.png" alt=""></a>
-					</div>
-					<div class="cbp-title-dark">
-						<div class="cbp-l-grid-agency-title"><%=volunteer.getCountry()%></div>
-						<div class="cbp-l-grid-agency-desc">dispatch : <%=volunteer.getMemberNum()%></div>
-					</div>
-				</div>
-			<%
-					} 
-				}
-			%>
-			</div><!--/end Grid Container-->
-		</div>
-		<!--=== End Cube-Portfdlio ===-->
-<!--=== End Content Part ===-->
+    <!--=== Interactive Slider ===-->
+    <div class="breadcrumbs-v3 img-v1 text-center">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>International ICT Volunteers</p>
+        </div>
+    </div>
+    <!--=== End Interactive Slider ===-->
 
-			<div class="copyright">
+    <!--=== Title v1 ===-->
+    <div class="container content-sm">
+        <div class="title-v1 no-margin-bottom">
+            <h2><p>IIV <strong>share</strong> knowledge and experience <br> to all over the world. <br> 
+            Focused on helping <br> our friends and organization <br> to build a <strong>successful</strong> relationship.</p> </h2>               
+        </div>
+    </div>
+    <!--=== End Title v1 ===-->
+
+    <!--=== Footer Version 1 ===-->
+    <div class="copyright">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6">
@@ -210,7 +185,6 @@
 		</div>
 		<!--=== End Footer Version 1 ===-->
 	</div><!--/wrapper-->
-
 	<!-- JS Global Compulsory -->
 	<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
@@ -218,11 +192,20 @@
 	<!-- JS Implementing Plugins -->
 	<script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
 	<script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
-	<script type="text/javascript" src="assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+	<script type="text/javascript" src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+	<!-- JS Customization -->
+	<script type="text/javascript" src="assets/js/custom.js"></script>
 	<!-- JS Page Level -->
 	<script type="text/javascript" src="assets/js/app.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/cube-portfolio/cube-portfolio-2.js"></script>
 	<script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/owl-recent-works.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			App.init();
+			StyleSwitcher.initStyleSwitcher();
+			OwlRecentWorks.initOwlRecentWorksV1();
+		});
+	</script>
 	<!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>
 	<script src="assets/plugins/html5shiv.js"></script>

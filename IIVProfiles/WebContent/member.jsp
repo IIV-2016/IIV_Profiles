@@ -164,13 +164,15 @@
 				</div>
 				<!-- End Social Network2 -->
 
-				<!-- Progress Bar -->
-				<div class="col-md-6 progress-box md-margin-bottom-50">
-					<div class="headline-left margin-bottom-30">
-						<h2 class="headline-brd heading-md">MY <span class="color-green">SKILLS</span></h2>
+				<% if (volunteer.getExpertise().equals("") && volunteer.getExpertise().equals("")) { }else{%>					
+				<!-- My Skill Menu -->
+					<div class="col-md-6 progress-box md-margin-bottom-50">
+						<div class="headline-left margin-bottom-30">
+							<h2 class="headline-brd heading-md">MY <span class="color-green">SKILLS</span></h2>
+						</div>
+						<h4 class="heading-xs"><%= volunteer.getExpertise() %><br><%= volunteer.getExperience() %><span class="pull-right"></span></h4>
 					</div>
-					<h4 class="heading-xs"><%= volunteer.getExpertise() %><br><%= volunteer.getExperience() %><span class="pull-right"></span></h4>
-				</div>
+				<% } %>
 			</div>
 				<!-- End Progress Bar -->
 		</div><!--/end row-->
