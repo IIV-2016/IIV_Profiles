@@ -71,38 +71,18 @@
 				<div class="container">
 					<ul class="nav navbar-nav">
 						<!-- Home -->
-						<li class="dropdown">
-							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+						<li class="dropdown active">
+							<a href="<%=request.getContextPath()%>/list.jsp">
 								Home
 							</a>
 						</li>
 						<!-- End Home -->
 						<!-- Pages -->
 						<li class="dropdown">
-							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-								Pages
-							</a>
-						<!-- Blog -->
-						<li class="dropdown">
-							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-								Blog
+							<a href="<%=request.getContextPath()%>/aboutIIV.jsp">
+								About IIV
 							</a>
 						</li>
-						<!-- Portfolio -->
-						<li class="dropdown active">
-							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-								Portfolio
-							</a>
-						</li>
-						<!-- End Portfolio -->
-
-						<!-- Features -->
-						<li class="dropdown">
-							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-								Features
-							</a>
-						</li>
-						<!-- End Features -->
 					</ul>
 				</div><!--/end container-->
 			</div><!--/navbar-collapse-->
