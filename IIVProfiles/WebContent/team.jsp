@@ -80,8 +80,11 @@
 								Home
 							</a>
 						</li>
-						<!-- End Home -->
-						<!-- Pages -->
+						<li class="dropdown">
+							<a href="<%=request.getContextPath()%>/search.jsp">
+								Search
+							</a>
+						</li>
 						<li class="dropdown">
 							<a href="<%=request.getContextPath()%>/aboutIIV.jsp">
 								About IIV

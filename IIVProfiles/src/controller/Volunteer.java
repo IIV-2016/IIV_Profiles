@@ -68,7 +68,6 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			return;
 		}else if(command.equals("search")){
 			String keyword = request.getParameter("role");
-			System.out.println(keyword);
 			VolunteerBean[] volunteer = VolunteerDAO.searchRole(keyword);
 			request.setAttribute("list", volunteer);
 			RequestDispatcher rd = request.getRequestDispatcher("search.jsp");

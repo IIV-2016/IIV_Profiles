@@ -76,6 +76,11 @@
 								Home
 							</a>
 						</li>
+						<li class="dropdown">
+							<a href="<%=request.getContextPath()%>/search.jsp">
+								Search
+							</a>
+						</li>
 						<!-- End Home -->
 						<!-- Pages -->
 						<li class="dropdown active">
@@ -127,7 +132,7 @@
 			</div>
 		</div>
 		<!--=== End Footer Version 1 ===-->
-	
+	</div>
 	<!-- JS Global Compulsory -->
 	<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>

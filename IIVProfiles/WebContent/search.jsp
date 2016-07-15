@@ -4,12 +4,12 @@
 <%
 	VolunteerBean [] list = (VolunteerBean[])request.getAttribute("list");
  %>
- <!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-	<title>Jobs | Unify - Responsive Website Template</title>
+	<title>IIV_Country_Info</title>
 
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -17,11 +17,8 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<!-- Favicon -->
-	<link rel="shortcut icon" href="favicon.ico">
-
 	<!-- Web Fonts -->
-	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
 
 	<!-- CSS Global Compulsory -->
 	<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -29,25 +26,20 @@
 
 	<!-- CSS Header and Footer -->
 	<link rel="stylesheet" href="assets/css/headers/header-default.css">
-	<link rel="stylesheet" href="assets/css/footers/footer-v3.css">
+	<link rel="stylesheet" href="assets/css/footers/footer-v1.css">
 
 	<!-- CSS Implementing Plugins -->
 	<link rel="stylesheet" href="assets/plugins/animate.css">
 	<link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
 	<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="assets/plugins/image-hover/css/img-hover.css">
-
-	<!-- CSS Page Style -->
-	<link rel="stylesheet" href="assets/css/pages/page_job.css">
+	<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
+	<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
 
 	<!-- CSS Theme -->
 	<link rel="stylesheet" href="assets/css/theme-colors/default.css" id="style_color">
 	<link rel="stylesheet" href="assets/css/theme-skins/dark.css">
 
-	<!-- CSS Customization -->
-	<link rel="stylesheet" href="assets/css/custom.css">
 </head>
-
 <body class="header-fixed">
 	<div class="wrapper">
 		<!--=== Header ===-->
@@ -77,6 +69,11 @@
 								Home
 							</a>
 						</li>
+						<li class="dropdown">
+							<a href="<%=request.getContextPath()%>/search.jsp">
+								Search
+							</a>
+						</li>
 						<!-- End Home -->
 						<!-- Pages -->
 						<li class="dropdown">
@@ -89,7 +86,6 @@
 			</div><!--/navbar-collapse-->
 		</div>
 		<!--=== End Header ===-->
-
 		<!--=== Job Img ===-->
 		<div class="job-img margin-bottom-30">
 			<div class="title-box-v2">
@@ -126,7 +122,6 @@
 							<%
 				if(list == null || list.length == 0){
 				%>
-				<p>empty</p>
 				<%
 				}else{
 					VolunteerBean volunteer = null;
@@ -165,7 +160,7 @@
 				<!-- End Easy Block -->
 		</div>
 		<!--=== End Content Part ===-->
-
+		</div>
 		<div class="footer-v1">
 			<div class="footer">
 				<div class="copyright">
@@ -181,10 +176,7 @@
 				</div><!--/copyright-->
 			</div>
 		</div>
-		<!--=== End Footer Version 1 ===-->
-		
 	</div><!--/wrapper-->
-
 	<!-- JS Global Compulsory -->
 	<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>

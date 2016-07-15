@@ -51,7 +51,6 @@
 	<link rel="stylesheet" href="assets/css/theme-skins/dark.css">
 
 </head>
-
 <body class="header-fixed">
 	<div class="wrapper">
 		<!--=== Header ===-->
@@ -79,6 +78,11 @@
 						<li class="dropdown active">
 							<a href="<%=request.getContextPath()%>/volunteer.do">
 								Home
+							</a>
+						</li>
+						<li class="dropdown">
+							<a href="<%=request.getContextPath()%>/search.jsp">
+								Search
 							</a>
 						</li>
 						<!-- End Home -->
