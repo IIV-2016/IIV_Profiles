@@ -42,7 +42,7 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			
 			VolunteerBean [] list = VolunteerDAO.readCountry(year);	
 			request.setAttribute("list", list);
-			RequestDispatcher rd = request.getRequestDispatcher("list.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("list2.jsp");
 			rd.forward(request, response);
 			
 			return;
