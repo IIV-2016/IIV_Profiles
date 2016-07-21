@@ -112,9 +112,14 @@
 			 <div class="content-xs">
 				 <div id="filters-container" class="cbp-l-filters-text content-xs">
 					<div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All </div> |
-				 	<div data-filter=".IT" class="cbp-filter-item"> IT </div>
-				 	<div data-filter=".Culture" class="cbp-filter-item"> Culture </div>
-				 	<div data-filter=".Languge" class="cbp-filter-item"> Language </div>
+				 	<div data-filter=".Cambodia" class="cbp-filter-item"> Cambodia </div>
+				 	<div data-filter=".Indonesia" class="cbp-filter-item"> Indonesia </div>
+				 	<div data-filter=".Laos" class="cbp-filter-item"> Laos </div>
+				 	<div data-filter=".Malaysia" class="cbp-filter-item"> Malaysia </div>
+				 	<div data-filter=".Nepal" class="cbp-filter-item"> Nepal </div>
+				 	<div data-filter=".Srilanka" class="cbp-filter-item"> Srilanka </div>
+				 	<div data-filter=".Thailand" class="cbp-filter-item"> Thailand </div>
+				 	<div data-filter=".Vietnam" class="cbp-filter-item"> Vietnam </div>
 				</div>
 			</div>
 		</div>
@@ -129,7 +134,7 @@
 					for(int i = 0; i <list.length ; i++){
 						volunteer = list[i];
 				%>			
-				<div class="cbp-item <%=volunteer.getRole() %>">
+				<div class="cbp-item <%=volunteer.getCountry() %>">
 					<div class="cbp-caption margin-bottom-20">
 							<div class="col-md-3 col-sm-6 md-margin-bottom-40">
 								<div class="easy-block-v1">
