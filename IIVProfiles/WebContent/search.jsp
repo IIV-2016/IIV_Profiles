@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%@ page import="model.domain.VolunteerBean" %> 
+<%@ page import="java.util.ArrayList" %> 
+<%@ page import="java.util.HashSet" %> 
 <%
 	VolunteerBean [] list = (VolunteerBean[])request.getAttribute("list");
- %>
+	ArrayList<String> searchCountryList = (ArrayList<String>)request.getAttribute("searchCountryList");
+%>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -112,14 +115,18 @@
 			 <div class="content-xs">
 				 <div id="filters-container" class="cbp-l-filters-text content-xs">
 					<div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All </div> |
-				 	<div data-filter=".Cambodia" class="cbp-filter-item"> Cambodia </div>
-				 	<div data-filter=".Indonesia" class="cbp-filter-item"> Indonesia </div>
-				 	<div data-filter=".Laos" class="cbp-filter-item"> Laos </div>
-				 	<div data-filter=".Malaysia" class="cbp-filter-item"> Malaysia </div>
-				 	<div data-filter=".Nepal" class="cbp-filter-item"> Nepal </div>
-				 	<div data-filter=".Srilanka" class="cbp-filter-item"> Srilanka </div>
-				 	<div data-filter=".Thailand" class="cbp-filter-item"> Thailand </div>
-				 	<div data-filter=".Vietnam" class="cbp-filter-item"> Vietnam </div>
+				<%
+				if(list == null || searchCountryList.size() == 0){
+				%>
+				<%
+				}else{
+					for(int i = 0; i <searchCountryList.size() ; i++){
+				%>	
+				 	<div data-filter=".<%= searchCountryList.get(i)%>" class="cbp-filter-item"> <%= searchCountryList.get(i)%> </div>
+				<%
+					}
+				}
+				%> 	
 				</div>
 			</div>
 		</div>

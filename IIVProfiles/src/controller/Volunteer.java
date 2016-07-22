@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,7 +44,7 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			
 			VolunteerBean [] list = VolunteerDAO.readCountry(year);	
 			request.setAttribute("list", list);
-			RequestDispatcher rd = request.getRequestDispatcher("list2.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("list.jsp");
 			rd.forward(request, response);
 			
 			return;
@@ -69,7 +71,15 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 		}else if(command.equals("search")){
 			String keyword = request.getParameter("major");
 			VolunteerBean[] volunteer = VolunteerDAO.searchMajor(keyword);
+			ArrayList<String> tempList = new ArrayList<String>();
+			ArrayList<String> searchCountryList;
+			for(int i = 0; i <volunteer.length ; i++){
+				tempList.add(volunteer[i].getCountry());
+			}
+			searchCountryList = new ArrayList<String>(new HashSet<String>(tempList));	
+		
 			request.setAttribute("list", volunteer);
+			request.setAttribute("searchCountryList", searchCountryList);
 			RequestDispatcher rd = request.getRequestDispatcher("search.jsp");
 			rd.forward(request, response);
 			return;
