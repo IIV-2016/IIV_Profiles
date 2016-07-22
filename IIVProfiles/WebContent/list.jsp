@@ -45,7 +45,6 @@
 	<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.css">
 	<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
-	<link rel="stylesheet" href="assets/css/grid.css">
 	<!-- CSS Theme -->
 	<link rel="stylesheet" href="assets/css/theme-colors/default.css" id="style_color">
 	<link rel="stylesheet" href="assets/css/theme-skins/dark.css">
@@ -108,33 +107,42 @@
 					<div class="cbp-filter-item"><a href="<%=request.getContextPath()%>/volunteer.do?command=read&year=2013"> 2013 </a></div>
 				</div><!--/end Filters Container-->
 			</div>
-			<ul id="Grid">
-			<%
-				if(list == null || list.length == 0){
-			%>
-			<%
-				}else{
-					VolunteerBean volunteer = null;
-					for(int i = 0; i <list.length ; i++){
-						volunteer = list[i];
-			%>
-			<li>
-				<div class="cbp-item graphic">
-					<div class="cbp-caption margin-bottom-20">
-						<a href="<%=request.getContextPath()%>/volunteer.do?command=team&country=<%=volunteer.getCountry()%>&year=<%=year%>">
-						<img src="assets/img/country/<%=volunteer.getCountry()%>.png" alt="<%=volunteer.getCountry()%>" style="width:100%"></a>
-					</div>
-					<div class="cbp-title-dark">
-						<div class="cbp-l-grid-agency-title"><%=volunteer.getCountry()%></div>
-						<div class="cbp-l-grid-agency-desc">dispatch : <%=volunteer.getMemberNum()%></div>
+			<!-- Default Image Exmaples -->
+			<div class="col-md-9">
+				<div class="tab-v1 margin-bottom-40">
+					<div class="tab-content">
+						<div class="tab-pane fade in fade in active" id="tab-img-1">
+							<div class="row margin-bottom-10">
+							<%
+								if(list == null || list.length == 0){
+							%>
+							<%
+								}else{
+									VolunteerBean volunteer = null;
+									for(int i = 0; i <list.length ; i++){
+										volunteer = list[i];
+							%>
+							<div class="col-sm-3 col-xs-6 md-margin-bottom-20">
+								<div class="cbp-item graphic">
+									<div class="cbp-caption margin-bottom-20">
+										<a href="<%=request.getContextPath()%>/volunteer.do?command=team&country=<%=volunteer.getCountry()%>&year=<%=year%>">
+										<img src="assets/img/country/<%=volunteer.getCountry()%>.png" alt="<%=volunteer.getCountry()%>" class="img-responsive"></a>
+									</div>
+									<div class="cbp-title-dark">
+										<div class="cbp-l-grid-agency-title"><%=volunteer.getCountry()%></div>
+										<div class="cbp-l-grid-agency-desc">dispatch : <%=volunteer.getMemberNum()%></div>
+									</div>
+								</div>
+							</div>
+							<%
+									} 
+								}
+							%>
+							</div>
+						</div>
 					</div>
 				</div>
-			</li>
-			<%
-					} 
-				}
-			%>
-			</ul>
+			</div>
 			<br>
 		</div>
 		<!--=== End Cube-Portfdlio ===-->
