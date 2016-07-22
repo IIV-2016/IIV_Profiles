@@ -24,15 +24,15 @@
 		
 		<!-- Web Fonts -->
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
-		
+	
 		<!-- CSS Global Compulsory -->
 		<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
-		
+	
 		<!-- CSS Header and Footer -->
 		<link rel="stylesheet" href="assets/css/headers/header-default.css">
 		<link rel="stylesheet" href="assets/css/footers/footer-v1.css">
-		
+	
 		<!-- CSS Implementing Plugins -->
 		<link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
 		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
@@ -140,14 +140,12 @@
 		<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-		
 		<!-- JS Implementing Plugins -->
-		<script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
-		<script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
-
+		<script type="text/javascript" src="assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
 		<!-- JS Page Level -->
 		<script type="text/javascript" src="assets/js/app.js"></script>
-
+		<script type="text/javascript" src="assets/js/plugins/cube-portfolio/cube-portfolio-2.js"></script>
+		<script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
 		<!--[if lt IE 9]>
 		<script src="assets/plugins/respond.js"></script>
 		<script src="assets/plugins/html5shiv.js"></script>

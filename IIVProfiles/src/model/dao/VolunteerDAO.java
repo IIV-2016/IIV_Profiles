@@ -35,7 +35,7 @@ public class VolunteerDAO{
 		ResultSet rset = null;
 		VolunteerBean[] list  = null;
 		ArrayList alist = new ArrayList();
-		String sql="SELECT COUNT(MEMBER_NUM), COUNTRY FROM member WHERE YEAR = ? GROUP BY COUNTRY";	
+		String sql="SELECT COUNT(MEMBER.NUMBER), COUNTRY FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND YEAR = ? GROUP BY COUNTRY";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
@@ -63,7 +63,7 @@ public class VolunteerDAO{
 		ResultSet rset = null;
 		TeamBean[] list  = null;
 		ArrayList alist = new ArrayList();
-		String sql="SELECT DISTINCT TEAM FROM member WHERE COUNTRY = ? AND YEAR = ?";	
+		String sql="SELECT DISTINCT NAME FROM TEAM WHERE COUNTRY = ? AND YEAR = ?";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
@@ -92,7 +92,7 @@ public class VolunteerDAO{
 		ResultSet rset = null;
 		VolunteerBean[] list  = null;
 		ArrayList alist = new ArrayList();
-		String sql="SELECT * FROM member WHERE TEAM = ? AND YEAR = ?";	
+		String sql="SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, TEAM.NAME, COUNTRY, ORGANIZATION, ROLE, EMAIL, IMAGE, YEAR FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND TEAM.NAME = ? AND YEAR = ?";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
@@ -121,7 +121,7 @@ public class VolunteerDAO{
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		VolunteerBean volunteer  = null;
-		String sql="SELECT * FROM member WHERE MEMBER_NUM = ?";	
+		String sql="SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, TEAM.NAME, COUNTRY, ORGANIZATION, ROLE, EMAIL, IMAGE, YEAR FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND MEMBER.NUMBER = ?";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
@@ -145,7 +145,7 @@ public class VolunteerDAO{
 		ResultSet rset = null;
 		VolunteerBean[] list  = null;
 		ArrayList alist = new ArrayList();
-		String sql="SELECT * FROM member WHERE MAJOR LIKE CONCAT('%', ?, '%')";	
+		String sql="SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, TEAM.NAME, COUNTRY, ORGANIZATION, ROLE, EMAIL, IMAGE, YEAR FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND MAJOR LIKE CONCAT('%', ?, '%')";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
