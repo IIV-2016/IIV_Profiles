@@ -10,6 +10,6 @@
 					</div>
 				</div>
 			</div>
-		</div><!--/copyright-->
+		</div>
 	</div>
 </div>
