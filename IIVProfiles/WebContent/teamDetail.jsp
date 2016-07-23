@@ -54,8 +54,9 @@
 				<div class="container">
 					<h1 class="pull-left"><%=teamDetail.getTeam() %></h1>
 					<ul class="pull-right breadcrumb">
-						<li><a href="#teamMember">Team Member</a></li>
-						<li><a href="#video">Video</a></li>
+						<li><%=teamDetail.getVolunteer()[0].getYear() %></li>
+						<li><%=teamDetail.getVolunteer()[0].getCountry() %></li>
+						<li>Organization : <%=teamDetail.getVolunteer()[0].getOrg() %></li>
 					</ul>
 				</div>
 			</div>
@@ -68,7 +69,7 @@
 						<div class="row margin-bottom-50">
 							<div class="col-md-6 shadow-wrapper md-margin-bottom-40">
 								<div class="box-shadow shadow-effect-2">
-									<img class="img-responsive" src="assets/img/main/img4.jpg" alt="">
+									<img class="img-responsive" src="assets/img/breadcrumbs/img2.jpg" alt="">
 								</div>
 							</div>
 						</div>
@@ -87,7 +88,8 @@
 										%>
 											<div class="col-sm-3 col-xs-6 md-margin-bottom-20">
 												<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getMemberNum()%>">
-												<img class="img-responsive rounded-4x" src="<%=volunteer.getLink()%>" alt="<%=volunteer.getLastname()%> <%=volunteer.getFirstname()%>"></a>
+												<img class="img-responsive rounded-2x" src="<%=volunteer.getLink()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%> "></a>
+												<center><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></center>
 											</div>
 										<% 
 											} 

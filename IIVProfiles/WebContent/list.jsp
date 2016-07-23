@@ -94,7 +94,7 @@
 											</div>
 											<div class="cbp-title-dark">
 												<div class="cbp-l-grid-agency-title"><%=volunteer.getCountry()%></div>
-												<div class="cbp-l-grid-agency-desc"> dispatch : <%=volunteer.getMemberNum()%></div>
+												<div class="cbp-l-grid-agency-desc"> dispatch team: <%=volunteer.getMemberNum()/4%></div>
 											</div>
 										</div>
 									</div>

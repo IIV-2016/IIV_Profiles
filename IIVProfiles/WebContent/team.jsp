@@ -74,7 +74,7 @@
 					<!-- Content Info -->
 					<section id="<%=team.getTeam()%>">
 						<div class="heading heading-v1 margin-bottom">
-							<a href="<%=request.getContextPath()%>/volunteer.do?command=teamDetail&teamNum=<%=team.getTeamNum()%>"><h2><%=team.getTeam()%></h2></a>
+							<a href="<%=request.getContextPath()%>/volunteer.do?command=teamDetail&teamNum=<%=team.getTeamNum()%>"><h2><%=team.getTeam()%>  <i class="fa fa-angle-right" style="color: #72c02c;"></i><i class="fa fa-angle-right" style="color: #72c02c;"></i></h2></a>
 						</div>
 					</section>
 				</div>

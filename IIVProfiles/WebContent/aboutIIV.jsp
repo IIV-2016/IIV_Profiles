@@ -53,30 +53,60 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<!--=== Interactive Slider ===-->
 			<div class="breadcrumbs-v3 img-v1 text-center">
 				<div class="container">
 					<h1>About Us</h1>
 					<p>International ICT Volunteers</p>
 				</div>
 			</div>
-			<!--=== End Interactive Slider ===-->
-	
 			<!--=== Title v1 ===-->
 			<div class="container content-sm">
 				<div class="title-v1 no-margin-bottom">
-					<h2>
-						<p>
-							<strong>ICT Development and Promotion</strong><br>
-							IIVs help promote digital societies and ICT literacy at all levels. They harness digital technologies to accelerate social and economic development<br><br>
-							<strong>People Network</strong><br>
-							IIV is an internationally social network of volunteers from different backgrounds, different countries, different age groups but common desire for doing good deeds.<br><br>
-							<strong>Platform of Innovations</strong><br>
-							Bringing together various skills, knowledge, experiences, and spirits. We create a platform – the one that makes innovations and inspire people.<br><br>
-						</p>
-					</h2>
+					<p class="no-margin-bottom">
+					<strong>International ICT Volunteers programme (IIV)</strong> is an open international platform <br>
+					for mobilising resources of volunteers who can help promote ICT for development.<br><br>
+					The programme was initiated by the International Telecommunication Union (ITU) <br>
+					and is implemented in partnerships with multiple stakeholders including governments, NGOs, academia, and private sector.<br><br>
+					IIVs comprise international volunteers and national volunteers. <br><br>
+					<strong>International volunteers</strong> are dispatched to work outside their home countries <br>
+					while <strong>national volunteers</strong> work in their home countries usually as part of local volunteers prorgammes.</p>
 				</div>
-				<br>
+			</div>
+			<div class="service-block-v4">
+				<div class="container content-sm">
+					<div class="row">
+						<div class="col-md-4 service-desc md-margin-bottom-50">
+							<i class="icon-screen-desktop"></i>
+							<h3>ICT Development and Promotion</h3>
+							<p class="no-margin-bottom">
+							IIVs help promote digital societies and ICT literacy at all levels. <br>
+							They harness digital technologies to accelerate social and economic development</p>
+						</div>
+						<div class="col-md-4 service-desc md-margin-bottom-50">
+							<i class="icon-share"></i>
+							<h3>People Network</h3>
+							<p class="no-margin-bottom">
+							IIV is an internationally social network of volunteers <br>
+							from different backgrounds, different countries, different age groups <br>
+							but common desire for doing good deeds.</p>
+						</div>
+						<div class="col-md-4 service-desc">
+							<i class="icon-energy"></i>
+							<h3>Platform of Innovations</h3>
+							<p class="no-margin-bottom">
+							Bringing together various skills, knowledge, experiences, and spirits.<br>
+							We create a platform - the one that makes innovations and inspire people.</p>
+						</div>
+					</div><!--/end row-->
+				</div><!--/end container-->
+			</div>
+			<!--=== Parallax Counter v4 ===-->
+			<div>
+				<div class="container content-sm">
+					<div class="row">
+						<img src="assets/img/activities.png">
+					</div><!--/end row-->
+				</div><!--/end container-->
 			</div>
 			<br>
 			<%@include file="./footer.jsp"%>
