@@ -83,6 +83,13 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("search.jsp");
 			rd.forward(request, response);
 			return;
+		}else if(command.equals("teamDetail")){
+			int teamNum = Integer.parseInt(request.getParameter("teamNum"));
+			TeamBean teamDetail = VolunteerDAO.readTeamDetail(teamNum);
+			request.setAttribute("teamDetail", teamDetail);
+			RequestDispatcher rd = request.getRequestDispatcher("teamDetail.jsp");
+			rd.forward(request, response);
+			return;
 		}
 	}
 }

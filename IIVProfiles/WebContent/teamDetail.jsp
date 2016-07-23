@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="model.domain.VolunteerBean"%>
+<%@ page import="model.domain.TeamBean"%>
+<%
+	TeamBean teamDetail = (TeamBean) request.getAttribute("teamDetail");
+%>
 
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -47,7 +52,7 @@
 		<div class="wrapper">
 			<div class="breadcrumbs">
 				<div class="container">
-					<h1 class="pull-left">team name</h1>
+					<h1 class="pull-left"><%=teamDetail.getTeam() %></h1>
 					<ul class="pull-right breadcrumb">
 						<li><a href="#teamMember">Team Member</a></li>
 						<li><a href="#video">Video</a></li>
@@ -58,7 +63,7 @@
 				<div class="row">
 					<div class="col-md-9">
 						<div class="heading heading-v1 margin-bottom-40">
-							<p>team introduce</p>
+							<p><%=teamDetail.getIntroduce() %> to be continued</p>
 						</div>
 						<div class="row margin-bottom-50">
 							<div class="col-md-6 shadow-wrapper md-margin-bottom-40">
@@ -75,18 +80,18 @@
 								<div class="tab-content">
 									<div class="tab-pane fade in fade in active" id="tab-img-1">
 										<div class="row margin-bottom-10">
+										<%
+											VolunteerBean volunteer = null;
+											for (int i = 0; i < teamDetail.getVolunteer().length; i++) {
+													volunteer = teamDetail.getVolunteer()[i];
+										%>
 											<div class="col-sm-3 col-xs-6 md-margin-bottom-20">
-												<img class="img-responsive rounded-4x" src="assets/img/JihyungKIM.png" alt="">
+												<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getMemberNum()%>">
+												<img class="img-responsive rounded-4x" src="<%=volunteer.getLink()%>" alt="<%=volunteer.getLastname()%> <%=volunteer.getFirstname()%>"></a>
 											</div>
-											<div class="col-sm-3 col-xs-6 md-margin-bottom-20">
-												<img class="img-responsive rounded-4x" src="assets/img/JihyungKIM.png" alt="">
-											</div>
-											<div class="col-sm-3 col-xs-6">
-												<img class="img-responsive rounded-4x" src="assets/img/JihyungKIM.png" alt="">
-											</div>
-											<div class="col-sm-3 col-xs-6">
-												<img class="img-responsive rounded-4x" src="assets/img/JihyungKIM.png" alt="">
-											</div>
+										<% 
+											} 
+										%>
 										</div>
 									</div>
 								</div>
@@ -101,7 +106,7 @@
 							<div class="row margin-bottom-60">
 								<div class="col-md-6">
 									<div class="responsive-video">
-										<iframe width="100%" src="//www.youtube.com/embed/Squv4KI751w" frameborder="0" allowfullscreen></iframe>
+										<iframe width="100%" src="<%=teamDetail.getMovie()%>" frameborder="0" allowfullscreen></iframe>
 									</div>
 								</div>
 							</div>

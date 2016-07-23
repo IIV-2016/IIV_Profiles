@@ -73,8 +73,8 @@
 				<div class="row portfolio-item margin-bottom-10">
 					<!-- Content Info -->
 					<section id="<%=team.getTeam()%>">
-						<div class="col-md-5">
-							<h2><%=team.getTeam()%></h2>
+						<div class="heading heading-v1 margin-bottom">
+							<a href="<%=request.getContextPath()%>/volunteer.do?command=teamDetail&teamNum=<%=team.getTeamNum()%>"><h2><%=team.getTeam()%></h2></a>
 						</div>
 					</section>
 				</div>

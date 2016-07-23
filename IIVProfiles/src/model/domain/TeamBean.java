@@ -3,15 +3,44 @@ package model.domain;
 import java.util.Arrays;
 
 public class TeamBean {
+	private int teamNum;
 	private String team;
-	private String teamCountry;
+	private String introduce;
+	private String movie;
 	private VolunteerBean[] volunteer;
-	
+
 	public TeamBean() { }
 
+	public TeamBean(int teamNum, String team) {
+		this.teamNum = teamNum;
+		this.team = team;
+	}
+	
 	public TeamBean(String team, VolunteerBean[] volunteer) {
 		this.team = team;
 		this.volunteer = volunteer;
+	}
+	
+	public TeamBean(int teamNum, String team, VolunteerBean[] volunteer) {
+		this.teamNum = teamNum;
+		this.team = team;
+		this.volunteer = volunteer;
+	}
+	
+	public TeamBean(int teamNum, String team, String introduce, String movie, VolunteerBean[] volunteer) {
+		this.teamNum = teamNum;
+		this.team = team;
+		this.introduce = introduce;
+		this.movie = movie;
+		this.volunteer = volunteer;
+	}
+
+	public int getTeamNum() {
+		return teamNum;
+	}
+
+	public void setTeamNum(int teamNum) {
+		this.teamNum = teamNum;
 	}
 
 	public String getTeam() {
@@ -22,12 +51,20 @@ public class TeamBean {
 		this.team = team;
 	}
 
-	public String getTeamCountry() {
-		return volunteer[0].getCountry();
+	public String getIntroduce() {
+		return introduce;
 	}
 
-	public void setTeamCountry(String teamCountry) {
-		this.teamCountry = teamCountry;
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
+
+	public String getMovie() {
+		return movie;
+	}
+
+	public void setMovie(String movie) {
+		this.movie = movie;
 	}
 
 	public VolunteerBean[] getVolunteer() {
@@ -49,8 +86,14 @@ public class TeamBean {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("TeamBean [team=");
+		builder.append("TeamBean [teamNum=");
+		builder.append(teamNum);
+		builder.append(", team=");
 		builder.append(team);
+		builder.append(", introduce=");
+		builder.append(introduce);
+		builder.append(", movie=");
+		builder.append(movie);
 		builder.append(", volunteer=");
 		builder.append(Arrays.toString(volunteer));
 		builder.append("]");
