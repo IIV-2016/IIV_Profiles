@@ -102,7 +102,6 @@
 						<section id="video">
 							<div class="heading heading-v1 margin-bottom-40">
 								<h2>Introduction Video</h2>
-								<p>team video introduce</p>
 							</div>
 	
 							<div class="row margin-bottom-60">

@@ -104,7 +104,9 @@
 			<div>
 				<div class="container content-sm">
 					<div class="row">
+						<center>
 						<img src="assets/img/activities.png">
+						</center>
 					</div><!--/end row-->
 				</div><!--/end container-->
 			</div>
