@@ -100,7 +100,7 @@
 				%>
 				<div class="cbp-item <%=volunteer.getCountry()%>">
 					<div class="cbp-caption margin-bottom-20">
-						<div class="col-md-3 col-sm-6 md-margin-bottom-40">
+						<div class="col-sm-6 md-margin-bottom-40">
 							<div class="easy-block-v1">
 								<div class="easy-block-v1-badge rgba-default"><%=volunteer.getRole()%></div>
 								<div id="carousel-example-generic" class="carousel slide"
