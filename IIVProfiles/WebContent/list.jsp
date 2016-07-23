@@ -24,7 +24,7 @@
 		<%=year%>
 			= year;
 		</script>
-		<title>IIV_Country_Info</title>
+		<title>Home | International ICT Volunteers</title>
 	
 		<!-- Meta -->
 		<meta charset="utf-8">

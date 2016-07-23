@@ -67,10 +67,12 @@
 				<div class="title-v1 no-margin-bottom">
 					<h2>
 						<p>
-							IIV <strong>share</strong> knowledge and experience <br> to
-							all over the world. <br> Focused on helping <br> our
-							friends and organization <br> to build a <strong>successful</strong>
-							relationship.
+							<strong>ICT Development and Promotion</strong><br>
+							IIVs help promote digital societies and ICT literacy at all levels. They harness digital technologies to accelerate social and economic development<br><br>
+							<strong>People Network</strong><br>
+							IIV is an internationally social network of volunteers from different backgrounds, different countries, different age groups but common desire for doing good deeds.<br><br>
+							<strong>Platform of Innovations</strong><br>
+							Bringing together various skills, knowledge, experiences, and spirits. We create a platform – the one that makes innovations and inspire people.<br><br>
 						</p>
 					</h2>
 				</div>

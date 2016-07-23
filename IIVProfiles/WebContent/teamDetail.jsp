@@ -14,7 +14,7 @@
 <html lang="en">
 <!--<![endif]-->
 	<head>
-		<title>Team Application</title>
+		<title>Team Detail | International ICT Volunteers</title>
 		
 		<!-- Meta -->
 		<meta charset="utf-8">

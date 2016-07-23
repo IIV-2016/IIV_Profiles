@@ -14,7 +14,7 @@
 <html lang="en">
 <!--<![endif]-->
 	<head>
-		<title>IIV_Country_Info</title>
+		<title>Search | International ICT Volunteers</title>
 		
 		<!-- Meta -->
 		<meta charset="utf-8">

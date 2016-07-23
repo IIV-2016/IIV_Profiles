@@ -11,7 +11,7 @@
 <html lang="en">
 <!--<![endif]-->
 	<head>
-		<title>Thailand | Total 4 teams work</title>
+		<title>Member | International ICT Volunteers</title>
 		
 		<!-- Meta -->
 		<meta charset="utf-8">
