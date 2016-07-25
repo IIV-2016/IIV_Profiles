@@ -41,6 +41,7 @@
 		<link rel="stylesheet" href="assets/css/pages/page_search.css">
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
+		<link rel="stylesheet" href="assets/css/text.css">
 		<%@include file="./header.jsp"%>
 	</head>
 	<body>
@@ -81,23 +82,25 @@
 					%>
 				</div>
 			</div>
+			<% 
+				if (check.equals("page")) {
+				
+			%>
+			<% 
+				}else if (check.equals("result") && (list == null || list.length == 0)) {
+			%>
+			<div class="heading heading-v1 margin-bottom">
+				<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
+				<p>We can not find search keyword.<p>
+			</div>			
+			<%
+				} else {
+			%>
 			<div id="grid-container" class="cbp-l-grid-agency">
-				<% 
-					if (check.equals("page")) {
-					
-				%>
-				<% 
-					}else if (check.equals("result") && (list == null || list.length == 0)) {
-				%>
-				<div class="heading heading-v1 margin-bottom">
-					<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
-					<p>We can not find search keyword.<p>
-				</div>
-				<%
-					} else {
-						for (int i = 0; i < list.length; i++) {
-							volunteer = list[i];
-				%>			
+			<%
+					for (int i = 0; i < list.length; i++) {
+						volunteer = list[i];
+			%>			
 				<div class="cbp-item <%=volunteer.getTeam().getCountry()%>">
 					<div class="cbp-caption margin-bottom-20">
 						<div class="cbp-caption-defaultWrap">
@@ -118,8 +121,8 @@
 						<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h3>
 					</div>
 					<ul class="list-unstyled">
-						<li><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></li>
-						<li><span class="color-green">Major:</span> <%=volunteer.getMajor()%></li>
+						<li><div class="text-line"><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></div></li>
+						<li><div class="text-line"><span class="color-green">Major:</span> <%=volunteer.getMajor()%></div></li>
 					</ul>
 				</div>
 				<%
