@@ -58,15 +58,7 @@
 						<a data-slide="next" href="#myCarousel" class="right carousel-control"> <i class="fa fa-angle-right"></i></a>
 					</div>
 					<div class="overflow-h">
-						<div>
-							<h1><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%>
-							<div class="star-vote pull-right">
-									<ul class="list-inline">
-										<li><i class="color-green fa fa-star"></i></li>
-									</ul>
-							</div>
-							</h1>
-						</div>
+						<h1><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h1>
 						<p><span><%=volunteer.getTeam()%></span>, <span><%=volunteer.getRole()%></span></p>
 					</div>
 				</div>
