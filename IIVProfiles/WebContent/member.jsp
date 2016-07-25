@@ -57,8 +57,16 @@
 						<a data-slide="prev" href="#myCarousel" class="left carousel-control"> <i class="fa fa-angle-left"></i></a>
 						<a data-slide="next" href="#myCarousel" class="right carousel-control"> <i class="fa fa-angle-right"></i></a>
 					</div>
-					<div class="container">
-						<h1><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h1>
+					<div class="overflow-h">
+						<div>
+							<h1><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%>
+							<div class="star-vote pull-right">
+									<ul class="list-inline">
+										<li><i class="color-green fa fa-star"></i></li>
+									</ul>
+							</div>
+							</h1>
+						</div>
 						<p><span><%=volunteer.getTeam()%></span>, <span><%=volunteer.getRole()%></span></p>
 					</div>
 				</div>

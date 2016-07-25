@@ -15,14 +15,11 @@
 		<script language=javascript>
 			function getParameterByName(name) {
 				name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-				var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex
-						.exec(location.search);
-				return results === null ? "" : decodeURIComponent(results[1].replace(
-						/\+/g, " "));
+				var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex.exec(location.search);
+				return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 			}
 			var year = getParameterByName('year');
-		<%=year%>
-			= year;
+			<%=year%> = year;
 		</script>
 		<title>Home | International ICT Volunteers</title>
 	

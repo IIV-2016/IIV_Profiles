@@ -509,6 +509,84 @@
   }
 }
 
+/*Breadcrumbs v4
+------------------------------------*/
+.breadcrumbs-v4 {
+  z-index: 1;
+  padding: 100px 0;
+  position: relative;
+}
+
+.breadcrumbs-v4.breadcrumbs-lg {
+  padding: 200px 0;
+}
+
+.breadcrumbs-v4.img-v1 {
+  background: url(../img/breadcrumbs/img3.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.breadcrumbs-v4.img-v2 {
+  background: url(../img/breadcrumbs/img3.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.breadcrumbs-v4.img-v3 {
+  background: url(../img/breadcrumbs/img3.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.breadcrumbs-v4:after {
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  content: " ";
+  position: absolute;
+  background: rgba(0,0,0,0.2);
+}
+
+.breadcrumbs-v4 h1 {
+  color: #fff;
+  font-size: 40px;
+  line-height: 50px;
+  text-transform: uppercase;
+}
+
+.breadcrumbs-v4 p {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 200;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+@media (max-width: 992px) {
+  .breadcrumbs-v4.breadcrumbs-lg {
+    padding: 100px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .breadcrumbs-v4,
+  .breadcrumbs-v4.breadcrumbs-lg {
+    padding: 50px 0;
+  }
+
+  .breadcrumbs-v4 h1 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .breadcrumbs-v4 p {
+    font-size: 18px;
+  }
+}
+
 /*--------------------------------------------------
 	[3. Image Hover Effects]
 ----------------------------------------------------*/
@@ -1923,7 +2001,7 @@
 .call-action-v2 {
   padding: 50px 0;
   text-align: center;
-  background: url(../img/patterns/16.png);
+  background: url(../img/breadcrumbs/16.png);
 }
 
 .call-action-v2 h2 {

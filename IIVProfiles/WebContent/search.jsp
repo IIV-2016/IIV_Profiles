@@ -6,6 +6,8 @@
 <%
 	VolunteerBean[] list = (VolunteerBean[]) request.getAttribute("list");
 	ArrayList<String> searchCountryList = (ArrayList<String>) request.getAttribute("searchCountryList");
+	VolunteerBean volunteer = null;
+	String check = (String)request.getAttribute("check");
 %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -89,12 +91,23 @@
 				</div>
 			</div>
 			<div id="grid-container" class="cbp-l-grid-agency">
-				<%
-					if (list == null || list.length == 0) {
+				<% 
+					if (check.equals("page")) {
+					
 				%>
+				<% 
+					}else if (check.equals("result") && (list == null || list.length == 0)) {
+				%>
+					<div class="cbp-item margin-bottom-20">
+						<div class="col-sm-6 md-margin-bottom-40">
+							<div class="heading heading-v1 margin-bottom">
+								<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
+								<p>We can not find search keyword.<p>
+							</div>
+						</div>
+					</div>
 				<%
 					} else {
-						VolunteerBean volunteer = null;
 						for (int i = 0; i < list.length; i++) {
 							volunteer = list[i];
 				%>
