@@ -52,11 +52,11 @@
 		<div class="wrapper">
 			<div class="breadcrumbs">
 				<div class="container">
-					<h1 class="pull-left"><%=teamDetail.getTeam() %></h1>
+					<h1 class="pull-left"><%=teamDetail.getName() %></h1>
 					<ul class="pull-right breadcrumb">
-						<li><%=teamDetail.getVolunteer()[0].getYear() %></li>
-						<li><%=teamDetail.getVolunteer()[0].getCountry() %></li>
-						<li>Organization : <%=teamDetail.getVolunteer()[0].getOrg() %></li>
+						<li><%=teamDetail.getYear() %></li>
+						<li><%=teamDetail.getCountry() %></li>
+						<li>Organization : <%=teamDetail.getOrganization() %></li>
 					</ul>
 				</div>
 			</div>
@@ -87,8 +87,8 @@
 													volunteer = teamDetail.getVolunteer()[i];
 										%>
 											<div class="col-sm-3 col-xs-6 md-margin-bottom-20">
-												<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getMemberNum()%>">
-												<img class="img-responsive rounded-2x" src="<%=volunteer.getLink()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%> "></a>
+												<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getNumber()%>">
+												<img class="img-responsive rounded-2x" src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%> "></a>
 												<center><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></center>
 											</div>
 										<% 

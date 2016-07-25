@@ -29,13 +29,13 @@ public class VolunteerDAO{
 		}	
 	}
 	
-	public static VolunteerBean[] readCountry(String year){
+	public static TeamBean[] readCountry(String year){
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		VolunteerBean[] list  = null;
+		TeamBean[] list  = null;
 		ArrayList alist = new ArrayList();
-		String sql="SELECT COUNT(MEMBER.NUMBER), COUNTRY FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND YEAR = ? GROUP BY COUNTRY";	
+		String sql="SELECT COUNT(NUMBER), COUNTRY FROM TEAM WHERE YEAR = ? GROUP BY COUNTRY";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
@@ -43,10 +43,10 @@ public class VolunteerDAO{
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()){
-				alist.add(new VolunteerBean(rset.getInt(1), rset.getString(2)));
+				alist.add(new TeamBean(rset.getInt(1), rset.getString(2)));
 			}
 			
-			list = new VolunteerBean[alist.size()];
+			list = new TeamBean[alist.size()];
 			alist.toArray(list);
 			
 		} catch (SQLException e) {
@@ -63,7 +63,7 @@ public class VolunteerDAO{
 		ResultSet rset = null;
 		TeamBean[] list  = null;
 		ArrayList alist = new ArrayList();
-		String sql="SELECT DISTINCT NUMBER, NAME FROM TEAM WHERE COUNTRY = ? AND YEAR = ?";	
+		String sql="SELECT NUMBER FROM TEAM WHERE COUNTRY = ? AND YEAR = ?";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
@@ -72,7 +72,7 @@ public class VolunteerDAO{
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()){
-				alist.add(readTeamMember(rset.getInt(1), rset.getString(2), year));
+				alist.add(readTeamMember(rset.getInt(1)));
 			}
 			
 			list = new TeamBean[alist.size()];
@@ -86,80 +86,52 @@ public class VolunteerDAO{
 		return list;
 	}
 	
-	public static TeamBean readTeamMember(int teamNum, String team, String year){
+	public static TeamBean readTeamMember(int teamNumber){
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		VolunteerBean[] list  = null;
+		TeamBean bean = null;
 		ArrayList alist = new ArrayList();
-		String sql="SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, TEAM.NAME, COUNTRY, ORGANIZATION, ROLE, EMAIL, IMAGE, YEAR FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND TEAM.NAME = ? AND YEAR = ?";	
+		String sql="SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, ROLE, EMAIL, IMAGE, TEAM.NUMBER, TEAM.NAME FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND TEAM.NUMBER = ?";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, team);
-			pstmt.setString(2, year);
+			pstmt.setInt(1, teamNumber);
 			rset = pstmt.executeQuery();
 
 			while(rset.next()){
 				alist.add(new VolunteerBean(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7), rset.getString(8), rset.getString(9),
-						rset.getString(10), rset.getString(11), rset.getString(12), rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getString(17)));
+						rset.getString(10), rset.getString(11), rset.getString(12), rset.getString(13), rset.getInt(14), readTeamByNumber(rset.getInt(14))));
 			}
 			
 			list = new VolunteerBean[alist.size()];
 			alist.toArray(list);
+			
+			bean = readTeamByNumber(teamNumber);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
 			close(rset, pstmt, con);
 		}
-		return new TeamBean(teamNum, team, list);
+		return new TeamBean(teamNumber, bean.getName(), list);
 	}
-	
-	public static TeamBean readTeamMember(TeamBean bean){
-		Connection con = null;	
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		VolunteerBean[] list  = null;
-		ArrayList alist = new ArrayList();
-		String sql="SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, TEAM.NAME, COUNTRY, ORGANIZATION, ROLE, EMAIL, IMAGE, YEAR FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND TEAM.NUMBER = ?";	
-		try {
-			con = source.getConnection();
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, bean.getTeamNum());
-			rset = pstmt.executeQuery();
 
-			while(rset.next()){
-				alist.add(new VolunteerBean(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7), rset.getString(8), rset.getString(9),
-						rset.getString(10), rset.getString(11), rset.getString(12), rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getString(17)));
-			}
-			
-			list = new VolunteerBean[alist.size()];
-			alist.toArray(list);
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally{
-			close(rset, pstmt, con);
-		}
-		bean.setVolunteer(list);
-		return bean;
-	}
-	
-	public static VolunteerBean readMember(int memberNum){
+	public static VolunteerBean readMember(int memberNumber){
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		VolunteerBean volunteer  = null;
-		String sql="SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, TEAM.NAME, COUNTRY, ORGANIZATION, ROLE, EMAIL, IMAGE, YEAR FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND MEMBER.NUMBER = ?";	
+		String sql="SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, ROLE, EMAIL, IMAGE, TEAM.NUMBER FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND MEMBER.NUMBER = ?";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, memberNum);
+			pstmt.setInt(1, memberNumber);
 			rset = pstmt.executeQuery();
 			if (rset.next()) {
 				volunteer = new VolunteerBean(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7), rset.getString(8), rset.getString(9),
-						rset.getString(10), rset.getString(11), rset.getString(12), rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getString(17));
+						rset.getString(10), rset.getString(11), rset.getString(12), rset.getString(13), rset.getInt(14), readTeamByNumber(rset.getInt(14)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -175,15 +147,16 @@ public class VolunteerDAO{
 		ResultSet rset = null;
 		VolunteerBean[] list  = null;
 		ArrayList alist = new ArrayList();
-		String sql="SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, TEAM.NAME, COUNTRY, ORGANIZATION, ROLE, EMAIL, IMAGE, YEAR FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND MAJOR LIKE CONCAT('%', ?, '%')";	
+		String sql="SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, ROLE, EMAIL, IMAGE, TEAM.NUMBER FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND MAJOR LIKE CONCAT('%', ?, '%')";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, keyword);
 			rset = pstmt.executeQuery();
+			
 			while(rset.next()){
 				alist.add(new VolunteerBean(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7), rset.getString(8), rset.getString(9),
-						rset.getString(10), rset.getString(11), rset.getString(12), rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getString(17)));
+						rset.getString(10), rset.getString(11), rset.getString(12), rset.getString(13), rset.getInt(14), readTeamByNumber(rset.getInt(14))));
 			}
 			list = new VolunteerBean[alist.size()];
 			alist.toArray(list);
@@ -195,7 +168,7 @@ public class VolunteerDAO{
 		return list;
 	}
 	
-	public static TeamBean readTeamDetail(int teamNum){
+	public static TeamBean readTeamDetail(int teamNumber){
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -204,12 +177,12 @@ public class VolunteerDAO{
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, teamNum);
+			pstmt.setInt(1, teamNumber);
 			rset = pstmt.executeQuery();
 			if (rset.next()) {
-				bean = new TeamBean(teamNum, rset.getString(2), rset.getString(3), rset.getString(4), null);
+				bean = new TeamBean(teamNumber, rset.getString(2), rset.getString(3), rset.getString(4), null);
 			}
-			bean = readTeamMember(bean);
+			bean = readTeamMember(teamNumber);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -218,6 +191,31 @@ public class VolunteerDAO{
 		}
 		return bean;
 	}
+	
+	public static TeamBean readTeamByNumber(int teamNumber){
+		Connection con = null;	
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		TeamBean team  = null;
+
+		String sql="SELECT NUMBER, NAME, COUNTRY, ORGANIZATION, YEAR, INTRODUCE, MOVIE FROM TEAM WHERE NUMBER = ?";	
+		try {
+			con = source.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, teamNumber);
+			rset = pstmt.executeQuery();
+			
+			if (rset.next()) {
+				team = new TeamBean(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(rset, pstmt, con);
+		}
+		return team;
+	}
+	
 	
 	public static void close(Statement stmt, Connection con){
 		try{

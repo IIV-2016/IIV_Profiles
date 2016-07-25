@@ -50,7 +50,7 @@
 				<div class="carousel slide carousel-v1" id="myCarousel">
 					<div class="carousel-inner">
 						<div class="item active">
-							<img src="<%=volunteer.getLink()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%>">
+							<img src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%>">
 						</div>
 					</div>
 					<div class="carousel-arrow">
@@ -59,7 +59,7 @@
 					</div>
 					<div class="container">
 						<h1><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h1>
-						<p><span><%=volunteer.getTeam()%></span>, <span><%=volunteer.getRole()%></span></p>
+						<p><span><%=volunteer.getTeam().getName()%></span>, <span><%=volunteer.getRole()%></span></p>
 					</div>
 				</div>
 			</div>
@@ -79,17 +79,17 @@
 						</p>
 						<p>
 							<h4 class="heading-xs">
-								Year of Service<span class="pull-right"><%=volunteer.getYear()%></span>
+								Year of Service<span class="pull-right"><%=volunteer.getTeam().getYear()%></span>
 							</h4>
 						</p>
 						<p>
 							<h4 class="heading-xs">
-								Country<span class="pull-right"><%=volunteer.getCountry()%></span>
+								Country<span class="pull-right"><%=volunteer.getTeam().getCountry()%></span>
 							</h4>
 						</p>
 						<p>
 							<h4 class="heading-xs">
-								Host Organization<span class="pull-right"><%=volunteer.getOrg()%></span>
+								Host Organization<span class="pull-right"><%=volunteer.getTeam().getOrganization()%></span>
 							</h4>
 						</p>
 						<br>

@@ -111,7 +111,7 @@
 						for (int i = 0; i < list.length; i++) {
 							volunteer = list[i];
 				%>
-				<div class="cbp-item <%=volunteer.getCountry()%>">
+				<div class="cbp-item <%=volunteer.getTeam().getCountry()%>">
 					<div class="cbp-caption margin-bottom-20">
 						<div class="col-sm-6 md-margin-bottom-40">
 							<div class="easy-block-v1">
@@ -120,7 +120,7 @@
 									data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="item active">
-											<img src="<%=volunteer.getLink()%>" alt="<%=volunteer.getFirstname()%><%=volunteer.getLastname()%>">
+											<img src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%><%=volunteer.getLastname()%>">
 										</div>
 									</div>
 								</div>
@@ -133,10 +133,10 @@
 									</div>
 								</div>
 								<ul class="list-unstyled">
-									<li><span class="color-green">Country:</span> <%=volunteer.getCountry()%></li>
+									<li><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></li>
 									<li><span class="color-green">Major:</span> <%=volunteer.getMajor()%></li>
 								</ul>
-								<a class="btn-u btn-u-sm" href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getMemberNum()%>">View More</a>
+								<a class="btn-u btn-u-sm" href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getNumber()%>">View More</a>
 							</div>
 						</div>
 					</div>

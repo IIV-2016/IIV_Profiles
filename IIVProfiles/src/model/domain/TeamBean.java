@@ -3,52 +3,97 @@ package model.domain;
 import java.util.Arrays;
 
 public class TeamBean {
-	private int teamNum;
-	private String team;
+	private int number;
+	private String name;
+	private String country;
+	private String organization;
+	private String year;
 	private String introduce;
 	private String movie;
 	private VolunteerBean[] volunteer;
 
 	public TeamBean() { }
 
-	public TeamBean(int teamNum, String team) {
-		this.teamNum = teamNum;
-		this.team = team;
+	public TeamBean(int number, String country) {
+		this.number = number;
+		this.country = country;
 	}
-	
-	public TeamBean(String team, VolunteerBean[] volunteer) {
-		this.team = team;
+
+	public TeamBean(int number, String name, VolunteerBean[] volunteer) {
+		this.number = number;
+		this.name = name;
 		this.volunteer = volunteer;
 	}
-	
-	public TeamBean(int teamNum, String team, VolunteerBean[] volunteer) {
-		this.teamNum = teamNum;
-		this.team = team;
-		this.volunteer = volunteer;
+
+	public TeamBean(int number, String name, String country, String organization, String year, String introduce,
+			String movie) {
+		this.number = number;
+		this.name = name;
+		this.country = country;
+		this.organization = organization;
+		this.year = year;
+		this.introduce = introduce;
+		this.movie = movie;
 	}
-	
-	public TeamBean(int teamNum, String team, String introduce, String movie, VolunteerBean[] volunteer) {
-		this.teamNum = teamNum;
-		this.team = team;
+
+	public TeamBean(int number, String name, String introduce, String movie, VolunteerBean[] volunteer) {
+		this.number = number;
+		this.name = name;
 		this.introduce = introduce;
 		this.movie = movie;
 		this.volunteer = volunteer;
 	}
 
-	public int getTeamNum() {
-		return teamNum;
+	public TeamBean(int number, String name, String country, String organization, String year, String introduce,
+			String movie, VolunteerBean[] volunteer) {
+		this.number = number;
+		this.name = name;
+		this.country = country;
+		this.organization = organization;
+		this.year = year;
+		this.introduce = introduce;
+		this.movie = movie;
+		this.volunteer = volunteer;
 	}
 
-	public void setTeamNum(int teamNum) {
-		this.teamNum = teamNum;
+	public int getNumber() {
+		return number;
 	}
 
-	public String getTeam() {
-		return team;
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
-	public void setTeam(String team) {
-		this.team = team;
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getOrganization() {
+		return organization;
+	}
+
+	public void setOrganization(String organization) {
+		this.organization = organization;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
 	}
 
 	public String getIntroduce() {
@@ -74,22 +119,20 @@ public class TeamBean {
 	public void setVolunteer(VolunteerBean[] volunteer) {
 		this.volunteer = volunteer;
 	}
-	
-	public String getTeamMemberName(){
-		StringBuilder builder = new StringBuilder();
-		for (int i=0; i<volunteer.length; i++){
-			builder.append(volunteer[i]);
-		}
-		return builder.toString();
-	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("TeamBean [teamNum=");
-		builder.append(teamNum);
-		builder.append(", team=");
-		builder.append(team);
+		builder.append("TeamBean [number=");
+		builder.append(number);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", country=");
+		builder.append(country);
+		builder.append(", organization=");
+		builder.append(organization);
+		builder.append(", year=");
+		builder.append(year);
 		builder.append(", introduce=");
 		builder.append(introduce);
 		builder.append(", movie=");

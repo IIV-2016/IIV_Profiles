@@ -42,7 +42,7 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 				year = "2016";
 			}
 			
-			VolunteerBean [] list = VolunteerDAO.readCountry(year);	
+			TeamBean [] list = VolunteerDAO.readCountry(year);	
 			request.setAttribute("list", list);
 			RequestDispatcher rd = request.getRequestDispatcher("list.jsp");
 			rd.forward(request, response);
@@ -74,15 +74,15 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			ArrayList<String> tempList = new ArrayList<String>();
 			ArrayList<String> searchCountryList;
 			for(int i = 0; i <volunteer.length ; i++){
-				tempList.add(volunteer[i].getCountry());
+				tempList.add(volunteer[i].getTeam().getCountry());
 			}
 			searchCountryList = new ArrayList<String>(new HashSet<String>(tempList));	
-		
 			request.setAttribute("list", volunteer);
 			request.setAttribute("searchCountryList", searchCountryList);
 			request.setAttribute("check", "result");
 			RequestDispatcher rd = request.getRequestDispatcher("search.jsp");
 			rd.forward(request, response);
+			
 			return;
 		}else if(command.equals("teamDetail")){
 			int teamNum = Integer.parseInt(request.getParameter("teamNum"));
@@ -90,15 +90,18 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			request.setAttribute("teamDetail", teamDetail);
 			RequestDispatcher rd = request.getRequestDispatcher("teamDetail.jsp");
 			rd.forward(request, response);
+			
 			return;
 		}else if(command.equals("aboutIIV")){
 			RequestDispatcher rd = request.getRequestDispatcher("aboutIIV.jsp");
 			rd.forward(request, response);
+			
 			return;
 		}else if(command.equals("searchPage")){
 			request.setAttribute("check", "page");
 			RequestDispatcher rd = request.getRequestDispatcher("search.jsp");
 			rd.forward(request, response);
+			
 			return;
 		}
 	}

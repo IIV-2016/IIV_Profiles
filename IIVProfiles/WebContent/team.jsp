@@ -57,7 +57,7 @@
 							for (int i = 0; i < teamList.length; i++) {
 								team = teamList[i];
 						%>
-						<li><a href="#<%=team.getTeam()%>"><%=team.getTeam()%></a></li>
+						<li><a href="#<%=team.getName()%>"><%=team.getName()%></a></li>
 						<%
 							}
 						%>
@@ -72,9 +72,9 @@
 				%>
 				<div class="row portfolio-item margin-bottom-10">
 					<!-- Content Info -->
-					<section id="<%=team.getTeam()%>">
+					<section id="<%=team.getName()%>">
 						<div class="heading heading-v1 margin-bottom">
-							<a href="<%=request.getContextPath()%>/volunteer.do?command=teamDetail&teamNum=<%=team.getTeamNum()%>"><h2><%=team.getTeam()%>  <i class="fa fa-angle-right" style="color: #72c02c;"></i><i class="fa fa-angle-right" style="color: #72c02c;"></i></h2></a>
+							<a href="<%=request.getContextPath()%>/volunteer.do?command=teamDetail&teamNum=<%=team.getNumber()%>"><h2><%=team.getName()%>  <i class="fa fa-angle-right" style="color: #72c02c;"></i><i class="fa fa-angle-right" style="color: #72c02c;"></i></h2></a>
 						</div>
 					</section>
 				</div>
@@ -95,8 +95,8 @@
 									volunteer = team.getVolunteer()[j];
 						%>
 						<div class="item">
-							<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getMemberNum()%>">
-								<em class="overflow-hidden"> <img class="img-responsive" src="<%=volunteer.getLink()%>" alt="<%=volunteer.getFirstname()%><%=volunteer.getLastname()%>"></em>
+							<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getNumber()%>">
+								<em class="overflow-hidden"> <img class="img-responsive" src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%><%=volunteer.getLastname()%>"></em>
 								<span> <strong><%=volunteer.getFirstname()%><%=volunteer.getLastname()%></strong><i><%=volunteer.getRole()%></i></span>
 							</a>
 						</div>

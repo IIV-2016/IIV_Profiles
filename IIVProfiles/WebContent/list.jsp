@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="model.domain.VolunteerBean"%>
+<%@ page import="model.domain.TeamBean"%>
 <%
-	VolunteerBean[] list = (VolunteerBean[]) request.getAttribute("list");
+	TeamBean[] list = (TeamBean[]) request.getAttribute("list");
 	String year = "2016";
 %>
 <!DOCTYPE html>
@@ -78,20 +78,20 @@
 									%>
 									<%
 										} else {
-											VolunteerBean volunteer = null;
+											TeamBean team = null;
 											for (int i = 0; i < list.length; i++) {
-												volunteer = list[i];
+												team = list[i];
 									%>
 									<div class="col-sm-3 col-xs-6 md-margin-bottom-20">
 										<div class="cbp-item graphic">
 											<div class="cbp-caption margin-bottom-20">
-												<a href="<%=request.getContextPath()%>/volunteer.do?command=team&country=<%=volunteer.getCountry()%>&year=<%=year%>">
-													<img src="assets/img/country/<%=volunteer.getCountry()%>.png" alt="<%=volunteer.getCountry()%>" class="img-responsive">
+												<a href="<%=request.getContextPath()%>/volunteer.do?command=team&country=<%=team.getCountry()%>&year=<%=year%>">
+													<img src="assets/img/country/<%=team.getCountry()%>.png" alt="<%=team.getCountry()%>" class="img-responsive">
 												</a>
 											</div>
 											<div class="cbp-title-dark">
-												<div class="cbp-l-grid-agency-title"><%=volunteer.getCountry()%></div>
-												<div class="cbp-l-grid-agency-desc"> dispatch team: <%=volunteer.getMemberNum()/4%></div>
+												<div class="cbp-l-grid-agency-title"><%=team.getCountry()%></div>
+												<div class="cbp-l-grid-agency-desc"> dispatch team: <%=team.getNumber()%></div>
 											</div>
 										</div>
 									</div>

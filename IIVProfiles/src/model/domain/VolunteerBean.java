@@ -1,7 +1,7 @@
 package model.domain;
 
 public class VolunteerBean {
-	private int memberNum;
+	private int number;
 	private String firstname;
 	private String lastname;
 	private String birth;
@@ -11,25 +11,18 @@ public class VolunteerBean {
 	private String major;
 	private String expertise;
 	private String experience;
-	private String team;
-	private String country;
-	private String org;
 	private String role;
 	private String email;
-	private String link;
-	private String year;
+	private String image;
+	private int teamNumber;
+	private TeamBean team;
 
 	public VolunteerBean() { }
 
-	public VolunteerBean(int memberNum, String country) {
-		this.memberNum = memberNum;
-		this.country = country;
-	}
-
-	public VolunteerBean(int memberNum, String firstname, String lastname, String birth, String gender,
-			String university, String majorclass, String major, String expertise, String experience, String team,
-			String country, String org, String role, String email, String link, String year) {
-		this.memberNum = memberNum;
+	public VolunteerBean(int number, String firstname, String lastname, String birth, String gender, String university,
+			String majorclass, String major, String expertise, String experience, String role, String email,
+			String image, int teamNumber) {
+		this.number = number;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.birth = birth;
@@ -39,21 +32,39 @@ public class VolunteerBean {
 		this.major = major;
 		this.expertise = expertise;
 		this.experience = experience;
-		this.team = team;
-		this.country = country;
-		this.org = org;
 		this.role = role;
 		this.email = email;
-		this.link = link;
-		this.year = year;
+		this.image = image;
+		this.teamNumber = teamNumber;
+	}
+	
+	public VolunteerBean(int number, String firstname, String lastname, String birth, String gender, String university,
+			String majorclass, String major, String expertise, String experience, String role, String email,
+			String image, int teamNumber, TeamBean team) {
+		super();
+		this.number = number;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.birth = birth;
+		this.gender = gender;
+		this.university = university;
+		this.majorclass = majorclass;
+		this.major = major;
+		this.expertise = expertise;
+		this.experience = experience;
+		this.role = role;
+		this.email = email;
+		this.image = image;
+		this.teamNumber = teamNumber;
+		this.team = team;
 	}
 
-	public int getMemberNum() {
-		return memberNum;
+	public int getNumber() {
+		return number;
 	}
 
-	public void setMemberNum(int memberNum) {
-		this.memberNum = memberNum;
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
 	public String getFirstname() {
@@ -128,30 +139,6 @@ public class VolunteerBean {
 		this.experience = experience;
 	}
 
-	public String getTeam() {
-		return team;
-	}
-
-	public void setTeam(String team) {
-		this.team = team;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public String getOrg() {
-		return org;
-	}
-
-	public void setOrg(String org) {
-		this.org = org;
-	}
-
 	public String getRole() {
 		return role;
 	}
@@ -168,27 +155,35 @@ public class VolunteerBean {
 		this.email = email;
 	}
 
-	public String getLink() {
-		return link;
+	public String getImage() {
+		return image;
 	}
 
-	public void setLink(String link) {
-		this.link = link;
+	public void setImage(String image) {
+		this.image = image;
 	}
 
-	public String getYear() {
-		return year;
+	public int getTeamNumber() {
+		return teamNumber;
 	}
 
-	public void setYear(String year) {
-		this.year = year;
+	public void setTeamNumber(int teamNumber) {
+		this.teamNumber = teamNumber;
+	}
+	
+	public TeamBean getTeam() {
+		return team;
+	}
+
+	public void setTeam(TeamBean team) {
+		this.team = team;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("VolunteerBean [memberNum=");
-		builder.append(memberNum);
+		builder.append("VolunteerBean [number=");
+		builder.append(number);
 		builder.append(", firstname=");
 		builder.append(firstname);
 		builder.append(", lastname=");
@@ -207,20 +202,16 @@ public class VolunteerBean {
 		builder.append(expertise);
 		builder.append(", experience=");
 		builder.append(experience);
-		builder.append(", team=");
-		builder.append(team);
-		builder.append(", country=");
-		builder.append(country);
-		builder.append(", org=");
-		builder.append(org);
 		builder.append(", role=");
 		builder.append(role);
 		builder.append(", email=");
 		builder.append(email);
-		builder.append(", link=");
-		builder.append(link);
-		builder.append(", year=");
-		builder.append(year);
+		builder.append(", image=");
+		builder.append(image);
+		builder.append(", teamNumber=");
+		builder.append(teamNumber);
+		builder.append(", team=");
+		builder.append(team);
 		builder.append("]");
 		return builder.toString();
 	}
