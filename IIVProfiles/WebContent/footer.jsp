@@ -5,7 +5,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<p>
-							<a href="#">Developed by 2016 IIV Long-term Volunteers EquAll</a>
+							<a href="#">Developed by 2016 IIV Long-term Volunteers thaIT</a>
 						</p>
 					</div>
 				</div>
