@@ -61,16 +61,20 @@
 				</div>
 			</div>
 		</div>
-		<div class="container content">
+		<div class="container">
 			<div class="content-xs">
 				<div id="filters-container" class="cbp-l-filters-text content-xs">
-					<div data-filter="*" class="cbp-filter-item-active cbp-filter-item">
-						All</div> |
 					<%
 						if (list == null || searchCountryList.size() == 0) {
 					%>
 					<%
 						} else {
+					%>
+					<div class="heading heading-v1 margin-bottom">
+						<h2>About <span class="color-green"><%=list.length %></span> results</h2>
+					</div>
+					<div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All</div> |
+					<%
 							for (int i = 0; i < searchCountryList.size(); i++) {
 					%>
 					<div data-filter=".<%=searchCountryList.get(i)%>" class="cbp-filter-item">
