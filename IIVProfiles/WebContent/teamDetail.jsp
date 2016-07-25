@@ -4,7 +4,7 @@
 <%@ page import="model.domain.VolunteerBean"%>
 <%@ page import="model.domain.TeamBean"%>
 <%
-	TeamBean teamDetail = (TeamBean) request.getAttribute("teamDetail");
+	TeamBean team = (TeamBean) request.getAttribute("team");
 %>
 
 <!DOCTYPE html>
@@ -52,11 +52,11 @@
 		<div class="wrapper">
 			<div class="breadcrumbs">
 				<div class="container">
-					<h1 class="pull-left"><%=teamDetail.getName() %></h1>
+					<h1 class="pull-left"><%=team.getName() %></h1>
 					<ul class="pull-right breadcrumb">
-						<li><%=teamDetail.getYear() %></li>
-						<li><%=teamDetail.getCountry() %></li>
-						<li>Organization : <%=teamDetail.getOrganization() %></li>
+						<li><%=team.getYear() %></li>
+						<li><%=team.getCountry() %></li>
+						<li>Organization : <%=team.getOrganization() %></li>
 					</ul>
 				</div>
 			</div>
@@ -64,7 +64,7 @@
 				<div class="row">
 					<div class="col-md-9">
 						<div class="heading heading-v1 margin-bottom-40">
-							<p><%=teamDetail.getIntroduce() %> to be continued</p>
+							<p><%=team.getIntroduce() %> to be continued</p>
 						</div>
 						<div class="row margin-bottom-50">
 							<div class="col-md-6 shadow-wrapper md-margin-bottom-40">
@@ -83,11 +83,11 @@
 										<div class="row margin-bottom-10">
 										<%
 											VolunteerBean volunteer = null;
-											for (int i = 0; i < teamDetail.getVolunteer().length; i++) {
-													volunteer = teamDetail.getVolunteer()[i];
+											for (int i = 0; i < team.getVolunteer().length; i++) {
+													volunteer = team.getVolunteer()[i];
 										%>
 											<div class="col-sm-3 col-xs-6 md-margin-bottom-20">
-												<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getNumber()%>">
+												<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">
 												<img class="img-responsive rounded-2x" src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%> "></a>
 												<center><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></center>
 											</div>
@@ -107,7 +107,7 @@
 							<div class="row margin-bottom-60">
 								<div class="col-md-6">
 									<div class="responsive-video">
-										<iframe width="100%" src="<%=teamDetail.getMovie()%>" frameborder="0" allowfullscreen></iframe>
+										<iframe width="100%" src="<%=team.getMovie()%>" frameborder="0" allowfullscreen></iframe>
 									</div>
 								</div>
 							</div>

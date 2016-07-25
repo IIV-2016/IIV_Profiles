@@ -136,7 +136,7 @@
 									<li><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></li>
 									<li><span class="color-green">Major:</span> <%=volunteer.getMajor()%></li>
 								</ul>
-								<a class="btn-u btn-u-sm" href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getNumber()%>">View More</a>
+								<a class="btn-u btn-u-sm" href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">View More</a>
 							</div>
 						</div>
 					</div>

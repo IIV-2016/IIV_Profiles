@@ -60,9 +60,9 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			
 			return;
 		}else if(command.equals("member")){
-			int memberNum = Integer.parseInt(request.getParameter("memberNum"));
+			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
 
-			VolunteerBean volunteer = VolunteerDAO.readMember(memberNum);
+			VolunteerBean volunteer = VolunteerDAO.readMember(memberNumber);
 			request.setAttribute("volunteer", volunteer);
 			RequestDispatcher rd = request.getRequestDispatcher("member.jsp");
 			rd.forward(request, response);
@@ -85,9 +85,9 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			
 			return;
 		}else if(command.equals("teamDetail")){
-			int teamNum = Integer.parseInt(request.getParameter("teamNum"));
-			TeamBean teamDetail = VolunteerDAO.readTeamDetail(teamNum);
-			request.setAttribute("teamDetail", teamDetail);
+			int teamNumber = Integer.parseInt(request.getParameter("teamNumber"));
+			TeamBean team = VolunteerDAO.readTeamDetail(teamNumber);
+			request.setAttribute("team", team);
 			RequestDispatcher rd = request.getRequestDispatcher("teamDetail.jsp");
 			rd.forward(request, response);
 			

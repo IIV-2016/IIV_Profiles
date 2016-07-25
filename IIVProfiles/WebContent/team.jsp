@@ -74,7 +74,7 @@
 					<!-- Content Info -->
 					<section id="<%=team.getName()%>">
 						<div class="heading heading-v1 margin-bottom">
-							<a href="<%=request.getContextPath()%>/volunteer.do?command=teamDetail&teamNum=<%=team.getNumber()%>"><h2><%=team.getName()%>  <i class="fa fa-angle-right" style="color: #72c02c;"></i><i class="fa fa-angle-right" style="color: #72c02c;"></i></h2></a>
+							<a href="<%=request.getContextPath()%>/volunteer.do?command=teamDetail&teamNumber=<%=team.getNumber()%>"><h2><%=team.getName()%>  <i class="fa fa-angle-right" style="color: #72c02c;"></i><i class="fa fa-angle-right" style="color: #72c02c;"></i></h2></a>
 						</div>
 					</section>
 				</div>
@@ -95,7 +95,7 @@
 									volunteer = team.getVolunteer()[j];
 						%>
 						<div class="item">
-							<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNum=<%=volunteer.getNumber()%>">
+							<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">
 								<em class="overflow-hidden"> <img class="img-responsive" src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%><%=volunteer.getLastname()%>"></em>
 								<span> <strong><%=volunteer.getFirstname()%><%=volunteer.getLastname()%></strong><i><%=volunteer.getRole()%></i></span>
 							</a>
