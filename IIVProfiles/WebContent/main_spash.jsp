@@ -18,7 +18,9 @@ return}
 </script>
 </head>
 <body>
+<div align = "center" id="ima">
 <img  src="assets/img/spash_image.png">
+</div>
 <body onload="timeout()">
 </body>
 </html>
