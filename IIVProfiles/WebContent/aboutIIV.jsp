@@ -105,7 +105,7 @@
 				<div class="container content-sm">
 					<div class="row">
 						<center>
-						<img src="assets/img/activities.png">
+						<img src="assets/img/activities.png" style="width: 80%">
 						</center>
 					</div><!--/end row-->
 				</div><!--/end container-->
