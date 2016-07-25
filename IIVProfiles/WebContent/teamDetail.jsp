@@ -66,7 +66,7 @@
 				</div>
 				<div class="margin-bottom-50">
 						<div class="box-shadow shadow-effect-2">
-							<img class="img-responsive" src="assets/img/breadcrumbs/img2.jpg" alt="">
+							<img class="img-responsive" src="assets/img/iiv.jpg" alt="iiv">
 						</div>
 				</div>
 				<section id="teamMember">
@@ -84,7 +84,7 @@
 								%>
 									<div class="col-sm-3 col-xs-6 md-margin-bottom-20">
 										<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">
-										<img class="img-responsive rounded-2x" src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%> "></a>
+										<img class="img-responsive" src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%> "></a>
 										<center><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></center>
 									</div>
 								<% 

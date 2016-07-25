@@ -435,7 +435,7 @@
 ------------------------------------*/
 .breadcrumbs-v3 {
   z-index: 1;
-  padding: 100px 0;
+  padding: 20px 0;
   position: relative;
 }
 
@@ -444,7 +444,7 @@
 }
 
 .breadcrumbs-v3.img-v1 {
-  background: url(../img/breadcrumbs/img2.jpg) no-repeat;
+  background: url(../img/iiv.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
 }
@@ -2001,7 +2001,7 @@
 .call-action-v2 {
   padding: 50px 0;
   text-align: center;
-  background: url(../img/breadcrumbs/16.png);
+  background: url(../img/patterns/16.png);
 }
 
 .call-action-v2 h2 {

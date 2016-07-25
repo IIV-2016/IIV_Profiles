@@ -7,7 +7,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-	<title>Our Team | Unify - Responsive Website Template</title>
+	<title>About Developer | International ICT Volunteers</title>
 
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -45,23 +45,17 @@
 
 <body>
 	<div class="wrapper">
-		<!--=== Breadcrumbs v3 ===-->
-		<div class="breadcrumbs-v1 img-v1 margin-bottom-60">
-			<div class="container text-center">
-				<h4>About Team</h4>
-				<h1>Our Professional Team Members</h1>
-			</div><!--/end container-->
-		</div>
-		<!--=== End Breadcrumbs v3 ===-->
-
-		<!--=== Team v5 ===-->
-		<div class="container">
-			<div class="headline-center margin-bottom-60">
-				<h2>Developer</h2>
-				<p>We are 2016 IIV members<br>
-				<h3>thaIT</h3></p>
+		<div class="breadcrumbs-v3 img-v1 text-center">
+			<div class="container">
+				<h1>About Developer</h1>
+				<p>International ICT Volunteers</p>
 			</div>
-
+		</div>	
+		<div class="container content">
+			<div class="heading heading-v1 margin-bottom-40">
+				<h2>Developer <span class="color-green">thaIT</span></h2>
+				<p>We are 2016 IIV members</p>
+			</div>		
 			<div class="row team-v5 margin-bottom-30">
 				<div class="col-sm-4 sm-margin-bottom-50">
 					<div class="team-img">
@@ -101,11 +95,8 @@
 				</div>
 			</div><!--/end team v5-->
 		</div>
-		<!--=== End Team v5 ===-->
-
-		<hr class="margin-bottom-60">
-
-		<%@include file="./footer.jsp"%>
+	</div>
+	<%@include file="./footer.jsp"%>
 
 	<!-- JS Global Compulsory -->
 	<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>

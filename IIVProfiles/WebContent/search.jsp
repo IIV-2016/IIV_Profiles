@@ -95,7 +95,7 @@
 			%>
 			<div class="heading heading-v1 margin-bottom">
 				<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
-				<p>We can not find search keyword.<p>
+				<p>We cannot find search keyword.<p>
 			</div>			
 			<%
 				} else {

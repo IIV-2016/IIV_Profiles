@@ -70,15 +70,13 @@
 					for (int i = 0; i < teamList.length; i++) {
 						team = teamList[i];
 				%>
-				<div class="row portfolio-item margin-bottom-10">
-					<!-- Content Info -->
+				<div class="row portfolio-item">
 					<section id="<%=team.getName()%>">
-						<div class="heading heading-v1 margin-bottom">
+						<div class="heading heading-v1">
 							<a href="<%=request.getContextPath()%>/volunteer.do?command=teamDetail&teamNumber=<%=team.getNumber()%>"><h2><%=team.getName()%>  <i class="fa fa-angle-right" style="color: #72c02c;"></i><i class="fa fa-angle-right" style="color: #72c02c;"></i></h2></a>
 						</div>
 					</section>
 				</div>
-				<br>
 				<div class="owl-carousel-v1 owl-work-v1">
 					<div class="headline">
 						<h2 class="pull-left">Team Members</h2>
@@ -105,9 +103,7 @@
 						%>
 					</div>
 				</div>
-				<div class="clearfix margin-bottom-20">
-					<hr>
-				</div>
+				<hr>
 				<%
 					}
 				%>
