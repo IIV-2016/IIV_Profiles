@@ -13,10 +13,10 @@
 					<a href="<%=request.getContextPath()%>/volunteer.do"> Home </a>
 				</li>
 				<li class="dropdown">
-					<a href="<%=request.getContextPath()%>/search.jsp"> Search </a>
+					<a href="<%=request.getContextPath()%>/volunteer.do?command=search"> Search </a>
 				</li>
 				<li class="dropdown">
-					<a href="<%=request.getContextPath()%>/aboutIIV.jsp"> About IIV </a>
+					<a href="<%=request.getContextPath()%>/volunteer.do?command=aboutIIV"> About IIV </a>
 				</li>
 			</ul>
 		</div>
