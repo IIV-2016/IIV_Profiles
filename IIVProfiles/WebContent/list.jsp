@@ -50,7 +50,6 @@
 	</head>
 	<body class="header-fixed">
 		<div class="wrapper">
-			<!--=== Cube-Portfdlio ===-->
 			<div class="container content">
 				<div class="content-xs">
 					<div id="filters-container" class="cbp-l-filters-text content-xs">

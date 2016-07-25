@@ -43,44 +43,42 @@
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
 		<%@include file="./header.jsp"%>
 	</head>
-	<body class="header-fixed">
-		<div class="wrapper">
-			<div class="search-block parallaxBg">
-				<div class="container">
-					<div class="col-md-6 col-md-offset-3">
-						<h1>IIV PROFILES <span class="color-green">SEARCH</span></h1>
-						<form name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
-						<div class="input-group">
-								<input type="hidden" name="command" value="search">
-								<input type="text" name="major" class="form-control" placeholder="Search words with major.">
-								<span class="input-group-btn">
-									<button class="btn-u btn-u-lg" type="submit"><i class="fa fa-search"></i></button>
-								</span>
-						</div>
-						</form>
+	<body>
+		<div class="search-block parallaxBg">
+			<div class="container">
+				<div class="col-md-6 col-md-offset-3">
+					<h1>IIV PROFILES <span class="color-green">SEARCH</span></h1>
+					<form name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
+					<div class="input-group">
+							<input type="hidden" name="command" value="search">
+							<input type="text" name="major" class="form-control" placeholder="Search words with major.">
+							<span class="input-group-btn">
+								<button class="btn-u btn-u-lg" type="submit"><i class="fa fa-search"></i></button>
+							</span>
 					</div>
+					</form>
 				</div>
 			</div>
-			<div class="job-img margin-bottom-30">
-				<div class="content-xs">
-					<div id="filters-container" class="cbp-l-filters-text content-xs">
-						<div data-filter="*" class="cbp-filter-item-active cbp-filter-item">
-							All</div> |
-						<%
-							if (list == null || searchCountryList.size() == 0) {
-						%>
-						<%
-							} else {
-								for (int i = 0; i < searchCountryList.size(); i++) {
-						%>
-						<div data-filter=".<%=searchCountryList.get(i)%>" class="cbp-filter-item">
-							<%=searchCountryList.get(i)%>
-						</div>
-						<%
-								}
-							}
-						%>
+		</div>
+		<div class="container content">
+			<div class="content-xs">
+				<div id="filters-container" class="cbp-l-filters-text content-xs">
+					<div data-filter="*" class="cbp-filter-item-active cbp-filter-item">
+						All</div> |
+					<%
+						if (list == null || searchCountryList.size() == 0) {
+					%>
+					<%
+						} else {
+							for (int i = 0; i < searchCountryList.size(); i++) {
+					%>
+					<div data-filter=".<%=searchCountryList.get(i)%>" class="cbp-filter-item">
+						<%=searchCountryList.get(i)%>
 					</div>
+					<%
+							}
+						}
+					%>
 				</div>
 			</div>
 			<div id="grid-container" class="cbp-l-grid-agency">
@@ -91,57 +89,54 @@
 				<% 
 					}else if (check.equals("result") && (list == null || list.length == 0)) {
 				%>
-					<div class="cbp-item margin-bottom-20">
-						<div class="col-sm-6 md-margin-bottom-40">
-							<div class="heading heading-v1 margin-bottom">
-								<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
-								<p>We can not find search keyword.<p>
-							</div>
-						</div>
-					</div>
+				<div class="heading heading-v1 margin-bottom">
+					<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
+					<p>We can not find search keyword.<p>
+				</div>
 				<%
 					} else {
 						for (int i = 0; i < list.length; i++) {
 							volunteer = list[i];
-				%>
+				%>					
 				<div class="cbp-item <%=volunteer.getTeam().getCountry()%>">
 					<div class="cbp-caption margin-bottom-20">
-						<div class="col-sm-6 md-margin-bottom-40">
+						<div class="cbp-caption-defaultWrap">
 							<div class="easy-block-v1">
 								<div class="easy-block-v1-badge rgba-default"><%=volunteer.getRole()%></div>
-								<div id="carousel-example-generic" class="carousel slide"
-									data-ride="carousel">
-									<div class="carousel-inner">
-										<div class="item active">
-											<img src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%><%=volunteer.getLastname()%>">
-										</div>
-									</div>
+								<img src="<%=volunteer.getImage()%>" alt="">
+							</div>
+						</div>
+						<div class="cbp-caption-activeWrap">
+							<div class="cbp-l-caption-alignCenter">
+								<div class="cbp-l-caption-body">
+									<ul class="link-captions no-bottom-space">
+										<li><a href="portfolio_single_item.html"><i class="rounded-x fa fa-link"></i></a></li>
+										<li><a href="assets/img/main/img26.jpg" class="cbp-lightbox" data-title="Design Object"><i class="rounded-x fa fa-search"></i></a></li>
+									</ul>
 								</div>
-								<div class="overflow-h">
-									<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h3>
-									<div class="star-vote pull-right">
-										<ul class="list-inline">
-											<li><i class="color-green fa fa-star"></i></li>
-										</ul>
-									</div>
-								</div>
-								<ul class="list-unstyled">
-									<li><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></li>
-									<li><span class="color-green">Major:</span> <%=volunteer.getMajor()%></li>
-								</ul>
-								<a class="btn-u btn-u-sm" href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">View More</a>
 							</div>
 						</div>
 					</div>
+					<div class="overflow-h">
+						<div class="star-vote pull-right">
+							<ul class="list-inline">
+								<li><i class="color-green fa fa-star"></i></li>
+							</ul>
+						</div>
+						<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h3>
+					</div>
+					<ul class="list-unstyled">
+						<li><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></li>
+						<li><span class="color-green">Major:</span> <%=volunteer.getMajor()%></li>
+					</ul>
 				</div>
 				<%
 						}
 					}
-				%>
+				%>					
 			</div>
-			
-			<%@include file="./footer.jsp"%>
-		</div>
+		</div>			
+		<%@include file="./footer.jsp"%>
 		<!-- JS Global Compulsory -->
 		<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
@@ -150,8 +145,7 @@
 		<script type="text/javascript" src="assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
 		<!-- JS Page Level -->
 		<script type="text/javascript" src="assets/js/app.js"></script>
-		<script type="text/javascript" src="assets/js/plugins/cube-portfolio/cube-portfolio-2.js"></script>
-		<script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
+		<script type="text/javascript" src="assets/js/plugins/cube-portfolio/cube-portfolio-4.js"></script>
 		<!--[if lt IE 9]>
 		<script src="assets/plugins/respond.js"></script>
 		<script src="assets/plugins/html5shiv.js"></script>
