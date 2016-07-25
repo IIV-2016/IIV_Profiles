@@ -51,7 +51,7 @@
 	<body class="header-fixed">
 		<div class="wrapper">
 			<!--=== Cube-Portfdlio ===-->
-			<div class="cube-portfolio margin-bottom-20">
+			<div class="container content">
 				<div class="content-xs">
 					<div id="filters-container" class="cbp-l-filters-text content-xs">
 						<div class="cbp-filter-item">
@@ -68,7 +68,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-9">
+				<div class="content-xs">
 					<div class="tab-v1 margin-bottom-40">
 						<div class="tab-content">
 							<div class="tab-pane fade in fade in active" id="tab-img-1">
@@ -104,7 +104,6 @@
 						</div>
 					</div>
 				</div>
-				<br>
 			</div>
 			<%@include file="./footer.jsp"%>
 		</div>

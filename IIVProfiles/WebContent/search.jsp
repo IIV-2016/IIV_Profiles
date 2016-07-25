@@ -38,37 +38,30 @@
 		<!-- CSS Implementing Plugins -->
 		<link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
 		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/pages/page_search.css">
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
-		
 		<%@include file="./header.jsp"%>
 	</head>
 	<body class="header-fixed">
 		<div class="wrapper">
-			<div class="job-img margin-bottom-30">
-				<div class="title-box-v2">
-					<h2>
-						IIV Profiles <span class="color-green">Search</span>
-					</h2>
-				</div>
-				<form name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
-					<input type="hidden" name="command" value="search">
-					<div class="job-img-inputs">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-4 md-margin-bottom-10">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-tag"></i></span>
-										<input type="text" name="major" placeholder="what major you are looking for" class="form-control">
-									</div>
-								</div>
-								<div class="col-sm-4">
-									<input type=submit class="btn-u btn-block btn-u-dark" value="Search Volunteer">
-								</div>
-							</div>
+			<div class="search-block parallaxBg">
+				<div class="container">
+					<div class="col-md-6 col-md-offset-3">
+						<h1>IIV PROFILES <span class="color-green">SEARCH</span></h1>
+						<form name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
+						<div class="input-group">
+								<input type="hidden" name="command" value="search">
+								<input type="text" name="major" class="form-control" placeholder="Search words with major.">
+								<span class="input-group-btn">
+									<button class="btn-u btn-u-lg" type="submit"><i class="fa fa-search"></i></button>
+								</span>
 						</div>
+						</form>
 					</div>
-				</form>
+				</div>
+			</div>
+			<div class="job-img margin-bottom-30">
 				<div class="content-xs">
 					<div id="filters-container" class="cbp-l-filters-text content-xs">
 						<div data-filter="*" class="cbp-filter-item-active cbp-filter-item">
