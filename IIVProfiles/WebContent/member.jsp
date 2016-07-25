@@ -67,7 +67,7 @@
 							</div>
 							</h1>
 						</div>
-						<p><span><%=volunteer.getTeam()%></span>, <span><%=volunteer.getRole()%></span></p>
+						<p><span><%=volunteer.getTeam().getName()%></span>, <span><%=volunteer.getRole()%></span></p>
 					</div>
 				</div>
 			</div>
