@@ -103,6 +103,11 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			rd.forward(request, response);
 			
 			return;
+		}else if(command.equals("aboutDeveloper")){
+			RequestDispatcher rd = request.getRequestDispatcher("aboutDeveloper.jsp");
+			rd.forward(request, response);
+			
+			return;
 		}
 	}
 }

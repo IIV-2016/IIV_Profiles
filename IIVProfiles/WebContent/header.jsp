@@ -18,6 +18,9 @@
 				<li class="dropdown">
 					<a href="<%=request.getContextPath()%>/volunteer.do?command=aboutIIV"> About IIV </a>
 				</li>
+				<li class="dropdown">
+					<a href="<%=request.getContextPath()%>/volunteer.do?command=aboutDeveloper"> About Developer </a>
+				</li>
 			</ul>
 		</div>
 	</div>

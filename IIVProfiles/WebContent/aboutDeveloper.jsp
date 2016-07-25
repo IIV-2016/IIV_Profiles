@@ -57,72 +57,53 @@
 		<!--=== Team v5 ===-->
 		<div class="container">
 			<div class="headline-center margin-bottom-60">
-				<h2>ACCOUNT DIRECTORS</h2>
-				<p>Phasellus vitae ipsum ex. Etiam eu vestibulum ante. <br>
-					Lorem ipsum <strong>dolor</strong> sit amet, consectetur adipiscing elit. Morbi libero libero, imperdiet fringilla </p>
+				<h2>Developer</h2>
+				<p>We are 2016 IIV members<br>
+				<h3>thaIT</h3></p>
 			</div>
 
 			<div class="row team-v5 margin-bottom-30">
 				<div class="col-sm-4 sm-margin-bottom-50">
 					<div class="team-img">
-						<img class="img-responsive" src="assets/img/team/img1-md.jpg" alt="">
+						<img class="img-responsive" src="assets/img/developer/jinny.jpg" alt="">
 						<div class="team-hover">
 							<ul class="list-inline team-social-v5">
-								<li><a href="#"><i class="rounded-x fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="rounded-x fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="rounded-x fa fa-google-plus"></i></a></li>
+								<li><a href="mailto:023and@gmail.com"><i class="rounded-x fa fa-google-plus"></i></a></li>
 							</ul>
 						</div>
 					</div>
-					<span>Marketing</span>
-					<small>Technical Director</small>
-					<p>Pellentesque habitant morbi tristique senectus netus et malesuada fames ac turpis egestas.</p>
+					<span>Jinny</span>
+					<small>Developer</small>
 				</div>
 				<div class="col-sm-4 sm-margin-bottom-50">
 					<div class="team-img">
-						<img class="img-responsive" src="assets/img/team/img5-md.jpg" alt="">
+						<img class="img-responsive" src="assets/img/developer/danbi.jpg" alt="">
 						<div class="team-hover">
 							<ul class="list-inline team-social-v5">
-								<li><a href="#"><i class="rounded-x fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="rounded-x fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="rounded-x fa fa-google-plus"></i></a></li>
+								<li><a href="mailto:danbi066@gmail.com"><i class="rounded-x fa fa-google-plus"></i></a></li>
 							</ul>
 						</div>
 					</div>
-					<span>Sara Lisbon</span>
+					<span>Danbi</span>
 					<small>Developer</small>
-					<p>Pellentesque habitant morbi tristique senectus netus et malesuada fames ac turpis egestas.</p>
 				</div>
 				<div class="col-sm-4">
 					<div class="team-img">
-						<img class="img-responsive" src="assets/img/team/img3-md.jpg" alt="">
+						<img class="img-responsive" src="assets/img/developer/jiyeon.jpg" alt="">
 						<div class="team-hover">
 							<ul class="list-inline team-social-v5">
-								<li><a href="#"><i class="rounded-x fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="rounded-x fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="rounded-x fa fa-google-plus"></i></a></li>
+								<li><a href="mailto:bbologi94@gmail.com"><i class="rounded-x fa fa-google-plus"></i></a></li>
 							</ul>
 						</div>
 					</div>
-					<span>John Doe</span>
-					<small>Designer</small>
-					<p>Pellentesque habitant morbi tristique senectus netus et malesuada fames ac turpis egestas.</p>
+					<span>Jiyeon</span>
+					<small>Developer</small>
 				</div>
 			</div><!--/end team v5-->
 		</div>
 		<!--=== End Team v5 ===-->
 
 		<hr class="margin-bottom-60">
-
-		<!--=== Call To Action v2 ===-->
-		<div class="call-action-v2 parallaxBg">
-			<div class="container">
-				<h2>We are Hiring!</h2>
-				<p>Curabitur hendrerit, lectus in bibendum pellentesque, lacus eros rutrum ligula</p>
-				<a href="#" class="btn-u">Join Now</a>
-			</div>
-		</div>
-		<!--=== End Call To Action v2 ===-->
 
 		<%@include file="./footer.jsp"%>
 
