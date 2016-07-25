@@ -97,23 +97,15 @@
 					} else {
 						for (int i = 0; i < list.length; i++) {
 							volunteer = list[i];
-				%>					
+				%>			
 				<div class="cbp-item <%=volunteer.getTeam().getCountry()%>">
 					<div class="cbp-caption margin-bottom-20">
 						<div class="cbp-caption-defaultWrap">
 							<div class="easy-block-v1">
 								<div class="easy-block-v1-badge rgba-default"><%=volunteer.getRole()%></div>
+								<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">	
 								<img src="<%=volunteer.getImage()%>" alt="">
-							</div>
-						</div>
-						<div class="cbp-caption-activeWrap">
-							<div class="cbp-l-caption-alignCenter">
-								<div class="cbp-l-caption-body">
-									<ul class="link-captions no-bottom-space">
-										<li><a href="portfolio_single_item.html"><i class="rounded-x fa fa-link"></i></a></li>
-										<li><a href="assets/img/main/img26.jpg" class="cbp-lightbox" data-title="Design Object"><i class="rounded-x fa fa-search"></i></a></li>
-									</ul>
-								</div>
+								</a>
 							</div>
 						</div>
 					</div>
