@@ -13,7 +13,7 @@
 					<a href="<%=request.getContextPath()%>/volunteer.do"> Home </a>
 				</li>
 				<li class="dropdown">
-					<a href="<%=request.getContextPath()%>/volunteer.do?command=search"> Search </a>
+					<a href="<%=request.getContextPath()%>/volunteer.do?command=searchPage"> Search </a>
 				</li>
 				<li class="dropdown">
 					<a href="<%=request.getContextPath()%>/volunteer.do?command=aboutIIV"> About IIV </a>
