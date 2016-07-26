@@ -351,7 +351,7 @@
 /*Breadcrumbs v1
 ------------------------------------*/
 .breadcrumbs-v1 {
-  padding: 100px 0;
+  padding: 20px 0;
   position: relative;
   background: url(../img/patterns/img3.jpg) center no-repeat;
   background-size: cover; /*Scales the background image to be as large as possible*/
@@ -450,7 +450,7 @@
 }
 
 .breadcrumbs-v3.img-v2 {
-  background: url(../img/breadcrumbs/img2.jpg) no-repeat;
+  background: url(../img/img3.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
 }
