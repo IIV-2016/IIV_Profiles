@@ -159,7 +159,9 @@
 											<section id="MYSKILLS">BOOKMARKS</section>
 										</h2>
 									</div>
-								<button class="btn-u btn-brd btn-brd-hover rounded-4x btn-u-dark btn-u-xs" type="button">Registration</button>
+								<form>
+									<button class="btn-u btn-brd btn-brd-hover rounded-4x btn-u-dark btn-u-xs" type="submit">Registration</button>
+								</form>
 							<hr/>
 						</div>
 					</div>
