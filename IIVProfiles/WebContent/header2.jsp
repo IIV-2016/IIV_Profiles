@@ -6,7 +6,7 @@
 		</button>
 		<div class="topbar">
 			<ul class="loginbar pull-right">
-				<li><i class="fa fa-user"></i> <a href="page_faq.html">${member.lastname} ${member.firstname}</a></li>
+				<li><i class="fa fa-user"></i> ${member.lastname} ${member.firstname}</li>
 				<li class="topbar-devider"></li>
 				<li><i class="fa fa-lock"></i> <a href="<%=request.getContextPath()%>/login.do?command=logout">Logout</a></li>
 			</ul>
@@ -22,7 +22,7 @@
 					<a href="<%=request.getContextPath()%>/volunteer.do?command=searchPage"> Search </a>
 				</li>
 				<li class="dropdown">
-					<a href=""> MyPage </a>
+					<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=${member.number}"> MyPage </a>
 				</li>				
 				<li class="dropdown">
 					<a href="<%=request.getContextPath()%>/aboutIIV.jsp"> About IIV </a>
