@@ -699,8 +699,7 @@
 .header-v6 .mega-menu .navbar-inner,
 .header-v6 .mega-menu .container {
   	position: relative;
-  	width : 100%;
-  	background : rgba(255,255,255,0.9);
+  	width : 100%; 
   	margin-bottom : 15px;
   	display : block;
 }
