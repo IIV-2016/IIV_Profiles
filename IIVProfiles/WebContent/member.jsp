@@ -172,7 +172,12 @@
 												<section id="MYSKILLS">BOOKMARKS</section>
 											</h2>
 										</div>
-									<button class="btn-u btn-brd btn-brd-hover rounded-4x btn-u-dark btn-u-xs" type="button">Registration</button>
+									<form action="<%=request.getContextPath()%>/bookmark.do" method="post">
+										<input type="hidden" name="command" value="registration">
+										<input type="hidden" name="likedMemberNumber" value="<%=volunteer.getNumber()%>">
+										<input type="hidden" name="memberNumber" value="${member.number}">
+										<button class="btn-u btn-brd btn-brd-hover rounded-4x btn-u-dark btn-u-xs" type="submit">Registration</button>
+									</form>
 								<hr/>
 							</div>
 						</div>

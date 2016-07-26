@@ -51,6 +51,44 @@ public class MemberDAO{
 		return null;
 	}
 	
+	public static VolunteerBean addLikedMember(String likedMemberNumber, String memberNumber){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try{
+			con = source.getConnection();
+			pstmt = con.prepareStatement("INSERT INTO BOOKMARK(LIKE_MEMBER_NUMBER, MEMBER_NUMBER) VALUES(? , ?)");
+			pstmt.setInt(1, Integer.parseInt(likedMemberNumber));
+			pstmt.setInt(2, Integer.parseInt(memberNumber));
+			pstmt.executeUpdate();
+			
+			return new VolunteerBean(Integer.parseInt(likedMemberNumber));
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			close(pstmt, con);
+		}
+		return null;
+	}
+	
+	public static void close(Statement stmt, Connection con){
+		try{
+			if(stmt != null){
+				stmt.close();
+				stmt = null;
+			}
+			
+			if(con != null){
+				con.close();
+				con = null;
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+	
 	public static void close(ResultSet rset, Statement stmt, Connection con){
 		try{
 			if(rset != null){

@@ -65,6 +65,11 @@ public class VolunteerBean {
 		this.teamNumber = teamNumber;
 		this.team = team;
 	}
+	
+	public VolunteerBean(int number) {
+		super();
+		this.number = number;
+	}
 
 	public int getNumber() {
 		return number;
