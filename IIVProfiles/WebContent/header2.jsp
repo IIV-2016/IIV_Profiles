@@ -8,7 +8,7 @@
 			<ul class="loginbar pull-right">
 				<li><i class="fa fa-user"></i> <a href="page_faq.html">${member.lastname} ${member.firstname}</a></li>
 				<li class="topbar-devider"></li>
-				<li><a href="<%=request.getContextPath()%>/login.do?command=logout">Logout</a></li>
+				<li><i class="fa fa-lock"></i> <a href="<%=request.getContextPath()%>/login.do?command=logout">Logout</a></li>
 			</ul>
 		</div>
 	</div>

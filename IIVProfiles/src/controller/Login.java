@@ -57,7 +57,7 @@ public class Login extends HttpServlet {
 			try{
 				HttpSession session = request.getSession();
 				session.removeAttribute("member");
-				response.sendRedirect("login.jsp");
+				response.sendRedirect("volunteer.do");
 			}catch(Exception e){
 				response.sendRedirect("error.jsp");
 			}

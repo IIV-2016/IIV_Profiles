@@ -4,6 +4,11 @@
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 			<span class="sr-only">Toggle navigation</span> <span class="fa fa-bars"></span>
 		</button>
+		<div class="topbar">
+			<ul class="loginbar pull-right">
+				<li><i class="fa fa-user"></i> <a href="<%=request.getContextPath()%>/login.jsp">Login</a></li>
+			</ul>
+		</div>		
 	</div>
 	<div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
 		<div class="container">
