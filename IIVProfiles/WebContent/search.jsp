@@ -44,10 +44,13 @@
 		
 		<link rel="stylesheet" href="assets/css/text.css">
 		<link rel="stylesheet" href="assets/css/header_fix.css">
+		<link rel="stylesheet" href="assets/css/footer_fix.css">
 		
 		<%@include file="./header.jsp"%>
 	</head>
 	<body>
+<div class="wrap">
+	<div class="footer_content">
 		<div class="search-block parallaxBg">
 			<div class="container">
 				<div class="col-md-6 col-md-offset-3">
@@ -64,6 +67,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="container">
 			<div class="content-xs">
 				<div id="filters-container" class="cbp-l-filters-text content-xs">
@@ -136,8 +140,10 @@
 					}
 				%>					
 			</div>
-		</div>			
+		</div>
+		</div>		
 		<%@include file="./footer.jsp"%>
+		</div>
 		<!-- JS Global Compulsory -->
 		<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>

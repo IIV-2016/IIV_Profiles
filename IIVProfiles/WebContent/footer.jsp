@@ -1,4 +1,4 @@
-<div class="footer-v1 foot_fix">
+<div class="footer footer-v1">
 	<div class="footer">
 		<div class="copyright">
 			<div class="container">
