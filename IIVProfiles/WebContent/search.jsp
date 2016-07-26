@@ -103,12 +103,16 @@
 				<% 
 					if (check.equals("page")) {
 				%>
+				<div class="heading heading-v1 margin-bottom">
+					<h2><span aria-hidden="true" class="fa fa-keyboard-o"></span></h2>
+					<h4>Please type a search keyword.<h4>
+				</div>		
 				<% 
 					}else if (check.equals("result") && (list == null || list.length == 0)) {
 				%>
 				<div class="heading heading-v1 margin-bottom">
 					<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
-					<p>We cannot find search keyword.<p>
+					<h4>We cannot find search keyword.<h4>
 				</div>			
 				<%
 					} else {
