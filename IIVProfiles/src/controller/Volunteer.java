@@ -92,19 +92,9 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			rd.forward(request, response);
 			
 			return;
-		}else if(command.equals("aboutIIV")){
-			RequestDispatcher rd = request.getRequestDispatcher("aboutIIV.jsp");
-			rd.forward(request, response);
-			
-			return;
 		}else if(command.equals("searchPage")){
 			request.setAttribute("check", "page");
 			RequestDispatcher rd = request.getRequestDispatcher("search.jsp");
-			rd.forward(request, response);
-			
-			return;
-		}else if(command.equals("aboutDeveloper")){
-			RequestDispatcher rd = request.getRequestDispatcher("aboutDeveloper.jsp");
 			rd.forward(request, response);
 			
 			return;

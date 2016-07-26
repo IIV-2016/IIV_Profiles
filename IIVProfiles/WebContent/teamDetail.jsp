@@ -61,59 +61,50 @@
 				</div>
 			</div>
 			<div class="container content">
-				<div class="row">
-					<div class="col-md-9">
-						<div class="heading heading-v1 margin-bottom-40">
-							<p><%=team.getIntroduce() %> to be continued</p>
-						</div>
-						<div class="row margin-bottom-50">
-							<div class="col-md-6 shadow-wrapper md-margin-bottom-40">
-								<div class="box-shadow shadow-effect-2">
-									<img class="img-responsive" src="assets/img/breadcrumbs/img2.jpg" alt="">
-								</div>
-							</div>
-						</div>
-						<section id="teamMember">
-							<div class="tab-v1 margin-bottom-40">
-								<ul class="nav nav-tabs">
-									<li class="active"><a href="#tab-img-1" data-toggle="tab">Team Member</a></li>
-								</ul>
-								<div class="tab-content">
-									<div class="tab-pane fade in fade in active" id="tab-img-1">
-										<div class="row margin-bottom-10">
-										<%
-											VolunteerBean volunteer = null;
-											for (int i = 0; i < team.getVolunteer().length; i++) {
-													volunteer = team.getVolunteer()[i];
-										%>
-											<div class="col-sm-3 col-xs-6 md-margin-bottom-20">
-												<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">
-												<img class="img-responsive rounded-2x" src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%> "></a>
-												<center><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></center>
-											</div>
-										<% 
-											} 
-										%>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-						<section id="video">
-							<div class="heading heading-v1 margin-bottom-40">
-								<h2>Introduction Video</h2>
-							</div>
-	
-							<div class="row margin-bottom-60">
-								<div class="col-md-6">
-									<div class="responsive-video">
-										<iframe width="100%" src="<%=team.getMovie()%>" frameborder="0" allowfullscreen></iframe>
-									</div>
-								</div>
-							</div>
-						</section>
-					</div>
+				<div class="heading heading-v1 margin-bottom-40">
+					<h2><%=team.getIntroduce() %> To be continued</h2>
 				</div>
+				<div class="margin-bottom-50">
+						<div class="box-shadow shadow-effect-2">
+							<img class="img-responsive" src="assets/img/iiv.jpg" alt="iiv">
+						</div>
+				</div>
+				<section id="teamMember">
+					<div class="tab-v1 margin-bottom-40">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#tab-img-1" data-toggle="tab">Team Member</a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane fade in fade in active" id="tab-img-1">
+								<div class="row margin-bottom-10">
+								<%
+									VolunteerBean volunteer = null;
+									for (int i = 0; i < team.getVolunteer().length; i++) {
+											volunteer = team.getVolunteer()[i];
+								%>
+									<div class="col-sm-3 col-xs-6 md-margin-bottom-20">
+										<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">
+										<img class="img-responsive" src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%> "></a>
+										<center><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></center>
+									</div>
+								<% 
+									} 
+								%>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section id="video">
+					<div class="heading heading-v1 margin-bottom-40">
+						<h2>Introduction Video</h2>
+					</div>
+					<div class="margin-bottom-60">
+						<div class="responsive-video">
+							<iframe width="100%" src="<%=team.getMovie()%>" frameborder="0" allowfullscreen></iframe>
+						</div>
+					</div>
+				</section>
 			</div>
 			<%@include file="./footer.jsp"%>
 		</div>

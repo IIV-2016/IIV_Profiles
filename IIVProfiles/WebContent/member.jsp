@@ -45,112 +45,118 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<br>
-			<div class="col-md-6">
-				<div class="carousel slide carousel-v1" id="myCarousel">
-					<div class="carousel-inner">
-						<div class="item active">
-							<img src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%>">
-						</div>
-					</div>
-					<div class="carousel-arrow">
-						<a data-slide="prev" href="#myCarousel" class="left carousel-control"> <i class="fa fa-angle-left"></i></a>
-						<a data-slide="next" href="#myCarousel" class="right carousel-control"> <i class="fa fa-angle-right"></i></a>
-					</div>
-					<div class="overflow-h">
-						<div>
-							<h1><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%>
-							<div class="star-vote pull-right">
-									<ul class="list-inline">
-										<li><i class="color-green fa fa-star"></i></li>
-									</ul>
-							</div>
-							</h1>
-						</div>
-						<p><span><%=volunteer.getTeam().getName()%></span>, <span><%=volunteer.getRole()%></span></p>
-					</div>
+			<div class="breadcrumbs">
+				<div class="container">
+					<h1 class="pull-left"><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h1>
+					<ul class="pull-right breadcrumb">
+						<li><a href="#IIVMEMBER">IIV MEMBER</a></li>
+						<li><a href="#PERSONALINFORMATION">PERSONAL INFORMATION</a></li>
+						<li><a href="#MYSKILLS">MY SKILLS</a></li>
+					</ul>
 				</div>
 			</div>
-
 			<div class="container content-sm">
-				<div class="row">
-					<div class="col-md-6 md-margin-bottom-50">
-						<div class="headline-left margin-bottom-30">
-							<h2 class="headline-brd heading-md">
-								IIV <span class="color-green">MEMBER</span>
-							</h2>
-						</div>
-						<p>
-							<h4 class="heading-xs">
-								Gender<span class="pull-right"><%=volunteer.getGender()%></span>
-							</h4>
-						</p>
-						<p>
-							<h4 class="heading-xs">
-								Year of Service<span class="pull-right"><%=volunteer.getTeam().getYear()%></span>
-							</h4>
-						</p>
-						<p>
-							<h4 class="heading-xs">
-								Country<span class="pull-right"><%=volunteer.getTeam().getCountry()%></span>
-							</h4>
-						</p>
-						<p>
-							<h4 class="heading-xs">
-								Host Organization<span class="pull-right"><%=volunteer.getTeam().getOrganization()%></span>
-							</h4>
-						</p>
-						<br>
+				<div class="row about-me">
+					<div class="col-sm-4 shadow-wrapper md-margin-bottom-40">
+						<img class="img-responsive img-bordered full-width" src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%>">
 					</div>
-					<div class="col-md-6 md-margin-bottom-50">
-						<div class="headline-left margin-bottom-30">
-							<h2 class="headline-brd heading-md">
-								PERSONAL <span class="color-green">INFORMATION</span>
-							</h2>
+	
+					<div class="col-sm-8">
+						<div class="col-md-6 md-margin-bottom-50">
+							<div class="headline-left margin-bottom-30">
+								<h2 class="headline-brd heading-md">
+									<section id="IIVMEMBER">IIV MEMBER</section>
+								</h2>
+							</div>
+							<p>
+								<h5 class="heading-xs">
+									<i class="fa fa-angle-right color-green"></i>
+									Team<span class="pull-right">
+									<a href="<%=request.getContextPath()%>/volunteer.do?command=teamDetail&teamNumber=<%=volunteer.getTeamNumber()%>">	
+									<i class="fa fa-angle-double-right color-green"></i><%=volunteer.getTeam().getName()%></span>
+									</a>
+								</h5>
+							</p>
+							<p>
+								<h5 class="heading-xs">
+									<i class="fa fa-angle-right color-green"></i>
+									Year of Service<span class="pull-right"><%=volunteer.getTeam().getYear()%></span>
+								</h5>
+							</p>
+							<p>
+								<h5 class="heading-xs">
+									<i class="fa fa-angle-right color-green"></i>
+									Country<span class="pull-right"><%=volunteer.getTeam().getCountry()%></span>
+								</h5>
+							</p>
+							<p>
+								<h5 class="heading-xs">
+									<i class="fa fa-angle-right color-green"></i>
+									Organization<span class="pull-right"><%=volunteer.getTeam().getOrganization()%></span>
+								</h5>
+							</p>
+							<hr>
 						</div>
-						<p>
-							<h4 class="heading-xs">
-								Date of Birth<span class="pull-right"><%=volunteer.getBirth()%></span>
-							</h4>
-						</p>
-						<p>
-							<h4 class="heading-xs">
-								University<span class="pull-right"><%=volunteer.getUniversity()%></span>
-							</h4>
-						</p>
-						<p>
-							<h4 class="heading-xs">
-								Major<span class="pull-right"><%=volunteer.getMajor()%></span>
-							</h4>
-						</p>
-						<br>
-					</div>
-					<%
-						if (volunteer.getExpertise().equals("") && volunteer.getExpertise().equals("")) {
-						} else {
-					%>
-					<div class="col-md-6 progress-box md-margin-bottom-50">
-						<div class="headline-left margin-bottom-30">
-							<h2 class="headline-brd heading-md">
-								MY <span class="color-green">SKILLS</span>
-							</h2>
+						<div class="col-md-6 md-margin-bottom-50">
+							<div class="headline-left margin-bottom-30">
+								<h2 class="headline-brd heading-md">
+									<section id="PERSONALINFORMATION">PERSONAL INFORMATION</section>
+								</h2>
+							</div>
+							<p>
+								<h5 class="heading-xs">
+									<i class="fa fa-angle-right color-green"></i>
+									Gender<span class="pull-right"><%=volunteer.getGender()%></span>
+								</h5>
+							</p>							
+							<p>
+								<h5 class="heading-xs">
+									<i class="fa fa-angle-right color-green"></i>
+									Date of Birth<span class="pull-right"><%=volunteer.getBirth()%></span>
+								</h5>
+							</p>
+							<p>
+								<h5 class="heading-xs">
+									<i class="fa fa-angle-right color-green"></i>
+									University<span class="pull-right"><%=volunteer.getUniversity()%></span>
+								</h5>
+							</p>
+							<p>
+								<h5 class="heading-xs">
+									<i class="fa fa-angle-right color-green"></i>
+									Major<span class="pull-right"><%=volunteer.getMajor()%></span>
+								</h5>
+							</p>
+							<hr>
 						</div>
-						<h4 class="heading-xs">
-							<%=volunteer.getExpertise()%><br>
-							<%=volunteer.getExperience()%>
-							<spanclass="pull-right"></span>
-						</h4>
+						<%
+							if (volunteer.getExpertise().equals("") && volunteer.getExpertise().equals("")) {
+							} else {
+						%>
+						<div class="col-md-6 progress-box md-margin-bottom-50">
+							<div class="headline-left margin-bottom-30">
+								<h2 class="headline-brd heading-md">
+									<section id="MYSKILLS">MY SKILLS</section>
+								</h2>
+							</div>
+							<h5 class="heading-xs">
+								<%=volunteer.getExpertise()%><br>
+								<%=volunteer.getExperience()%>
+								<spanclass="pull-right"></span>
+							</h5>
+						</div>
+						<%
+							}
+						%>
 					</div>
-					<%
-						}
-					%>
 				</div>
-			</div>
+			</div>		
 			<div class="call-action-v2 parallaxBg">
 				<div class="container">
-					<h2>CONTACT</h2>
-					<p>you can send the e-mail to IIV</p>
-					<a href="mailto:<%=volunteer.getEmail()%>" class="btn-u">Contact Email</a>
+					<h2>CONTACT ME!</h2>
+					<p>This is my e-mail address :)</p>
+					<a href="mailto:<%=volunteer.getEmail()%>" class="btn-u">Get In
+						Touch</a>
 				</div>
 				<br>
 			</div>

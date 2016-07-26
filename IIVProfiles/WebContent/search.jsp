@@ -41,6 +41,7 @@
 		<link rel="stylesheet" href="assets/css/pages/page_search.css">
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
+		<link rel="stylesheet" href="assets/css/text.css">
 		<%@include file="./header.jsp"%>
 	</head>
 	<body>
@@ -60,16 +61,20 @@
 				</div>
 			</div>
 		</div>
-		<div class="container content">
+		<div class="container">
 			<div class="content-xs">
 				<div id="filters-container" class="cbp-l-filters-text content-xs">
-					<div data-filter="*" class="cbp-filter-item-active cbp-filter-item">
-						All</div> |
 					<%
 						if (list == null || searchCountryList.size() == 0) {
 					%>
 					<%
 						} else {
+					%>
+					<div class="heading heading-v1 margin-bottom">
+						<h2>About <span class="color-green"><%=list.length %></span> results</h2>
+					</div>
+					<div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All</div> |
+					<%
 							for (int i = 0; i < searchCountryList.size(); i++) {
 					%>
 					<div data-filter=".<%=searchCountryList.get(i)%>" class="cbp-filter-item">
@@ -81,23 +86,25 @@
 					%>
 				</div>
 			</div>
+			<% 
+				if (check.equals("page")) {
+				
+			%>
+			<% 
+				}else if (check.equals("result") && (list == null || list.length == 0)) {
+			%>
+			<div class="heading heading-v1 margin-bottom">
+				<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
+				<p>We cannot find search keyword.<p>
+			</div>			
+			<%
+				} else {
+			%>
 			<div id="grid-container" class="cbp-l-grid-agency">
-				<% 
-					if (check.equals("page")) {
-					
-				%>
-				<% 
-					}else if (check.equals("result") && (list == null || list.length == 0)) {
-				%>
-				<div class="heading heading-v1 margin-bottom">
-					<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
-					<p>We can not find search keyword.<p>
-				</div>
-				<%
-					} else {
-						for (int i = 0; i < list.length; i++) {
-							volunteer = list[i];
-				%>			
+			<%
+					for (int i = 0; i < list.length; i++) {
+						volunteer = list[i];
+			%>			
 				<div class="cbp-item <%=volunteer.getTeam().getCountry()%>">
 					<div class="cbp-caption margin-bottom-20">
 						<div class="cbp-caption-defaultWrap">
@@ -118,8 +125,8 @@
 						<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h3>
 					</div>
 					<ul class="list-unstyled">
-						<li><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></li>
-						<li><span class="color-green">Major:</span> <%=volunteer.getMajor()%></li>
+						<li><div class="text-line"><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></div></li>
+						<li><div class="text-line"><span class="color-green">Major:</span> <%=volunteer.getMajor()%></div></li>
 					</ul>
 				</div>
 				<%
