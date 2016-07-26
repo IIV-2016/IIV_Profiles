@@ -14,7 +14,6 @@
 <html lang="en">
 <!--<![endif]-->
 	<head>
-		<%@include file="./header.jsp"%>
 		<title>Team List | International ICT Volunteers</title>
 		
 		<!-- Meta -->
@@ -27,38 +26,32 @@
 		<link rel="shortcut icon" href="favicon.ico">
 		
 		<!-- Web Fonts -->
-		<link rel="stylesheet"
-			href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
 		
 		<!-- CSS Global Compulsory -->
-		<link rel="stylesheet"
-			href="assets/plugins/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
 		
 		<!-- CSS Header and Footer -->
-		<link rel="stylesheet" href="assets/css/headers/header-v6.css">
+		<link rel="stylesheet" href="assets/css/headers/header-default.css">
 		<link rel="stylesheet" href="assets/css/footers/footer-v1.css">
 		
 		<!-- CSS Implementing Plugins -->
-		<link rel="stylesheet" href="assets/plugins/animate.css">
 		<link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
 		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
 		
 		<!-- CSS Page Style -->
 		<link rel="stylesheet" href="assets/css/pages/portfolio-v1.css">
+
+		<link rel="stylesheet" href="assets/css/header_fix.css">
 		
-		<!-- CSS Theme -->
-		<link rel="stylesheet" href="assets/css/theme-colors/default.css"
-			id="style_color">
-		<link rel="stylesheet" href="assets/css/theme-skins/dark.css">
-		
-		<!-- CSS Customization -->
-		<link rel="stylesheet" href="assets/css/custom.css">
+		<%@include file="./header.jsp"%>
 	</head>
+	
 	<body>
 		<div class="wrapper">
-			<div class="header">
+			<div class="breadcrumbs">
 				<div class="container">
 					<h1 class="pull-left"><%=country%></h1>
 					<ul class="pull-right breadcrumb">
@@ -82,10 +75,7 @@
 				<div class="row portfolio-item">
 					<section id="<%=team.getName()%>">
 						<div class="heading heading-v1">
-							<h2>
-								<a href="<%=request.getContextPath()%>/volunteer.do?command=teamDetail&teamNumber=<%=team.getNumber()%>"><h2><%=team.getName()%>
-								<i class="fa fa-angle-right" style="color: #72c02c;"></i><i class="fa fa-angle-right" style="color: #72c02c;"></i></a>
-							</h2>
+							<a href="<%=request.getContextPath()%>/volunteer.do?command=teamDetail&teamNumber=<%=team.getNumber()%>"><h2><%=team.getName()%>  <i class="fa fa-angle-right" style="color: #72c02c;"></i><i class="fa fa-angle-right" style="color: #72c02c;"></i></h2></a>
 						</div>
 					</section>
 				</div>
@@ -94,8 +84,7 @@
 						<h2 class="pull-left">Team Members</h2>
 						<div class="owl-navigation">
 							<div class="customNavigation">
-								<a class="owl-btn prev-v2"><i class="fa fa-angle-left"></i></a> 
-								<a class="owl-btn next-v2"><i class="fa fa-angle-right"></i></a>
+								<a class="owl-btn prev-v2"><i class="fa fa-angle-left"></i></a> <a class="owl-btn next-v2"><i class="fa fa-angle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -124,15 +113,15 @@
 			<br>
 			<%@include file="./footer.jsp"%>
 		</div>
-	
+
 		<!-- JS Global Compulsory -->
 		<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	
+		
 		<!-- JS Implementing Plugins -->
 		<script type="text/javascript" src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
-	
+		
 		<!-- JS Page Level -->
 		<script type="text/javascript" src="assets/js/app.js"></script>
 		<script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
@@ -144,6 +133,7 @@
 				OwlRecentWorks.initOwlRecentWorksV1();
 			});
 		</script>
+		<script type="text/javascript" src="assets/js/header_fix.js"></script>
 		<!--[if lt IE 9]>
 		<script src="assets/plugins/respond.js"></script>
 		<script src="assets/plugins/html5shiv.js"></script>
