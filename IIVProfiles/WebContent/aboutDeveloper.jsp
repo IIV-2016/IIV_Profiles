@@ -38,10 +38,9 @@
 	</head>
 	<body class="header-fixed">  
 		<div class="wrapper">
-			<div class="breadcrumbs-v3 img-v1 text-center">
+			<div class="breadcrumbs-v1 img-v1 text-center">
 				<div class="container">
-					<h1>About Developer</h1>
-					<p>International ICT Volunteers</p>
+						<h1>About </br> Developer</h1>
 				</div>
 			</div>	
 			<div class="container content">
