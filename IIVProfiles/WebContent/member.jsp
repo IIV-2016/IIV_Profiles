@@ -38,7 +38,7 @@
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
 
 	</head>
-	<body class="header-fixed"> 
+	<body class="header-fixed">
 		<div class="wrapper">
 			<div class="breadcrumbs">
 				<div class="container">
@@ -189,4 +189,5 @@
 		<script src="assets/plugins/placeholder-IE-fixes.js"></script>
 		<![endif]-->
 	</body>
+>>>>>>> branch 'master' of https://github.com/IIV-2016/IIV_Profiles.git
 </html>
