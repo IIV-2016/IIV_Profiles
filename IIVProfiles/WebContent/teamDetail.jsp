@@ -21,10 +21,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="favicon.ico">
-		
+	
 		<!-- Web Fonts -->
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
 		
@@ -33,22 +30,18 @@
 		<link rel="stylesheet" href="assets/css/style.css">
 		
 		<!-- CSS Header and Footer -->
-		<link rel="stylesheet" href="assets/css/headers/header-default.css">
+		<link rel="stylesheet" href="assets/css/headers/header-v6.css">
 		<link rel="stylesheet" href="assets/css/footers/footer-v1.css">
 		
 		<!-- CSS Implementing Plugins -->
-		<link rel="stylesheet" href="assets/plugins/animate.css">
 		<link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
 		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
-		
-		<!-- CSS Page Style -->
-		<link rel="stylesheet" href="assets/css/pages/portfolio-v1.css">
+		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.css">
+		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
 		
 		<%@include file="./header.jsp"%>
 	</head>
-	
-	<body>
+	<body class="header-fixed"> 
 		<div class="wrapper">
 			<div class="breadcrumbs">
 				<div class="container">

@@ -149,6 +149,7 @@ body.header-fixed-space-default {
 .header > .container {
 	display: table;
 	margin-bottom: -40px;
+	position : static;
 }
 
 @media (max-width: 768px) {
