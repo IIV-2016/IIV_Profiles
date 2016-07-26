@@ -172,8 +172,9 @@ body.header-fixed-space-default {
 }
 
 .header .logo img {
+	width: 40%;
 	z-index: 1;
-	margin: 20px 0;
+	margin: 10px 0;
 	position: relative;
 }
 
