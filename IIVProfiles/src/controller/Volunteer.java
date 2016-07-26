@@ -98,6 +98,14 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			rd.forward(request, response);
 			
 			return;
+		}else if(command.equals("updateForm")){
+			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
+			VolunteerBean volunteer = VolunteerDAO.readMember(memberNumber);
+			request.setAttribute("volunteer", volunteer);
+			RequestDispatcher rd = request.getRequestDispatcher("updateForm.jsp");
+			rd.forward(request, response);
+			
+			return;
 		}
 	}
 }
