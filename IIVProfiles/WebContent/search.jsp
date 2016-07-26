@@ -46,101 +46,108 @@
 		<link rel="stylesheet" href="assets/css/header_fix.css">
 		<link rel="stylesheet" href="assets/css/footer_fix.css">
 		
-		<%@include file="./header.jsp"%>
+	  	<c:choose>
+	  		<c:when test="${empty member}">
+				<%@include file="./header.jsp"%>
+			</c:when>
+			<c:otherwise>
+				<%@include file="./header2.jsp"%>
+			</c:otherwise>
+		</c:choose>	
 	</head>
 	<body>
-<div class="wrap">
-	<div class="footer_content">
-		<div class="search-block parallaxBg">
-			<div class="container">
-				<div class="col-md-6 col-md-offset-3">
-					<h1>IIV PROFILES <span class="color-green">SEARCH</span></h1>
-					<form name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
-						<div class="input-group">
-							<input type="hidden" name="command" value="search">
-							<input type="text" name="major" class="form-control" placeholder="Search words with major.">
-							<span class="input-group-btn">
-								<button class="btn-u btn-u-lg" type="submit"><i class="fa fa-search"></i></button>
-							</span>
-						</div>
-					</form>
+	<div class="wrap">
+		<div class="footer_content">
+			<div class="search-block parallaxBg">
+				<div class="container">
+					<div class="col-md-6 col-md-offset-3">
+						<h1>IIV PROFILES <span class="color-green">SEARCH</span></h1>
+						<form name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
+							<div class="input-group">
+								<input type="hidden" name="command" value="search">
+								<input type="text" name="major" class="form-control" placeholder="Search words with major.">
+								<span class="input-group-btn">
+									<button class="btn-u btn-u-lg" type="submit"><i class="fa fa-search"></i></button>
+								</span>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
-		
-		<div class="container">
-			<div class="content-xs">
-				<div id="filters-container" class="cbp-l-filters-text content-xs">
-					<%
-						if (list == null || searchCountryList.size() == 0) {
-					%>
-					<%
-						} else {
-					%>
-					<div class="heading heading-v1 margin-bottom">
-						<h2>About <span class="color-green"><%=list.length %></span> results</h2>
+			
+			<div class="container">
+				<div class="content-xs">
+					<div id="filters-container" class="cbp-l-filters-text content-xs">
+						<%
+							if (list == null || searchCountryList.size() == 0) {
+						%>
+						<%
+							} else {
+						%>
+						<div class="heading heading-v1 margin-bottom">
+							<h2>About <span class="color-green"><%=list.length %></span> results</h2>
+						</div>
+						<div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All</div> |
+						<%
+								for (int i = 0; i < searchCountryList.size(); i++) {
+						%>
+						<div data-filter=".<%=searchCountryList.get(i)%>" class="cbp-filter-item">
+							<%=searchCountryList.get(i)%>
+						</div>
+						<%
+								}
+							}
+						%>
 					</div>
-					<div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All</div> |
-					<%
-							for (int i = 0; i < searchCountryList.size(); i++) {
-					%>
-					<div data-filter=".<%=searchCountryList.get(i)%>" class="cbp-filter-item">
-						<%=searchCountryList.get(i)%>
+				</div>
+				<% 
+					if (check.equals("page")) {
+				%>
+				<% 
+					}else if (check.equals("result") && (list == null || list.length == 0)) {
+				%>
+				<div class="heading heading-v1 margin-bottom">
+					<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
+					<p>We cannot find search keyword.<p>
+				</div>			
+				<%
+					} else {
+				%>
+				<div id="grid-container" class="cbp-l-grid-agency">
+				<%
+						for (int i = 0; i < list.length; i++) {
+							volunteer = list[i];
+				%>			
+					<div class="cbp-item <%=volunteer.getTeam().getCountry()%>">
+						<div class="cbp-caption margin-bottom-20">
+							<div class="cbp-caption-defaultWrap">
+								<div class="easy-block-v1">
+									<div class="easy-block-v1-badge rgba-default"><%=volunteer.getRole()%></div>
+									<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">	
+									<img src="<%=volunteer.getImage()%>" alt="">
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="overflow-h">
+							<div class="star-vote pull-right">
+								<ul class="list-inline">
+									<li><i class="color-green fa fa-star"></i></li>
+								</ul>
+							</div>
+							<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h3>
+						</div>
+						<ul class="list-unstyled">
+							<li><div class="text-line"><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></div></li>
+							<li><div class="text-line"><span class="color-green">Major:</span> <%=volunteer.getMajor()%></div></li>
+						</ul>
 					</div>
 					<%
 							}
 						}
-					%>
+					%>					
 				</div>
 			</div>
-			<% 
-				if (check.equals("page")) {
-			%>
-			<% 
-				}else if (check.equals("result") && (list == null || list.length == 0)) {
-			%>
-			<div class="heading heading-v1 margin-bottom">
-				<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
-				<p>We cannot find search keyword.<p>
-			</div>			
-			<%
-				} else {
-			%>
-			<div id="grid-container" class="cbp-l-grid-agency">
-			<%
-					for (int i = 0; i < list.length; i++) {
-						volunteer = list[i];
-			%>			
-				<div class="cbp-item <%=volunteer.getTeam().getCountry()%>">
-					<div class="cbp-caption margin-bottom-20">
-						<div class="cbp-caption-defaultWrap">
-							<div class="easy-block-v1">
-								<div class="easy-block-v1-badge rgba-default"><%=volunteer.getRole()%></div>
-								<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">	
-								<img src="<%=volunteer.getImage()%>" alt="">
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="overflow-h">
-						<div class="star-vote pull-right">
-							<ul class="list-inline">
-								<li><i class="color-green fa fa-star"></i></li>
-							</ul>
-						</div>
-						<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h3>
-					</div>
-					<ul class="list-unstyled">
-						<li><div class="text-line"><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></div></li>
-						<li><div class="text-line"><span class="color-green">Major:</span> <%=volunteer.getMajor()%></div></li>
-					</ul>
-				</div>
-				<%
-						}
-					}
-				%>					
-			</div>
-		</div>
 		</div>		
 		<%@include file="./footer.jsp"%>
 		</div>

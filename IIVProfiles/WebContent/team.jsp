@@ -46,7 +46,14 @@
 
 		<link rel="stylesheet" href="assets/css/header_fix.css">
 		
-		<%@include file="./header.jsp"%>
+	  	<c:choose>
+	  		<c:when test="${empty member}">
+				<%@include file="./header.jsp"%>
+			</c:when>
+			<c:otherwise>
+				<%@include file="./header2.jsp"%>
+			</c:otherwise>
+		</c:choose>	
 	</head>
 	
 	<body>
