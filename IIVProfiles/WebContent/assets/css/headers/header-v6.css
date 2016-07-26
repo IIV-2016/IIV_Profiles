@@ -55,7 +55,7 @@
 ------------------------------------*/
 @media (min-width: 768px) and (max-width: 991px) {
   	.header-v6 .menu-container {
-	    width: 750px;  
+	    width: 500px;  
   	}
 }
 
@@ -109,7 +109,7 @@
 .header-v6 .navbar-brand img {
 	width: auto;
 	height: auto;
-	max-width: 100%;
+	max-width: 80%;
 	max-height: 100%;
 	display: inline-block;
 	vertical-align: middle;
@@ -148,7 +148,7 @@
 	height: 1px;
 	width: 20px;
 	font-size: 20px;
-	background: #80ff00;
+	background: #687074;
 	margin-bottom: 5px;
 }
 
@@ -701,7 +701,7 @@
   	position: relative;
   	width : 100%;
   	background : rgba(255,255,255,0.9);
-  	margin-bottom : 15px;
+  	margin-bottom : 10px;
   	display : block;
 }
 
