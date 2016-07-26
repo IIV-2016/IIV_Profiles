@@ -45,9 +45,10 @@
 	</head>
 	<body class="header-fixed">  
 		<div class="wrapper">
-			<div class="breadcrumbs-v1 img-v1 text-center">
+			<div class="breadcrumbs-v3 img-v2 text-center">
 				<div class="container">
-						<h1>About </br> Developer</h1>
+					<h1>About Developer</h1>
+					<p>long-term Volunteers thaIT</p>
 				</div>
 			</div>	
 			<div class="container content">

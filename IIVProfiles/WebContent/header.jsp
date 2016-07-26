@@ -13,12 +13,8 @@
 	<div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
 		<div class="container">
 			<ul class="nav navbar-nav">
-				<!-- Home -->
-				<li class="dropdown active">
-					<a href="<%=request.getContextPath()%>/volunteer.do"> Home </a>
-				</li>
 				<li class="dropdown">
-					<a href="<%=request.getContextPath()%>/volunteer.do?command=searchPage"> Search </a>
+					<a href="<%=request.getContextPath()%>/volunteer.do"> Home </a>
 				</li>
 				<li class="dropdown">
 					<a href="<%=request.getContextPath()%>/aboutIIV.jsp"> About IIV </a>
