@@ -32,7 +32,7 @@
 		<link rel="stylesheet" href="assets/css/style.css">
 	
 		<!-- CSS Header and Footer -->
-		<link rel="stylesheet" href="assets/css/headers/header-default.css">
+		<link rel="stylesheet" href="assets/css/headers/header-v6.css">
 		<link rel="stylesheet" href="assets/css/footers/footer-v1.css">
 	
 		<!-- CSS Implementing Plugins -->
@@ -43,9 +43,10 @@
 		
 		<%@include file="./header.jsp"%>
 	</head>
-	<body class="header-fixed">
-		<div class="wrapper">
-			<div class="job-img margin-bottom-30">
+	
+	<body class="header-fixed header-fixed-space margin-top-30 padding-top-30"> 
+		<div class="wrapper padding-top-30">
+			<div class="job-img margin-bottom-30 margin-top-30">
 				<div class="title-box-v2">
 					<h2>
 						IIV Profiles <span class="color-green">Search</span>

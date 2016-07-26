@@ -36,8 +36,8 @@
 		<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
 		
-		<!-- CSS Header and Footer -->
-		<link rel="stylesheet" href="assets/css/headers/header-default.css">
+		<!-- CSS Header and Footer --> 
+		<link rel="stylesheet" href="assets/css/headers/header-v6.css">
 		<link rel="stylesheet" href="assets/css/footers/footer-v1.css">
 		
 		<!-- CSS Implementing Plugins -->
@@ -48,7 +48,7 @@
 		
 		<%@include file="./header.jsp"%>
 	</head>
-	<body class="header-fixed">
+	<body class="header-fixed header-fixed-space padding-top-50">
 		<div class="wrapper">
 			<!--=== Cube-Portfdlio ===-->
 			<div class="cube-portfolio margin-bottom-20">
