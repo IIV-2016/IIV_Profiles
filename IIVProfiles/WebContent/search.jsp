@@ -44,26 +44,30 @@
 		
 		<link rel="stylesheet" href="assets/css/text.css">
 		<link rel="stylesheet" href="assets/css/header_fix.css">
+		<link rel="stylesheet" href="assets/css/footer_fix.css">
 		
 		<%@include file="./header.jsp"%>
 	</head>
 	<body>
+<div class="wrap">
+	<div class="footer_content">
 		<div class="search-block parallaxBg">
 			<div class="container">
 				<div class="col-md-6 col-md-offset-3">
 					<h1>IIV PROFILES <span class="color-green">SEARCH</span></h1>
 					<form name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
-					<div class="input-group">
+						<div class="input-group">
 							<input type="hidden" name="command" value="search">
 							<input type="text" name="major" class="form-control" placeholder="Search words with major.">
 							<span class="input-group-btn">
 								<button class="btn-u btn-u-lg" type="submit"><i class="fa fa-search"></i></button>
 							</span>
-					</div>
+						</div>
 					</form>
 				</div>
 			</div>
 		</div>
+		
 		<div class="container">
 			<div class="content-xs">
 				<div id="filters-container" class="cbp-l-filters-text content-xs">
@@ -91,7 +95,6 @@
 			</div>
 			<% 
 				if (check.equals("page")) {
-				
 			%>
 			<% 
 				}else if (check.equals("result") && (list == null || list.length == 0)) {
@@ -137,8 +140,10 @@
 					}
 				%>					
 			</div>
-		</div>			
+		</div>
+		</div>		
 		<%@include file="./footer.jsp"%>
+		</div>
 		<!-- JS Global Compulsory -->
 		<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
