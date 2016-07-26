@@ -16,7 +16,6 @@
 <html lang="en">
 <!--<![endif]-->
 	<head>
-		<%@include file="./header.jsp"%>
 		<title>Search | International ICT Volunteers</title>
 		
 		<!-- Meta -->
@@ -24,27 +23,31 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
-	
+		
 		<!-- Web Fonts -->
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
-		
+	
 		<!-- CSS Global Compulsory -->
 		<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
-		
+	
 		<!-- CSS Header and Footer -->
-		<link rel="stylesheet" href="assets/css/headers/header-v6.css">
+		<link rel="stylesheet" href="assets/css/headers/header-default.css">
 		<link rel="stylesheet" href="assets/css/footers/footer-v1.css">
-		
+	
 		<!-- CSS Implementing Plugins -->
 		<link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
 		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.css">
+		<link rel="stylesheet" href="assets/css/pages/page_search.css">
+		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
-
+		
+		<link rel="stylesheet" href="assets/css/text.css">
+		<link rel="stylesheet" href="assets/css/header_fix.css">
+		
+		<%@include file="./header.jsp"%>
 	</head>
-	<body class="header-fixed"> 
-		<br><br>
+	<body>
 		<div class="search-block parallaxBg">
 			<div class="container">
 				<div class="col-md-6 col-md-offset-3">
@@ -145,6 +148,8 @@
 		<!-- JS Page Level -->
 		<script type="text/javascript" src="assets/js/app.js"></script>
 		<script type="text/javascript" src="assets/js/plugins/cube-portfolio/cube-portfolio-4.js"></script>
+		
+		<script type="text/javascript" src="assets/js/header_fix.js"></script>
 		<!--[if lt IE 9]>
 		<script src="assets/plugins/respond.js"></script>
 		<script src="assets/plugins/html5shiv.js"></script>

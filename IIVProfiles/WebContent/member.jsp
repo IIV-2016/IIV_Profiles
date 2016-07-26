@@ -11,7 +11,6 @@
 <html lang="en">
 <!--<![endif]-->
 	<head>
-		<%@include file="./header.jsp"%>
 		<title>Member | International ICT Volunteers</title>
 		
 		<!-- Meta -->
@@ -28,7 +27,7 @@
 		<link rel="stylesheet" href="assets/css/style.css">
 		
 		<!-- CSS Header and Footer -->
-		<link rel="stylesheet" href="assets/css/headers/header-v6.css">
+		<link rel="stylesheet" href="assets/css/headers/header-default.css">
 		<link rel="stylesheet" href="assets/css/footers/footer-v1.css">
 		
 		<!-- CSS Implementing Plugins -->
@@ -36,7 +35,10 @@
 		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.css">
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
-
+		
+		<link rel="stylesheet" href="assets/css/header_fix.css">
+		
+		<%@include file="./header.jsp"%>
 	</head>
 	<body class="header-fixed">
 		<div class="wrapper">
@@ -183,11 +185,12 @@
 				OwlRecentWorks.initOwlRecentWorksV1();
 			});
 		</script>
+		
+		<script type="text/javascript" src="assets/js/header_fix.js"></script>
 		<!--[if lt IE 9]>
 		<script src="assets/plugins/respond.js"></script>
 		<script src="assets/plugins/html5shiv.js"></script>
 		<script src="assets/plugins/placeholder-IE-fixes.js"></script>
 		<![endif]-->
 	</body>
->>>>>>> branch 'master' of https://github.com/IIV-2016/IIV_Profiles.git
 </html>
