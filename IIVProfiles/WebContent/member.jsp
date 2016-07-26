@@ -189,5 +189,4 @@
 		<script src="assets/plugins/placeholder-IE-fixes.js"></script>
 		<![endif]-->
 	</body>
->>>>>>> branch 'master' of https://github.com/IIV-2016/IIV_Profiles.git
 </html>
