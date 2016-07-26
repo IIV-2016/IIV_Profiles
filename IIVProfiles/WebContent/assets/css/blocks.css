@@ -247,7 +247,7 @@
 /*Default Breadcrumbs*/
 .breadcrumbs {
   overflow: hidden;
-  padding: 10px 0 6px;
+  padding: 1px 0 1px;
   border-bottom: solid 1px #eee;
   background: url(../img/patterns/breadcrumbs.png) repeat;
 }
