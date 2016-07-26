@@ -9,6 +9,7 @@
 <html lang="en">
 <!--<![endif]-->
 	<head>
+		<%@include file="./header.jsp"%>
 		<title>About Us | International ICT Volunteers</title>
 		
 		<!-- Meta -->
@@ -16,42 +17,26 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="favicon.ico">
-		
+	
 		<!-- Web Fonts -->
-		<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
 		
 		<!-- CSS Global Compulsory -->
 		<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
 		
 		<!-- CSS Header and Footer -->
-		<link rel="stylesheet" href="assets/css/headers/header-default.css">
+		<link rel="stylesheet" href="assets/css/headers/header-v6.css">
 		<link rel="stylesheet" href="assets/css/footers/footer-v1.css">
 		
 		<!-- CSS Implementing Plugins -->
-		<link rel="stylesheet" href="assets/plugins/animate.css">
 		<link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
 		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/plugins/parallax-slider/css/parallax-slider.css">
-		<link rel="stylesheet" href="assets/plugins/owl-carousel2/assets/owl.carousel.css">
-		
-		<!-- CSS Page Style -->
-		<link rel="stylesheet" href="assets/css/plugins/style-switcher.css">
-		
-		<!-- CSS Theme -->
-		<link rel="stylesheet" href="assets/css/theme-colors/default.css"
-			id="style_color">
-		<link rel="stylesheet" href="assets/css/theme-skins/dark.css">
-		
-		<!-- CSS Customization -->
-		<link rel="stylesheet" href="assets/css/custom.css">
-		
-		<%@include file="./header.jsp"%>
+		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.css">
+		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
+
 	</head>
-	<body>
+	<body class="header-fixed"> 
 		<div class="wrapper">
 			<div class="breadcrumbs-v3 img-v1 text-center">
 				<div class="container">

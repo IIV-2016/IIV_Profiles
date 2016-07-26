@@ -37,7 +37,7 @@
 		<link rel="stylesheet" href="assets/css/style.css">
 		
 		<!-- CSS Header and Footer -->
-		<link rel="stylesheet" href="assets/css/headers/header-default.css">
+		<link rel="stylesheet" href="assets/css/headers/header-v6.css">
 		<link rel="stylesheet" href="assets/css/footers/footer-v1.css">
 		
 		<!-- CSS Implementing Plugins -->
