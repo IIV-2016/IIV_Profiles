@@ -16,10 +16,10 @@
 					<a href="<%=request.getContextPath()%>/volunteer.do?command=searchPage"> Search </a>
 				</li>
 				<li class="dropdown">
-					<a href="<%=request.getContextPath()%>/volunteer.do?command=aboutIIV"> About IIV </a>
+					<a href="<%=request.getContextPath()%>/volunteer.do?aboutIIV.jsp"> About IIV </a>
 				</li>
 				<li class="dropdown">
-					<a href="<%=request.getContextPath()%>/volunteer.do?command=aboutDeveloper"> About Developer </a>
+					<a href="<%=request.getContextPath()%>/volunteer.do?aboutDeveloper.jsp"> About Developer </a>
 				</li>
 			</ul>
 		</div>
