@@ -173,17 +173,18 @@ public class VolunteerDAO{
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		TeamBean bean  = null;
-		String sql="SELECT NUMBER, NAME, INTRODUCE, MOVIE FROM TEAM WHERE NUMBER = ?";	
+		VolunteerBean[] volunteerList = null;
+		String sql="SELECT NUMBER, NAME, COUNTRY, ORGANIZATION, YEAR, INTRODUCE, MOVIE FROM TEAM WHERE NUMBER = ?";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, teamNumber);
 			rset = pstmt.executeQuery();
 			if (rset.next()) {
-				bean = new TeamBean(teamNumber, rset.getString(2), rset.getString(3), rset.getString(4), null);
+				bean = new TeamBean(teamNumber, rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7), null);
 			}
-			bean = readTeamMember(teamNumber);
-
+			volunteerList = readTeamMember(teamNumber).getVolunteer();
+			bean.setVolunteer(volunteerList);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{

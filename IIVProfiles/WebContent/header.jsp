@@ -1,7 +1,7 @@
 <div class="header-v6 header-classic-white header-sticky">
 	<!-- Navbar -->
 	<div class="navbar mega-menu" role="navigation">
-		<div class="container">
+		<div class="container"> 
 			<div class="menu-container">
 				<!-- Navbar Brand -->
 				<div class="navbar-brand">
@@ -17,7 +17,7 @@
 					<span class="icon-bar"></span> <span class="icon-bar"></span> 
 					<span class="icon-bar"></span>
 				</button>
-			</div>
+			</div> 
 		</div>
 		<div class="collapse navbar-collapse navbar-responsive-collapse">
 			<div class="menu-container">
@@ -29,11 +29,14 @@
 						href="<%=request.getContextPath()%>/volunteer.do?command=searchPage">
 							Search </a> <!-- End Home --> <!-- Home -->
 					<li class="dropdown"><a
-						href="<%=request.getContextPath()%>/volunteer.do?command=aboutIIV">
+						href="<%=request.getContextPath()%>/aboutIIV.jsp">
 							About IIV </a> <!-- End Home -->
+					<li class="dropdown">
+						<a href="<%=request.getContextPath()%>/aboutDeveloper.jsp"> About Developer </a>
+					</li>		
 				</ul>
 			</div>
-		</div>
-		<!--/navbar-collapse-->
+		</div> 
 	</div>
-</div>
+</div> 
+<br><br><br><br><br>

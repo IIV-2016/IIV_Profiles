@@ -16,6 +16,7 @@
 <html lang="en">
 <!--<![endif]-->
 	<head>
+		<%@include file="./header.jsp"%>
 		<title>Search | International ICT Volunteers</title>
 		
 		<!-- Meta -->
@@ -23,133 +24,118 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		
+	
 		<!-- Web Fonts -->
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
-	
+		
 		<!-- CSS Global Compulsory -->
 		<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
-	
+		
 		<!-- CSS Header and Footer -->
 		<link rel="stylesheet" href="assets/css/headers/header-v6.css">
 		<link rel="stylesheet" href="assets/css/footers/footer-v1.css">
-	
+		
 		<!-- CSS Implementing Plugins -->
 		<link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
 		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
+		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.css">
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
-		
-		<%@include file="./header.jsp"%>
+
 	</head>
-	
-	<body class="header-fixed header-fixed-space margin-top-30 padding-top-30"> 
-		<div class="wrapper padding-top-30">
-			<div class="job-img margin-bottom-30 margin-top-30">
-				<div class="title-box-v2">
-					<h2>
-						IIV Profiles <span class="color-green">Search</span>
-					</h2>
-				</div>
-				<form name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
-					<input type="hidden" name="command" value="search">
-					<div class="job-img-inputs">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-4 md-margin-bottom-10">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-tag"></i></span>
-										<input type="text" name="major" placeholder="what major you are looking for" class="form-control">
-									</div>
-								</div>
-								<div class="col-sm-4">
-									<input type=submit class="btn-u btn-block btn-u-dark" value="Search Volunteer">
-								</div>
-							</div>
-						</div>
+	<body class="header-fixed"> 
+		<br><br>
+		<div class="search-block parallaxBg">
+			<div class="container">
+				<div class="col-md-6 col-md-offset-3">
+					<h1>IIV PROFILES <span class="color-green">SEARCH</span></h1>
+					<form name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
+					<div class="input-group">
+							<input type="hidden" name="command" value="search">
+							<input type="text" name="major" class="form-control" placeholder="Search words with major.">
+							<span class="input-group-btn">
+								<button class="btn-u btn-u-lg" type="submit"><i class="fa fa-search"></i></button>
+							</span>
 					</div>
-				</form>
-				<div class="content-xs">
-					<div id="filters-container" class="cbp-l-filters-text content-xs">
-						<div data-filter="*" class="cbp-filter-item-active cbp-filter-item">
-							All</div> |
-						<%
-							if (list == null || searchCountryList.size() == 0) {
-						%>
-						<%
-							} else {
-								for (int i = 0; i < searchCountryList.size(); i++) {
-						%>
-						<div data-filter=".<%=searchCountryList.get(i)%>" class="cbp-filter-item">
-							<%=searchCountryList.get(i)%>
-						</div>
-						<%
-								}
-							}
-						%>
-					</div>
+					</form>
 				</div>
 			</div>
-			<div id="grid-container" class="cbp-l-grid-agency">
-				<% 
-					if (check.equals("page")) {
-					
-				%>
-				<% 
-					}else if (check.equals("result") && (list == null || list.length == 0)) {
-				%>
-					<div class="cbp-item margin-bottom-20">
-						<div class="col-sm-6 md-margin-bottom-40">
-							<div class="heading heading-v1 margin-bottom">
-								<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
-								<p>We can not find search keyword.<p>
-							</div>
-						</div>
+		</div>
+		<div class="container">
+			<div class="content-xs">
+				<div id="filters-container" class="cbp-l-filters-text content-xs">
+					<%
+						if (list == null || searchCountryList.size() == 0) {
+					%>
+					<%
+						} else {
+					%>
+					<div class="heading heading-v1 margin-bottom">
+						<h2>About <span class="color-green"><%=list.length %></span> results</h2>
 					</div>
-				<%
-					} else {
-						for (int i = 0; i < list.length; i++) {
-							volunteer = list[i];
-				%>
+					<div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All</div> |
+					<%
+							for (int i = 0; i < searchCountryList.size(); i++) {
+					%>
+					<div data-filter=".<%=searchCountryList.get(i)%>" class="cbp-filter-item">
+						<%=searchCountryList.get(i)%>
+					</div>
+					<%
+							}
+						}
+					%>
+				</div>
+			</div>
+			<% 
+				if (check.equals("page")) {
+				
+			%>
+			<% 
+				}else if (check.equals("result") && (list == null || list.length == 0)) {
+			%>
+			<div class="heading heading-v1 margin-bottom">
+				<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
+				<p>We cannot find search keyword.<p>
+			</div>			
+			<%
+				} else {
+			%>
+			<div id="grid-container" class="cbp-l-grid-agency">
+			<%
+					for (int i = 0; i < list.length; i++) {
+						volunteer = list[i];
+			%>			
 				<div class="cbp-item <%=volunteer.getTeam().getCountry()%>">
 					<div class="cbp-caption margin-bottom-20">
-						<div class="col-sm-6 md-margin-bottom-40">
+						<div class="cbp-caption-defaultWrap">
 							<div class="easy-block-v1">
 								<div class="easy-block-v1-badge rgba-default"><%=volunteer.getRole()%></div>
-								<div id="carousel-example-generic" class="carousel slide"
-									data-ride="carousel">
-									<div class="carousel-inner">
-										<div class="item active">
-											<img src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%><%=volunteer.getLastname()%>">
-										</div>
-									</div>
-								</div>
-								<div class="overflow-h">
-									<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h3>
-									<div class="star-vote pull-right">
-										<ul class="list-inline">
-											<li><i class="color-green fa fa-star"></i></li>
-										</ul>
-									</div>
-								</div>
-								<ul class="list-unstyled">
-									<li><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></li>
-									<li><span class="color-green">Major:</span> <%=volunteer.getMajor()%></li>
-								</ul>
-								<a class="btn-u btn-u-sm" href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">View More</a>
+								<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">	
+								<img src="<%=volunteer.getImage()%>" alt="">
+								</a>
 							</div>
 						</div>
 					</div>
+					<div class="overflow-h">
+						<div class="star-vote pull-right">
+							<ul class="list-inline">
+								<li><i class="color-green fa fa-star"></i></li>
+							</ul>
+						</div>
+						<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h3>
+					</div>
+					<ul class="list-unstyled">
+						<li><div class="text-line"><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></div></li>
+						<li><div class="text-line"><span class="color-green">Major:</span> <%=volunteer.getMajor()%></div></li>
+					</ul>
 				</div>
 				<%
 						}
 					}
-				%>
+				%>					
 			</div>
-			
-			<%@include file="./footer.jsp"%>
-		</div>
+		</div>			
+		<%@include file="./footer.jsp"%>
 		<!-- JS Global Compulsory -->
 		<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
@@ -158,8 +144,7 @@
 		<script type="text/javascript" src="assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
 		<!-- JS Page Level -->
 		<script type="text/javascript" src="assets/js/app.js"></script>
-		<script type="text/javascript" src="assets/js/plugins/cube-portfolio/cube-portfolio-2.js"></script>
-		<script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
+		<script type="text/javascript" src="assets/js/plugins/cube-portfolio/cube-portfolio-4.js"></script>
 		<!--[if lt IE 9]>
 		<script src="assets/plugins/respond.js"></script>
 		<script src="assets/plugins/html5shiv.js"></script>

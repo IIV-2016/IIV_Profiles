@@ -36,7 +36,7 @@
 		<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
 		
-		<!-- CSS Header and Footer --> 
+		<!-- CSS Header and Footer -->
 		<link rel="stylesheet" href="assets/css/headers/header-v6.css">
 		<link rel="stylesheet" href="assets/css/footers/footer-v1.css">
 		
@@ -48,27 +48,29 @@
 		
 		<%@include file="./header.jsp"%>
 	</head>
-	<body class="header-fixed header-fixed-space padding-top-50">
+	<body class="header-fixed">
 		<div class="wrapper">
-			<!--=== Cube-Portfdlio ===-->
-			<div class="cube-portfolio margin-bottom-20">
-				<div class="content-xs">
-					<div id="filters-container" class="cbp-l-filters-text content-xs">
-						<div class="cbp-filter-item">
+			<div class="breadcrumbs">
+				<div class="container">
+					<h1 class="pull-left">Dispatch Information</h1>
+					<ul class="pull-right breadcrumb">
+						<li>
 							<a href="<%=request.getContextPath()%>/volunteer.do?command=read&year=2016"> 2016 </a>
-						</div> |
-						<div class="cbp-filter-item">
+						</li>
+						<li>
 							<a href="<%=request.getContextPath()%>/volunteer.do?command=read&year=2015"> 2015 </a>
-						</div> |
-						<div class="cbp-filter-item">
+						</li>
+						<li>
 							<a href="<%=request.getContextPath()%>/volunteer.do?command=read&year=2014"> 2014 </a>
-						</div> |
-						<div class="cbp-filter-item">
+						</li>
+						<li>
 							<a href="<%=request.getContextPath()%>/volunteer.do?command=read&year=2013"> 2013 </a>
-						</div>
-					</div>
+						</li>
+					</ul>
 				</div>
-				<div class="col-md-9">
+			</div>
+			<div class="container content">
+				<div class="content-xs">
 					<div class="tab-v1 margin-bottom-40">
 						<div class="tab-content">
 							<div class="tab-pane fade in fade in active" id="tab-img-1">
@@ -91,7 +93,7 @@
 											</div>
 											<div class="cbp-title-dark">
 												<div class="cbp-l-grid-agency-title"><%=team.getCountry()%></div>
-												<div class="cbp-l-grid-agency-desc"> dispatch team: <%=team.getNumber()%></div>
+												<div class="cbp-l-grid-agency-desc"> Dispatch team : <%=team.getNumber()%></div>
 											</div>
 										</div>
 									</div>
@@ -104,7 +106,6 @@
 						</div>
 					</div>
 				</div>
-				<br>
 			</div>
 			<%@include file="./footer.jsp"%>
 		</div>
