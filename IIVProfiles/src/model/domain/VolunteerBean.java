@@ -15,9 +15,16 @@ public class VolunteerBean {
 	private String email;
 	private String image;
 	private int teamNumber;
+	private String password;
 	private TeamBean team;
 
 	public VolunteerBean() { }
+
+	public VolunteerBean(int number, String firstname, String lastname) {
+		this.number = number;
+		this.firstname = firstname;
+		this.lastname = lastname;
+	}
 
 	public VolunteerBean(int number, String firstname, String lastname, String birth, String gender, String university,
 			String majorclass, String major, String expertise, String experience, String role, String email,
@@ -177,6 +184,14 @@ public class VolunteerBean {
 
 	public void setTeam(TeamBean team) {
 		this.team = team;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
