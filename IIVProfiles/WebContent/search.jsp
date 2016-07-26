@@ -53,13 +53,13 @@
 				<div class="col-md-6 col-md-offset-3">
 					<h1>IIV PROFILES <span class="color-green">SEARCH</span></h1>
 					<form name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
-					<div class="input-group">
+						<div class="input-group">
 							<input type="hidden" name="command" value="search">
 							<input type="text" name="major" class="form-control" placeholder="Search words with major.">
 							<span class="input-group-btn">
 								<button class="btn-u btn-u-lg" type="submit"><i class="fa fa-search"></i></button>
 							</span>
-					</div>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -91,7 +91,6 @@
 			</div>
 			<% 
 				if (check.equals("page")) {
-				
 			%>
 			<% 
 				}else if (check.equals("result") && (list == null || list.length == 0)) {
