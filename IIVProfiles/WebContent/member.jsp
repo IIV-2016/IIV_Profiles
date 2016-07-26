@@ -141,10 +141,20 @@
 								<%=volunteer.getExperience()%>
 								<spanclass="pull-right"></span>
 							</h5>
+							<hr/>
 						</div>
 						<%
 							}
 						%>
+						<div class="col-md-6 progress-box md-margin-bottom-50">
+									<div class="headline-left margin-bottom-30">
+										<h2 class="headline-brd heading-md">
+											<section id="MYSKILLS">BOOKMARKS</section>
+										</h2>
+									</div>
+								<button class="btn-u btn-brd btn-brd-hover rounded-4x btn-u-dark btn-u-xs" type="button">Registration</button>
+							<hr/>
+						</div>
 					</div>
 				</div>
 			</div>		
