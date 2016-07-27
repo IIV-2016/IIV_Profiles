@@ -65,7 +65,19 @@
 		<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/backstretch/jquery.backstretch.min.js"></script>
-	
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				App.init();
+			});
+		</script>
+		<script type="text/javascript">
+			$.backstretch([
+				"assets/img/iiv.jpg",
+				], {
+					fade: 1000,
+					duration: 7000
+				});
+		</script>
 		<!--[if lt IE 9]>
 		<script src="assets/plugins/respond.js"></script>
 		<script src="assets/plugins/html5shiv.js"></script>
