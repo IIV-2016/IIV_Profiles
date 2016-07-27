@@ -3,6 +3,7 @@
 <%@ page import="model.domain.VolunteerBean"%>
 <%
 	VolunteerBean volunteer = (VolunteerBean) request.getAttribute("volunteer");
+	int memberNumber = (int) session.getAttribute("memberNumber");
 %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -60,6 +61,16 @@
 					<br><br><br><br><br><br><br><br>
 					<br><br><br><br><br><br><br><br>
 				</c:when>
+		  		<c:when test="${member.number != volunteer.number}">
+			  		<div class="container content">
+						<div class="heading heading-v1 margin-bottom">
+							<h2><i class="fa fa-ban"></i></h2>
+							<h4>Access  Restriction.</h4>
+						</div>
+					</div>
+					<br><br><br><br><br><br><br><br>
+					<br><br><br><br><br><br><br><br>
+				</c:when>				
 				<c:otherwise>
 			<form action="<%=request.getContextPath()%>/volunteer.do?command=update" method="post">
 				<input type="hidden" name="command" value="update">
