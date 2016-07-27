@@ -98,6 +98,22 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			rd.forward(request, response);
 			
 			return;
+		}else if(command.equals("load")){
+			String keyword = request.getParameter("memberNumber");
+			VolunteerBean[] volunteer = VolunteerDAO.searchLikedMember(keyword);
+			ArrayList<String> tempList = new ArrayList<String>();
+			ArrayList<String> searchCountryList;
+			for(int i = 0; i <volunteer.length ; i++){
+				tempList.add(volunteer[i].getTeam().getCountry());
+			}
+			searchCountryList = new ArrayList<String>(new HashSet<String>(tempList));	
+			request.setAttribute("list", volunteer);
+			request.setAttribute("searchCountryList", searchCountryList);
+			request.setAttribute("check", "result");
+			RequestDispatcher rd = request.getRequestDispatcher("bookmarkList.jsp");
+			rd.forward(request, response);
+			
+			return;
 		}
 	}
 }

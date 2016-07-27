@@ -217,6 +217,33 @@ public class VolunteerDAO{
 		return team;
 	}
 	
+	public static VolunteerBean[] searchLikedMember(String keyword){
+		Connection con = null;	
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		VolunteerBean[] list  = null;
+		ArrayList alist = new ArrayList();
+		
+		String sql="SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, ROLE, EMAIL, IMAGE FROM MEMBER WHERE MEMBER.NUMBER = BOOKMARK.NUMBER LIKE ?";	
+		try {
+			con = source.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(keyword));
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()){
+				alist.add(new VolunteerBean(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7), rset.getString(8), rset.getString(9),
+						rset.getString(10), rset.getString(11), rset.getString(12), rset.getString(13)));
+			}
+			list = new VolunteerBean[alist.size()];
+			alist.toArray(list);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(rset, pstmt, con);
+		}
+		return list;
+	}
 	
 	public static void close(Statement stmt, Connection con){
 		try{

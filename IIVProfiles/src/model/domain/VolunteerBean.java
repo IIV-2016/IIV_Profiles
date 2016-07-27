@@ -66,6 +66,24 @@ public class VolunteerBean {
 		this.team = team;
 	}
 	
+	public VolunteerBean(int number, String firstname, String lastname, String birth, String gender, String university,
+			String majorclass, String major, String expertise, String experience, String role, String email,
+			String image) {
+		this.number = number;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.birth = birth;
+		this.gender = gender;
+		this.university = university;
+		this.majorclass = majorclass;
+		this.major = major;
+		this.expertise = expertise;
+		this.experience = experience;
+		this.role = role;
+		this.email = email;
+		this.image = image;
+	}
+	
 	public VolunteerBean(int number) {
 		super();
 		this.number = number;
