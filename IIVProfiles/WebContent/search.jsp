@@ -134,11 +134,6 @@
 							</div>
 						</div>
 						<div class="overflow-h">
-							<div class="star-vote pull-right">
-								<ul class="list-inline">
-									<li><i class="color-green fa fa-star"></i></li>
-								</ul>
-							</div>
 							<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h3>
 						</div>
 						<ul class="list-unstyled">

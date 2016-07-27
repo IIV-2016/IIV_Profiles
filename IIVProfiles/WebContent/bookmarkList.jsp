@@ -71,6 +71,10 @@
 						<%
 							if (list == null || searchCountryList.size() == 0) {
 						%>
+						<div class="heading heading-v1 margin-bottom">
+							<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
+							<h4>We can't find your bookmarks.<h4>
+						</div>	
 						<%
 							} else {
 						%>
@@ -107,11 +111,6 @@
 							</div>
 						</div>
 						<div class="overflow-h">
-							<div class="star-vote pull-right">
-								<ul class="list-inline">
-									<li><i class="color-green fa fa-star"></i></li>
-								</ul>
-							</div>
 							<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h3>
 						</div>
 						<ul class="list-unstyled">

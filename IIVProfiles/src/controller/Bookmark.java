@@ -56,13 +56,13 @@ public class Bookmark extends HttpServlet {
 				response.sendRedirect("member.jsp");
 			}
 		}else if(command.equals("loadBookmark")){
-			String keyword = request.getParameter("memberNumber");
+			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
 			
-			VolunteerBean[] volunteer = VolunteerDAO.readLikedMember(Integer.parseInt(keyword));	
+			VolunteerBean[] volunteer = VolunteerDAO.readLikedMember(memberNumber);	
 			ArrayList<String> tempList = new ArrayList<String>();
 			ArrayList<String> searchCountryList;
 			
-			for(int i = 0; i <volunteer.length ; i++){
+			for(int i = 0; i < volunteer.length ; i++){
 				tempList.add(volunteer[i].getTeam().getCountry());
 			}
 			searchCountryList = new ArrayList<String>(new HashSet<String>(tempList));
