@@ -134,12 +134,12 @@
 							</div>
 						</div>
 						<div class="overflow-h">
-							<div class="star-vote pull-right">
-								<ul class="list-inline">
-									<li><i class="color-green fa fa-star"></i></li>
-								</ul>
-							</div>
-							<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h3>
+							<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%>
+							<span class="rating">
+									<input type="radio" name="stars-rating" id="stars-rating-1">
+									<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+							</span>
+							</h3>
 						</div>
 						<ul class="list-unstyled">
 							<li><div class="text-line"><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></div></li>
