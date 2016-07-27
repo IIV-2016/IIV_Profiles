@@ -41,6 +41,8 @@
 		<link rel="stylesheet" href="assets/css/pages/page_search.css">
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
+		<link rel="stylesheet" href="assets/css/sky-forms.css">
+		<link rel="stylesheet" href="assets/css/custom-sky-forms.css">
 		
 		<link rel="stylesheet" href="assets/css/text.css">
 		<link rel="stylesheet" href="assets/css/header_fix.css">
@@ -62,14 +64,23 @@
 				<div class="container">
 					<div class="col-md-6 col-md-offset-3">
 						<h1>IIV PROFILES <span class="color-green">SEARCH</span></h1>
-						<form name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
+						<form class="sky-form" name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
 							<div class="input-group">
 								<input type="hidden" name="command" value="search">
 								<input type="text" name="major" class="form-control" placeholder="Search words with major.">
 								<span class="input-group-btn">
 									<button class="btn-u btn-u-lg" type="submit"><i class="fa fa-search"></i></button>
 								</span>
-							</div>
+							</div>	
+							<section>
+								<div class="inline-group">
+									<label class="checkbox"><input type="checkbox" name="checkbox-inline" checked=""><i></i><span class="color-light">Major</span></label>
+									<label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i><span class="color-light">Name</span></label>
+									<label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i><span class="color-light">Team</span></label>
+									<label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i><span class="color-light">Skill</span></label>
+									<label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i><span class="color-light">Country</span></label>
+								</div>
+							</section>						
 						</form>
 					</div>
 				</div>
