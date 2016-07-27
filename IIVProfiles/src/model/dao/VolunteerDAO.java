@@ -217,25 +217,26 @@ public class VolunteerDAO{
 		return team;
 	}
 	
-	public static void readLikedMember(String keyword){
+	public static VolunteerBean[] readLikedMember(int memberNumber){
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		VolunteerBean[] list  = null;
-		ArrayList likedlist = new ArrayList();
-		
-		String sql="SELECT LIKED_MEMBER_NUMBER FROM BOOKMARK WHERE MEMBER_NUMBER = ?";	
+		ArrayList alist = new ArrayList();
+		String sql="SELECT LIKE_NUMBER FROM BOOKMARK WHERE MEMBER_NUMBER = ?";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, Integer.parseInt(keyword));
+			pstmt.setInt(1, memberNumber);
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()){
-				likedlist.add(new VolunteerBean(rset.getInt(1)));
+				alist.add(searchLikedMember(rset.getInt(1)));
 			}
-			list = new VolunteerBean[likedlist.size()];
-			likedlist.toArray(list);
+			
+			list = new VolunteerBean[alist.size()];
+			alist.toArray(list);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
@@ -251,7 +252,7 @@ public class VolunteerDAO{
 		VolunteerBean[] list  = null;
 		ArrayList likedlist = new ArrayList();
 		
-		String sql="SELECT SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, ROLE, EMAIL, IMAGE, TEAM.NUMBER FROM MEMBER INNER JOIN BOOKMARK AND ON MEMBER.NUMBER = ?";	
+		String sql="SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, ROLE, EMAIL, IMAGE, TEAM.NUMBER FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND MEMBER.NUMBER = ?";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);

@@ -6,6 +6,7 @@
 <%
 	VolunteerBean[] list = (VolunteerBean[]) request.getAttribute("list");
 	ArrayList<String> searchCountryList = (ArrayList<String>) request.getAttribute("searchCountryList");
+	VolunteerBean volunteer = null;
 %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -67,10 +68,6 @@
 			<div class="container">
 				<div class="content-xs">
 					<div id="filters-container" class="cbp-l-filters-text content-xs">
-						<form action="<%=request.getContextPath()%>/volunteer.do" method="get">
-										<input type="hidden" name="command" value="load">
-										<input type="submit" name="memberNumber" value="${member.number}">
-						</form>
 						<%
 							if (list == null || searchCountryList.size() == 0) {
 						%>
