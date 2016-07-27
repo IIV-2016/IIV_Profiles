@@ -6,9 +6,11 @@
 		</button>
 		<div class="topbar">
 			<ul class="loginbar pull-right">
-				<li><i class="fa fa-user"></i> <a href="<%=request.getContextPath()%>/login.jsp">Login</a></li>
+				<li><i class="fa fa-user"></i> ${member.lastname} ${member.firstname}</li>
+				<li class="topbar-devider"></li>
+				<li><i class="fa fa-lock"></i> <a href="<%=request.getContextPath()%>/login.do?command=logout">Logout</a></li>
 			</ul>
-		</div>		
+		</div>
 	</div>
 	<div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
 		<div class="container">
@@ -16,6 +18,12 @@
 				<li class="dropdown">
 					<a href="<%=request.getContextPath()%>/volunteer.do"> Home </a>
 				</li>
+				<li class="dropdown">
+					<a href="<%=request.getContextPath()%>/volunteer.do?command=searchPage"> Search </a>
+				</li>
+				<li class="dropdown">
+					<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=${member.number}"> MyPage </a>
+				</li>				
 				<li class="dropdown">
 					<a href="<%=request.getContextPath()%>/aboutIIV.jsp"> About IIV </a>
 				</li>

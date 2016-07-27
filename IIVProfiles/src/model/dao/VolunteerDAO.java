@@ -217,6 +217,32 @@ public class VolunteerDAO{
 		return team;
 	}
 	
+	public static boolean updateMemberSkill(int memberNumber, String expertise, String experience){
+		Connection con = null;	
+		PreparedStatement pstmt = null;
+		boolean result = false;
+		String sql = "UPDATE MEMBER SET EXPERTISE = ?, EXPERIENCE = ? WHERE NUMBER = ?";
+		
+		try{
+			con = source.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,expertise);
+		    pstmt.setString(2, experience);
+		    pstmt.setInt(3, memberNumber);
+			pstmt.executeUpdate();
+			int count = pstmt.executeUpdate();
+			
+			if(count != 0){
+				result = true;
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			close(pstmt, con);
+		}
+		return result;
+	}
 	
 	public static void close(Statement stmt, Connection con){
 		try{

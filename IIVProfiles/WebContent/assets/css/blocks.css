@@ -247,7 +247,7 @@
 /*Default Breadcrumbs*/
 .breadcrumbs {
   overflow: hidden;
-  padding: 10px 0 6px;
+  padding: 1px 0 1px;
   border-bottom: solid 1px #eee;
   background: url(../img/patterns/breadcrumbs.png) repeat;
 }
@@ -351,9 +351,9 @@
 /*Breadcrumbs v1
 ------------------------------------*/
 .breadcrumbs-v1 {
-  padding: 100px 0;
+  padding: 20px 0;
   position: relative;
-  background: url(../img/breadcrumbs/img1.jpg) center no-repeat;
+  background: url(../img/patterns/img3.jpg) center no-repeat;
   background-size: cover; /*Scales the background image to be as large as possible*/
 }
 
@@ -450,7 +450,7 @@
 }
 
 .breadcrumbs-v3.img-v2 {
-  background: url(../img/breadcrumbs/img2.jpg) no-repeat;
+  background: url(../img/img3.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
 }
@@ -4197,7 +4197,7 @@
 .news-v3 .post-shares {
   padding-left: 0;
   list-style: none;
-  margin: 40px 0 0 -5px;
+  margin: 20px 0 30px -10px;
 }
 
 .news-v3 .news-v3-in-sm .post-shares {

@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="model.domain.VolunteerBean"%>
-
+<%
+	VolunteerBean volunteer = (VolunteerBean) request.getAttribute("volunteer");
+%>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -9,7 +11,7 @@
 <html lang="en">
 <!--<![endif]-->
 	<head>
-		<title>About Us | International ICT Volunteers</title>
+		<title>Update | International ICT Volunteers</title>
 		
 		<!-- Meta -->
 		<meta charset="utf-8">
@@ -33,7 +35,7 @@
 		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.css">
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
-
+		
 		<link rel="stylesheet" href="assets/css/header_fix.css">
 		
 	  	<c:choose>
@@ -45,68 +47,69 @@
 			</c:otherwise>
 		</c:choose>	
 	</head>
-	<body class="header-fixed"> 
+	<body class="header-fixed">
 		<div class="wrapper">
-			<div class="breadcrumbs-v3 img-v1 text-center">
-				<div class="container">
-					<h1>About Us</h1>
-					<p>International ICT Volunteers</p>
+		  	<c:choose>
+		  		<c:when test="${empty member}">
+			  		<div class="container content">
+						<div class="heading heading-v1 margin-bottom">
+							<h2><i class="fa fa-ban"></i></h2>
+							<h4>Non-members Access  Restriction.</h4>
+						</div>
+					</div>
+					<br><br><br><br><br><br><br><br>
+					<br><br><br><br><br><br><br><br>
+				</c:when>
+				<c:otherwise>
+			<form action="<%=request.getContextPath()%>/volunteer.do?command=update" method="post">
+				<input type="hidden" name="command" value="update">
+				<input type="hidden" name="memberNumber" value="<%=volunteer.getNumber()%>">
+				<div class="breadcrumbs">
+					<div class="container">
+						<h1 class="pull-left"><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h1>
+						<ul class="pull-right breadcrumb">
+							<li><a href="#MYEXPERTISE">MY EXPERTISE</a></li>
+							<li><a href="#MYEXPERIENCE">MY EXPERIENCE</a></li>
+						</ul>
+					</div>
 				</div>
-			</div>
-			<!--=== Title v1 ===-->
-			<div class="container content-sm">
-				<div class="title-v1 no-margin-bottom">
-					<p class="no-margin-bottom">
-					<strong>International ICT Volunteers programme (IIV)</strong> is an open international platform <br>
-					for mobilising resources of volunteers who can help promote ICT for development.<br><br>
-					The programme was initiated by the International Telecommunication Union (ITU) <br>
-					and is implemented in partnerships with multiple stakeholders including governments, NGOs, academia, and private sector.<br><br>
-					IIVs comprise international volunteers and national volunteers. <br><br>
-					<strong>International volunteers</strong> are dispatched to work outside their home countries <br>
-					while <strong>national volunteers</strong> work in their home countries usually as part of local volunteers prorgammes.</p>
+				<div class="container content-sm">
+					<div class="row about-me">
+						<div class="col-sm-8">
+							<div>
+								<div class="headline-left margin-bottom-30">
+									<h2 class="headline-brd heading-md">
+										<section id="MYEXPERTISE">MY Expertise</section>
+									</h2>
+								</div>
+								<input class="form-control" type="text" name="expertise" value="<%=volunteer.getExpertise()%>">
+								<hr/>
+							</div>
+						</div>
+						<div class="col-sm-8">
+							<div>
+								<div class="headline-left margin-bottom-30">
+									<h2 class="headline-brd heading-md">
+										<section id="MYEXPERIENCE">MY Experience</section>
+									</h2>
+								</div>
+								<input class="form-control" type="text" name="experience" value="<%=volunteer.getExperience()%>">
+								<hr/>
+							</div>
+						</div>						
+					</div>
+				</div>		
+				<div class="call-action-v2 parallaxBg">
+					<div class="container">
+						<button class="btn-u" type="submit">save</button>
+					</div>
 				</div>
-			</div>
-			<div class="service-block-v4">
-				<div class="container content-sm">
-					<div class="row">
-						<div class="col-md-4 service-desc md-margin-bottom-50">
-							<i class="icon-screen-desktop"></i>
-							<h3>ICT Development and Promotion</h3>
-							<p class="no-margin-bottom">
-							IIVs help promote digital societies and ICT literacy at all levels. <br>
-							They harness digital technologies to accelerate social and economic development</p>
-						</div>
-						<div class="col-md-4 service-desc md-margin-bottom-50">
-							<i class="icon-share"></i>
-							<h3>People Network</h3>
-							<p class="no-margin-bottom">
-							IIV is an internationally social network of volunteers <br>
-							from different backgrounds, different countries, different age groups <br>
-							but common desire for doing good deeds.</p>
-						</div>
-						<div class="col-md-4 service-desc">
-							<i class="icon-energy"></i>
-							<h3>Platform of Innovations</h3>
-							<p class="no-margin-bottom">
-							Bringing together various skills, knowledge, experiences, and spirits.<br>
-							We create a platform - the one that makes innovations and inspire people.</p>
-						</div>
-					</div><!--/end row-->
-				</div><!--/end container-->
-			</div>
-			<!--=== Parallax Counter v4 ===-->
-			<div>
-				<div class="container content-sm">
-					<div class="row">
-						<center>
-						<img src="assets/img/activities.png" style="width: 80%">
-						</center>
-					</div><!--/end row-->
-				</div><!--/end container-->
-			</div>
-			<br>
+				</form>
+				</c:otherwise>
+			</c:choose>
 			<%@include file="./footer.jsp"%>
 		</div>
+
 		<!-- JS Global Compulsory -->
 		<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
@@ -116,7 +119,10 @@
 		<script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
 		<script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
 		<script type="text/javascript" src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
-
+		
+		<!-- JS Customization -->
+		<script type="text/javascript" src="assets/js/custom.js"></script>
+		
 		<!-- JS Page Level -->
 		<script type="text/javascript" src="assets/js/app.js"></script>
 		<script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
@@ -128,6 +134,7 @@
 				OwlRecentWorks.initOwlRecentWorksV1();
 			});
 		</script>
+		
 		<script type="text/javascript" src="assets/js/header_fix.js"></script>
 		<!--[if lt IE 9]>
 		<script src="assets/plugins/respond.js"></script>

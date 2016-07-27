@@ -5,7 +5,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<p>
-							<a href="#">Developed by 2016 IIV Long-term Volunteers thaIT</a>
+							<a href="<%=request.getContextPath()%>/aboutDeveloper.jsp">Developed by 2016 IIV Long-term Volunteers thaIT</a>
 						</p>
 					</div>
 				</div>

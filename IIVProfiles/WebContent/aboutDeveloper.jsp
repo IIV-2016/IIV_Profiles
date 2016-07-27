@@ -34,14 +34,21 @@
 		
 		<link rel="stylesheet" href="assets/css/header_fix.css">
 		
-		<%@include file="./header.jsp"%>
+	  	<c:choose>
+	  		<c:when test="${empty member}">
+				<%@include file="./header.jsp"%>
+			</c:when>
+			<c:otherwise>
+				<%@include file="./header2.jsp"%>
+			</c:otherwise>
+		</c:choose>	
 	</head>
 	<body class="header-fixed">  
 		<div class="wrapper">
-			<div class="breadcrumbs-v3 img-v1 text-center">
+			<div class="breadcrumbs-v3 img-v2 text-center">
 				<div class="container">
 					<h1>About Developer</h1>
-					<p>International ICT Volunteers</p>
+					<p>long-term Volunteers thaIT</p>
 				</div>
 			</div>	
 			<div class="container content">
