@@ -90,7 +90,7 @@
 										<i class="fa fa-angle-right color-green"></i>
 										Team<span class="pull-right">
 										<a href="<%=request.getContextPath()%>/volunteer.do?command=teamDetail&teamNumber=<%=volunteer.getTeamNumber()%>">	
-										<h4><i class="fa fa-angle-double-right color-green"></i><%=volunteer.getTeam().getName()%></h4></span>
+										<i class="fa fa-angle-double-right color-green"></i><%=volunteer.getTeam().getName()%></span>
 										</a>
 									</h5>
 								</p>
@@ -176,20 +176,27 @@
 							<%
 								}
 							%>
+							<%
+								if(volunteer.getNumber() == memberNumber){
+								}else{
+							%>
 							<div class="col-md-6 progress-box md-margin-bottom-50">
-										<div class="headline-left margin-bottom-30">
-											<h2 class="headline-brd heading-md">
-												<section id="MYSKILLS">BOOKMARKS</section>
-											</h2>
-										</div>
-									<form action="<%=request.getContextPath()%>/bookmark.do" method="post">
-										<input type="hidden" name="command" value="registration">
-										<input type="hidden" name="likedMemberNumber" value="<%=volunteer.getNumber()%>">
-										<input type="hidden" name="memberNumber" value="${member.number}">
-										<button class="btn-u btn-brd btn-brd-hover rounded-4x btn-u-dark btn-u-xs" type="submit">Registration</button>
-									</form>
+								<div class="headline-left margin-bottom-30">
+									<h2 class="headline-brd heading-md">
+										<section id="MYSKILLS">BOOKMARKS</section>
+									</h2>
+								</div>
+								<form action="<%=request.getContextPath()%>/bookmark.do" method="post">
+									<input type="hidden" name="command" value="registration">
+									<input type="hidden" name="likedMemberNumber" value="<%=volunteer.getNumber()%>">
+									<input type="hidden" name="memberNumber" value="${member.number}">
+									<button class="btn-u btn-brd btn-brd-hover rounded-4x btn-u-dark btn-u-xs" type="submit">Registration</button>
+								</form>
 								<hr/>
 							</div>
+							<%								
+								}
+							%>
 						</div>
 					</div>
 				</div>		
