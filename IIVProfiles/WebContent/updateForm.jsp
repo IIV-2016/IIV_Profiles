@@ -61,6 +61,9 @@
 					<br><br><br><br><br><br><br><br>
 				</c:when>
 				<c:otherwise>
+			<form action="<%=request.getContextPath()%>/volunteer.do?command=update" method="post">
+				<input type="hidden" name="command" value="update">
+				<input type="hidden" name="memberNumber" value="<%=volunteer.getNumber()%>">
 				<div class="breadcrumbs">
 					<div class="container">
 						<h1 class="pull-left"><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h1>
@@ -79,7 +82,7 @@
 										<section id="MYEXPERTISE">MY Expertise</section>
 									</h2>
 								</div>
-								<input class="form-control" type="text" value="<%=volunteer.getExpertise()%>"></input>
+								<input class="form-control" type="text" name="expertise" value="<%=volunteer.getExpertise()%>">
 								<hr/>
 							</div>
 						</div>
@@ -90,7 +93,7 @@
 										<section id="MYEXPERIENCE">MY Experience</section>
 									</h2>
 								</div>
-								<input class="form-control" type="text" value="<%=volunteer.getExperience()%>"></input>
+								<input class="form-control" type="text" name="experience" value="<%=volunteer.getExperience()%>">
 								<hr/>
 							</div>
 						</div>						
@@ -98,10 +101,10 @@
 				</div>		
 				<div class="call-action-v2 parallaxBg">
 					<div class="container">
-						<a href="" class="btn-u">save</a>
+						<button class="btn-u" type="submit">save</button>
 					</div>
 				</div>
-				<br>
+				</form>
 				</c:otherwise>
 			</c:choose>
 			<%@include file="./footer.jsp"%>
