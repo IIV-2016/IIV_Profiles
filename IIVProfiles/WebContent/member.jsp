@@ -79,10 +79,11 @@
 						</div>
 						
 						<div class="col-sm-8">
+							<section id="IIVMEMBER"></section>
 							<div class="col-md-6 md-margin-bottom-50">
 								<div class="headline-left margin-bottom-30">
 									<h2 class="headline-brd heading-md">
-										<section id="IIVMEMBER">IIV MEMBER</section>
+										IIV MEMBER
 									</h2>
 								</div>
 								<p>
@@ -114,10 +115,11 @@
 								</p>
 								<hr>
 							</div>
+							<section id="PERSONALINFORMATION"></section>
 							<div class="col-md-6 md-margin-bottom-50">
 								<div class="headline-left margin-bottom-30">
 									<h2 class="headline-brd heading-md">
-										<section id="PERSONALINFORMATION">PERSONAL INFORMATION</section>
+										PERSONAL INFORMATION
 									</h2>
 								</div>
 								<p>
@@ -146,10 +148,7 @@
 								</p>
 								<hr>
 							</div>
-							<%
-								if (volunteer.getExpertise().equals("") && volunteer.getExpertise().equals("")) {
-								} else {
-							%>
+							<section id="MYSKILLS"></section>
 							<div class="col-md-6 progress-box md-margin-bottom-50">
 								<div class="headline-left margin-bottom-30">
 									<h2 class="headline-brd heading-md">
@@ -164,7 +163,7 @@
 										
 										}
 									%>
-										<section id="MYSKILLS">MY SKILLS</section>
+										MY SKILLS
 									</h2>
 								</div>
 								<h5 class="heading-xs">
@@ -174,16 +173,13 @@
 								<hr/>
 							</div>
 							<%
-								}
-							%>
-							<%
 								if(volunteer.getNumber() == memberNumber){
 								}else{
 							%>
 							<div class="col-md-6 progress-box md-margin-bottom-50">
 								<div class="headline-left margin-bottom-30">
 									<h2 class="headline-brd heading-md">
-										<section id="MYSKILLS">BOOKMARKS</section>
+										BOOKMARK
 									</h2>
 								</div>
 								<form action="<%=request.getContextPath()%>/bookmark.do" method="post">
@@ -199,16 +195,25 @@
 							%>
 						</div>
 					</div>
-				</div>		
+				</div>
+				<%
+					if(volunteer.getNumber() == memberNumber){
+				%>
+				<br><br><br>
+				<br><br><br>
+				<%
+					}else{
+				%>	
 				<div class="call-action-v2 parallaxBg">
 					<div class="container">
 						<h2>CONTACT ME</h2>
 						<p>This is my e-mail address</p>
 						<a href="mailto:<%=volunteer.getEmail()%>" class="btn-u">Get In Touch</a>
 					</div>
-					<br>
 				</div>
-				<br>
+				<%
+					}
+				%>
 				</c:otherwise>
 			</c:choose>
 			<%@include file="./footer.jsp"%>
