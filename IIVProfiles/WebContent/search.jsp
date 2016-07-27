@@ -74,10 +74,10 @@
 							</div>	
 							<section>
 								<div class="inline-group">
-									<label class="radio"><input type="radio" name="field" value="MAJOR"><i class="rounded-x"></i><span class="color-light">Major</span></label>
-									<label class="radio"><input type="radio" name="field" value="LASTNAME"><i class="rounded-x"></i><span class="color-light">Name</span></label>
+									<label class="radio"><input type="radio" name="field" value="CONCAT(MAJOR,MAJORCLASS)"><i class="rounded-x"></i><span class="color-light">Major</span></label>
+									<label class="radio"><input type="radio" name="field" value="CONCAT(FIRSTNAME,LASTNAME)"><i class="rounded-x"></i><span class="color-light">Name</span></label>
 									<label class="radio"><input type="radio" name="field" value="TEAM.NAME"><i class="rounded-x"></i><span class="color-light">Team</span></label>
-									<label class="radio"><input type="radio" name="field" value="EXPERTISE"><i class="rounded-x"></i><span class="color-light">Skill</span></label>
+									<label class="radio"><input type="radio" name="field" value="CONCAT(EXPERTISE,EXPERIENCE)"><i class="rounded-x"></i><span class="color-light">Skill</span></label>
 									<label class="radio"><input type="radio" name="field" value="COUNTRY"><i class="rounded-x"></i><span class="color-light">Country</span></label>
 								</div>
 							</section>		
