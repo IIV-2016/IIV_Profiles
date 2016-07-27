@@ -3,7 +3,7 @@
 <%@ page import="model.domain.VolunteerBean"%>
 <%
 	VolunteerBean volunteer = (VolunteerBean) request.getAttribute("volunteer");
-	Integer memberNumber = (Integer) session.getAttribute("memberNumber");
+	VolunteerBean member = (VolunteerBean) session.getAttribute("member");
 %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -153,7 +153,7 @@
 								<div class="headline-left margin-bottom-30">
 									<h2 class="headline-brd heading-md">
 									<%
-										if(volunteer.getNumber() == memberNumber){
+										if(volunteer.getNumber() == member.getNumber()){
 									%>
 										<a href="<%=request.getContextPath()%>/volunteer.do?command=updateForm&memberNumber=<%=volunteer.getNumber()%>">
 											<span class="pull-right"><h4><i class="fa fa-pencil color-green"></i></h4></span>
@@ -173,7 +173,7 @@
 								<hr/>
 							</div>
 							<%
-								if(volunteer.getNumber() == memberNumber){
+								if(volunteer.getNumber() == member.getNumber()){
 								}else{
 							%>
 							<div class="col-md-6 progress-box md-margin-bottom-50">
@@ -197,7 +197,7 @@
 					</div>
 				</div>
 				<%
-					if(volunteer.getNumber() == memberNumber){
+					if(volunteer.getNumber() == member.getNumber()){
 				%>
 				<br><br><br>
 				<br><br><br>
