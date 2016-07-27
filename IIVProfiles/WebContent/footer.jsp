@@ -13,3 +13,6 @@
 		</div>
 	</div>
 </div>
+<a href="#">
+	<div id="topcontrol" title="Scroll Back to Top" style="position: fixed; bottom: 5px; right: 5px; opacity: 1; cursor: pointer;"></div>
+</a>
