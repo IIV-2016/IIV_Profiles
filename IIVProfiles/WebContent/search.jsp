@@ -67,20 +67,20 @@
 						<form class="sky-form" name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
 							<div class="input-group">
 								<input type="hidden" name="command" value="search">
-								<input type="text" name="major" class="form-control" placeholder="Search words with major.">
+								<input type="text" name="keyword" class="form-control" placeholder="Search words with major.">
 								<span class="input-group-btn">
 									<button class="btn-u btn-u-lg" type="submit"><i class="fa fa-search"></i></button>
 								</span>
 							</div>	
 							<section>
 								<div class="inline-group">
-									<label class="checkbox"><input type="checkbox" name="checkbox-inline" checked=""><i></i><span class="color-light">Major</span></label>
-									<label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i><span class="color-light">Name</span></label>
-									<label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i><span class="color-light">Team</span></label>
-									<label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i><span class="color-light">Skill</span></label>
-									<label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i><span class="color-light">Country</span></label>
+									<label class="radio"><input type="radio" name="field" value="MAJOR"><i class="rounded-x"></i><span class="color-light">Major</span></label>
+									<label class="radio"><input type="radio" name="field" value="LASTNAME"><i class="rounded-x"></i><span class="color-light">Name</span></label>
+									<label class="radio"><input type="radio" name="field" value="TEAM.NAME"><i class="rounded-x"></i><span class="color-light">Team</span></label>
+									<label class="radio"><input type="radio" name="field" value="EXPERTISE"><i class="rounded-x"></i><span class="color-light">Skill</span></label>
+									<label class="radio"><input type="radio" name="field" value="COUNTRY"><i class="rounded-x"></i><span class="color-light">Country</span></label>
 								</div>
-							</section>						
+							</section>		
 						</form>
 					</div>
 				</div>
