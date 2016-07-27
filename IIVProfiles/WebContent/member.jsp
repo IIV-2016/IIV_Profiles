@@ -3,7 +3,7 @@
 <%@ page import="model.domain.VolunteerBean"%>
 <%
 	VolunteerBean volunteer = (VolunteerBean) request.getAttribute("volunteer");
-	int memberNumber = (int) session.getAttribute("memberNumber");
+	Integer memberNumber = (Integer) session.getAttribute("memberNumber");
 %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
