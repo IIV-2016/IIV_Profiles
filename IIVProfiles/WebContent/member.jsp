@@ -75,7 +75,6 @@
 					<div class="row about-me">
 						<div class="col-sm-4 shadow-wrapper md-margin-bottom-40">
 							<img class="img-responsive img-bordered full-width" src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%>">
-							<br><span class="pull-right"><a href="<%=request.getContextPath()%>/volunteer.do?command=updateForm&memberNumber=<%=volunteer.getNumber()%>" class="btn-u btn-u-xs btn-u">update</a></span>
 						</div>
 						
 						<div class="col-sm-8">
@@ -90,7 +89,7 @@
 										<i class="fa fa-angle-right color-green"></i>
 										Team<span class="pull-right">
 										<a href="<%=request.getContextPath()%>/volunteer.do?command=teamDetail&teamNumber=<%=volunteer.getTeamNumber()%>">	
-										<i class="fa fa-angle-double-right color-green"></i><%=volunteer.getTeam().getName()%></span>
+										<h4><i class="fa fa-angle-double-right color-green"></i><%=volunteer.getTeam().getName()%></h4></span>
 										</a>
 									</h5>
 								</p>
@@ -153,13 +152,15 @@
 							<div class="col-md-6 progress-box md-margin-bottom-50">
 								<div class="headline-left margin-bottom-30">
 									<h2 class="headline-brd heading-md">
+										<a href="<%=request.getContextPath()%>/volunteer.do?command=updateForm&memberNumber=<%=volunteer.getNumber()%>">
+											<span class="pull-right"><h4><i class="fa fa-pencil color-green"></i></h4></span>
+										</a>
 										<section id="MYSKILLS">MY SKILLS</section>
 									</h2>
 								</div>
 								<h5 class="heading-xs">
 									<%=volunteer.getExpertise()%><br>
 									<%=volunteer.getExperience()%>
-									<spanclass="pull-right"></span>
 								</h5>
 								<hr/>
 							</div>
