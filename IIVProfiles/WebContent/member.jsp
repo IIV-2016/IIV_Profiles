@@ -199,17 +199,26 @@
 							%>
 						</div>
 					</div>
-				</div>		
+				</div>
+				<%
+					if(volunteer.getNumber() == memberNumber){
+				%>
+				<br><br><br>
+				<br><br><br>
+				<%
+					}else{
+				%>	
 				<div class="call-action-v2 parallaxBg">
 					<div class="container">
 						<h2>CONTACT ME!</h2>
-						<p>This is my e-mail address :)</p>
+						<p>This is my e-mail address</p>
 						<a href="mailto:<%=volunteer.getEmail()%>" class="btn-u">Get In
 							Touch</a>
 					</div>
-					<br>
 				</div>
-				<br>
+				<%
+					}
+				%>
 				</c:otherwise>
 			</c:choose>
 			<%@include file="./footer.jsp"%>
