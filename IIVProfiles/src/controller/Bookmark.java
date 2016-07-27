@@ -55,6 +55,16 @@ public class Bookmark extends HttpServlet {
 			}catch(Exception e){
 				response.sendRedirect("member.jsp");
 			}
+		}else if(command.equals("loadBookmark")){
+			String keyword = request.getParameter("memberNumber");
+			
+			VolunteerBean[] volunteer = VolunteerDAO.readLikedMember(keyword);		
+			
+			request.setAttribute("list", volunteer);
+			RequestDispatcher rd = request.getRequestDispatcher("bookmarkList.jsp");
+			rd.forward(request, response);
+			
+			return;
 		}
 	}
 }

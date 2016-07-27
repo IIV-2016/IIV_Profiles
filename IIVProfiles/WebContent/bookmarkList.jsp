@@ -6,8 +6,6 @@
 <%
 	VolunteerBean[] list = (VolunteerBean[]) request.getAttribute("list");
 	ArrayList<String> searchCountryList = (ArrayList<String>) request.getAttribute("searchCountryList");
-	VolunteerBean volunteer = null;
-	String check = (String) request.getAttribute("check");
 %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
