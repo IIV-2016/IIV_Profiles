@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="model.domain.VolunteerBean"%>
-
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -63,7 +61,7 @@
 					and is implemented in partnerships with multiple stakeholders including governments, NGOs, academia, and private sector.<br><br>
 					IIVs comprise international volunteers and national volunteers. <br><br>
 					<strong>International volunteers</strong> are dispatched to work outside their home countries <br>
-					while <strong>national volunteers</strong> work in their home countries usually as part of local volunteers prorgammes.</p>
+					while <strong>national volunteers</strong> work in their home countries usually as part of local volunteers prorgammes.</p><br><br>
 				</div>
 			</div>
 			<div class="service-block-v4">
@@ -89,50 +87,12 @@
 							<h3>Platform of Innovations</h3>
 							<p class="no-margin-bottom">
 							Bringing together various skills, knowledge, experiences, and spirits.<br>
-							We create a platform - the one that makes innovations and inspire people.</p>
+							We create a platform - the one that makes innovations and inspire people.</p><br>
 						</div>
-					</div><!--/end row-->
-				</div><!--/end container-->
+					</div>
+				</div>
 			</div>
-			<!--=== Parallax Counter v4 ===-->
-			<div>
-				<div class="container content-sm">
-					<div class="row">
-						<center>
-						<img src="assets/img/activities.png" style="width: 80%">
-						</center>
-					</div><!--/end row-->
-				</div><!--/end container-->
-			</div>
-			<br>
 			<%@include file="./footer.jsp"%>
 		</div>
-		<!-- JS Global Compulsory -->
-		<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
-		<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
-		<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-		
-		<!-- JS Implementing Plugins -->
-		<script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
-		<script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
-		<script type="text/javascript" src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
-
-		<!-- JS Page Level -->
-		<script type="text/javascript" src="assets/js/app.js"></script>
-		<script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
-		<script type="text/javascript" src="assets/js/plugins/owl-recent-works.js"></script>
-		<script type="text/javascript">
-			jQuery(document).ready(function() {
-				App.init();
-				StyleSwitcher.initStyleSwitcher();
-				OwlRecentWorks.initOwlRecentWorksV1();
-			});
-		</script>
-		<script type="text/javascript" src="assets/js/header_fix.js"></script>
-		<!--[if lt IE 9]>
-		<script src="assets/plugins/respond.js"></script>
-		<script src="assets/plugins/html5shiv.js"></script>
-		<script src="assets/plugins/placeholder-IE-fixes.js"></script>
-		<![endif]-->
 	</body>
 </html>
