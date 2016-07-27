@@ -20,15 +20,19 @@
 				</li>
 				<li class="dropdown">
 					<a href="<%=request.getContextPath()%>/volunteer.do?command=searchPage"> Search </a>
-				</li>
-				<li class="dropdown">
-					<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=${member.number}"> MyPage </a>
 				</li>				
 				<li class="dropdown">
 					<a href="<%=request.getContextPath()%>/aboutIIV.jsp"> About IIV </a>
 				</li>
 				<li class="dropdown">
 					<a href="<%=request.getContextPath()%>/aboutDeveloper.jsp"> About Developer </a>
+				</li>
+				<li class="dropdown">
+					<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> MyPage </a>
+						<ul class="dropdown-menu" >
+							<li><a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=${member.number}">My Information</a></li>
+							<li><a href="<%=request.getContextPath()%>/bookmark.do?command=loadBookmark"">My Bookmark</a></li>
+						</ul>
 				</li>
 			</ul>
 		</div>
