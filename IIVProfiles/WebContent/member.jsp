@@ -210,10 +210,9 @@
 				%>	
 				<div class="call-action-v2 parallaxBg">
 					<div class="container">
-						<h2>CONTACT ME!</h2>
+						<h2>CONTACT ME</h2>
 						<p>This is my e-mail address</p>
-						<a href="mailto:<%=volunteer.getEmail()%>" class="btn-u">Get In
-							Touch</a>
+						<a href="mailto:<%=volunteer.getEmail()%>" class="btn-u">Get In Touch</a>
 					</div>
 				</div>
 				<%
