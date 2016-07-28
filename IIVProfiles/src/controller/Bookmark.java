@@ -68,7 +68,18 @@ public class Bookmark extends HttpServlet {
 			
 			return;
 		}else if(command.equals("cancel")){
+			int likedMemberNumber = Integer.parseInt(request.getParameter("likedMemberNumber"));
+			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
 			
+			VolunteerBean member = MemberDAO.deleteLikedMember(likedMemberNumber, memberNumber);
+			
+			if(member != null){
+				response.sendRedirect("volunteer.do?command=member&memberNumber=" + likedMemberNumber);
+				return;
+			}else{
+				response.sendRedirect("volunteer.do");
+				return;
+			}		
 		}
 	}
 }
