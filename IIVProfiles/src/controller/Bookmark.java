@@ -34,26 +34,19 @@ public class Bookmark extends HttpServlet {
 		String url = null;
 		
 		if(command == null){
-			//command = "login";
 		}		
 		
 		if(command.equals("registration")){
-			String likedMemberNumber = request.getParameter("likedMemberNumber");
-			String memberNumber = request.getParameter("memberNumber");
+			int likedMemberNumber = Integer.parseInt(request.getParameter("likedMemberNumber"));
+			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
 			
-			try{
-				VolunteerBean member = MemberDAO.addLikedMember(likedMemberNumber, memberNumber);
-				if(member != null){
-					HttpSession session = request.getSession();
-					session.setAttribute("likedMember", member);
-					session.setAttribute("memberNumber", member.getNumber());
-					response.sendRedirect("volunteer.do");
-					return;
-				}else{
-					response.sendRedirect("member.jsp");
-				}
-			}catch(Exception e){
-				response.sendRedirect("member.jsp");
+			VolunteerBean member = MemberDAO.addLikedMember(likedMemberNumber, memberNumber);
+			
+			if(member != null){
+				response.sendRedirect("volunteer.do?command=member&memberNumber=" + likedMemberNumber);
+				return;
+			}else{
+				
 			}
 		}else if(command.equals("loadBookmark")){
 			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
@@ -74,23 +67,7 @@ public class Bookmark extends HttpServlet {
 			
 			return;
 		}else if(command.equals("cancel")){
-			String likedMemberNumber = request.getParameter("likedMemberNumber");
-			String memberNumber = request.getParameter("memberNumber");
 			
-			try{
-				VolunteerBean member = MemberDAO.addLikedMember(likedMemberNumber, memberNumber);
-				if(member != null){
-					HttpSession session = request.getSession();
-					session.setAttribute("likedMember", member);
-					session.setAttribute("memberNumber", member.getNumber());
-					response.sendRedirect("volunteer.do");
-					return;
-				}else{
-					response.sendRedirect("member.jsp");
-				}
-			}catch(Exception e){
-				response.sendRedirect("member.jsp");
-			}
 		}
 	}
 }

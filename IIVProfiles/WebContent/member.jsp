@@ -167,7 +167,7 @@
 										BOOKMARK
 									</h2>
 								</div>
-								<form action="<%=request.getContextPath()%>/bookmark.do" method="post">
+								<form action="<%=request.getContextPath()%>/bookmark.do?command=registration" method="post">
 									<input type="hidden" name="command" value="registration">
 									<input type="hidden" name="likedMemberNumber" value="<%=volunteer.getNumber()%>">
 									<input type="hidden" name="memberNumber" value="${member.number}">
