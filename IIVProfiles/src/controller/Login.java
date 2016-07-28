@@ -17,8 +17,6 @@ import model.domain.VolunteerBean;
 
 @SuppressWarnings("serial")
 public class Login extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -59,13 +57,12 @@ public class Login extends HttpServlet {
 					}else{
 						response.sendRedirect("volunteer.do");
 					}
+				}else{
+					out.println("<script type=\"text/javascript\">");
+					out.println("alert('User or password incorrect');");
+					out.println("location='login.jsp';");
+					out.println("</script>");
 				}
-				else{
-					   out.println("<script type=\"text/javascript\">");
-					   out.println("alert('User or password incorrect');");
-					   out.println("location='login.jsp';");
-					   out.println("</script>");
-					}
 			}catch(Exception e){
 				response.sendRedirect("error.jsp");
 			}
