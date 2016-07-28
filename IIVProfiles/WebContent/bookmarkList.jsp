@@ -118,12 +118,7 @@
 							<li><div class="text-line"><span class="color-green">Major:</span> <%=volunteer.getMajor()%></div></li>
 						</ul>
 						<div class="col-md-6 progress-box md-margin-bottom-50">
-							<form action="<%=request.getContextPath()%>/bookmark.do" method="post">
-									<input type="hidden" name="command" value="cancel">
-									<input type="hidden" name="likedMemberNumber" value="<%=volunteer.getNumber()%>">
-									<input type="hidden" name="memberNumber" value="${member.number}">
-									<button class="btn-u btn-brd rounded btn-u-default btn-u-xs" type="button">Cancel</button>
-							</form>
+							<a href="<%=request.getContextPath()%>/bookmark.do?command=cancel&likedMemberNumber=<%=volunteer.getNumber()%>" class="btn-u btn-brd rounded btn-u-default btn-u-xs">Cancel</a>
 						</div>
 					</div>
 					<%

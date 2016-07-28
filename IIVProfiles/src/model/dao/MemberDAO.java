@@ -129,25 +129,29 @@ public class MemberDAO{
 		return likedMemberNumber;
 	}
 	
-	public static VolunteerBean deleteLikedMember(int likedMemberNumber, int memberNumber){
-		Connection con = null;
+	public static boolean deleteLikedMember(int likedMemberNumber, int memberNumber){
+		Connection con = null;	
 		PreparedStatement pstmt = null;
+		boolean result = false;
+		String sql = "DELETE FROM BOOKMARK WHERE LIKE_MEMBER_NUMBER = ? AND MEMBER_NUMBER = ?";
 		
 		try{
 			con = source.getConnection();
-			pstmt = con.prepareStatement("DELETE FROM BOOKMARK WHERE LIKE_MEMBER_NUMBER = ? AND MEMBER_NUMBER = ?");
+			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, likedMemberNumber);
 			pstmt.setInt(2, memberNumber);
-			pstmt.executeUpdate();
+			int count = pstmt.executeUpdate();
 			
-			return new VolunteerBean(likedMemberNumber);
+			if(count != 0){
+				result = true;
+			}
 			
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
 			close(pstmt, con);
 		}
-		return null;
+		return result;
 	}
 	
 	public static void close(Statement stmt, Connection con){

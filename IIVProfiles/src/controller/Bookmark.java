@@ -31,9 +31,9 @@ public class Bookmark extends HttpServlet {
 	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		request.setCharacterEncoding("euc-kr");
 		String command = request.getParameter("command");
-		String url = null;
 		
 		if(command == null){
+			command = "loadBookmark";
 		}		
 		
 		if(command.equals("registration")){
@@ -50,8 +50,9 @@ public class Bookmark extends HttpServlet {
 				return;
 			}
 		}else if(command.equals("loadBookmark")){
-			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
-			
+			HttpSession session = request.getSession();
+			int memberNumber = (int)session.getAttribute("memberNumber");
+
 			VolunteerBean[] volunteer = VolunteerDAO.readLikedMember(memberNumber);	
 			ArrayList<String> tempList = new ArrayList<String>();
 			ArrayList<String> searchCountryList;
@@ -68,18 +69,19 @@ public class Bookmark extends HttpServlet {
 			
 			return;
 		}else if(command.equals("cancel")){
+			HttpSession session = request.getSession();
+			int memberNumber = (int)session.getAttribute("memberNumber");
 			int likedMemberNumber = Integer.parseInt(request.getParameter("likedMemberNumber"));
-			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
+
+			boolean result = MemberDAO.deleteLikedMember(likedMemberNumber, memberNumber);
 			
-			VolunteerBean member = MemberDAO.deleteLikedMember(likedMemberNumber, memberNumber);
-			
-			if(member != null){
-				response.sendRedirect("volunteer.do?command=member&memberNumber=" + likedMemberNumber);
+			if(result){
+				response.sendRedirect("bookmark.do");
 				return;
 			}else{
-				response.sendRedirect("volunteer.do");
+				response.sendRedirect("error.jsp");
 				return;
-			}		
+			}	
 		}
 	}
 }
