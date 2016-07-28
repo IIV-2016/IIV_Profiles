@@ -152,6 +152,10 @@
 							<div class="col-md-6 progress-box md-margin-bottom-50">
 								<div class="headline-left margin-bottom-30">
 									<h2 class="headline-brd heading-md">
+		
+										<a href="<%=request.getContextPath()%>/volunteer.do?command=updateForm&memberNumber=<%=volunteer.getNumber()%>">
+											<span class="pull-right"><h4><i class="fa fa-pencil color-green"></i></h4></span>
+										</a>
 										MY SKILLS
 									</h2>
 								</div>
@@ -161,30 +165,11 @@
 								</h5>
 								<hr/>
 							</div>
-							<div class="col-md-6 progress-box md-margin-bottom-50">
-								<div class="headline-left margin-bottom-30">
-									<h2 class="headline-brd heading-md">
-										BOOKMARK
-									</h2>
-								</div>
-								<form action="<%=request.getContextPath()%>/bookmark.do" method="post">
-									<input type="hidden" name="command" value="registration">
-									<input type="hidden" name="likedMemberNumber" value="<%=volunteer.getNumber()%>">
-									<input type="hidden" name="memberNumber" value="${member.number}">
-									<button class="btn-u btn-brd btn-brd-hover rounded-4x btn-u-dark btn-u-xs" type="submit">Registration</button>
-								</form>
-								<hr/>
-							</div>
 						</div>
 					</div>
 				</div>
-				<div class="call-action-v2 parallaxBg">
-					<div class="container">
-						<h2>CONTACT ME</h2>
-						<p>This is my e-mail address</p>
-						<a href="mailto:<%=volunteer.getEmail()%>" class="btn-u">Get In Touch</a>
-					</div>
-				</div>
+				<br><br><br>
+				<br><br><br>
 				</c:otherwise>
 			</c:choose>
 			<%@include file="./footer.jsp"%>
