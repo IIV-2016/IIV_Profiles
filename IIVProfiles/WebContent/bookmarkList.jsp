@@ -105,21 +105,19 @@
 								<div class="easy-block-v1">
 									<div class="easy-block-v1-badge rgba-default"><%=volunteer.getRole()%></div>
 									<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">	
-									<img src="<%=volunteer.getImage()%>" alt="">
+									<img src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%>">
 									</a>
 								</div>
 							</div>
 						</div>
 						<div class="overflow-h">
+							<h5><a href="<%=request.getContextPath()%>/bookmark.do?command=cancel&likedMemberNumber=<%=volunteer.getNumber()%>"><i class="pull-right color-green fa fa-star"></i></a></h5>
 							<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h3>
 						</div>
 						<ul class="list-unstyled">
 							<li><div class="text-line"><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></div></li>
 							<li><div class="text-line"><span class="color-green">Major:</span> <%=volunteer.getMajor()%></div></li>
 						</ul>
-						<div class="col-md-6 progress-box md-margin-bottom-50">
-							<a href="<%=request.getContextPath()%>/bookmark.do?command=cancel&likedMemberNumber=<%=volunteer.getNumber()%>" class="btn-u btn-brd rounded btn-u-default btn-u-xs">Cancel</a>
-						</div>
 					</div>
 					<%
 						}
