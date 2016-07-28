@@ -73,6 +73,7 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			
 			return;
 		}else if(command.equals("search")){
+			HttpSession session = request.getSession();
 			String field = request.getParameter("field");
 			String keyword = request.getParameter("keyword");
 			VolunteerBean[] volunteer = VolunteerDAO.searchKeyword(field, keyword);
@@ -85,6 +86,7 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			request.setAttribute("list", volunteer);
 			request.setAttribute("searchCountryList", searchCountryList);
 			request.setAttribute("check", "result");
+			request.setAttribute("field", field);
 			RequestDispatcher rd = request.getRequestDispatcher("search.jsp");
 			rd.forward(request, response);
 			

@@ -53,6 +53,7 @@ public class Bookmark extends HttpServlet {
 				boolean checkBookmark = MemberDAO.checkLikedMember((int)session.getAttribute("memberNumber"), memberNumber);
 				request.setAttribute("checkBookmark", checkBookmark);
 				String referer= request.getHeader("referer");
+
 				response.sendRedirect(referer);
 				return;
 			}else{
