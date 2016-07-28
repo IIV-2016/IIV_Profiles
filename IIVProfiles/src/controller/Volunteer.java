@@ -114,7 +114,7 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			Boolean result = VolunteerDAO.updateMemberSkill(memberNumber, expertise, experience);
 			
 			if(result){
-				response.sendRedirect("volunteer.do?command=member&memberNumber=" + memberNumber);
+				response.sendRedirect("volunteer.do?command=mypage");
 				return;
 			}else{
 				response.sendRedirect("error.jsp");
