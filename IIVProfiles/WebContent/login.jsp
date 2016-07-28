@@ -36,7 +36,7 @@
 		<div class="container">
 			<div class="reg-block">
 				<div class="reg-block-header">
-					<h2>Sign In</h2>
+					<h2>Log In</h2>
 				</div>
 				<form action="<%=request.getContextPath()%>/login.do" method="post">
 					<input type="hidden" name="command" value="login">
