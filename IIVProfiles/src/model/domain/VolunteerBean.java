@@ -88,7 +88,7 @@ public class VolunteerBean {
 		super();
 		this.number = number;
 	}
-
+	
 	public int getNumber() {
 		return number;
 	}
