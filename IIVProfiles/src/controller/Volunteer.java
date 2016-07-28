@@ -125,7 +125,7 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			HttpSession session = request.getSession();
 			VolunteerBean volunteer = VolunteerDAO.readMember((int)session.getAttribute("memberNumber"));
 			request.setAttribute("volunteer", volunteer);
-			RequestDispatcher rd = request.getRequestDispatcher("member.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("mypage.jsp");
 			rd.forward(request, response);
 			
 			return;

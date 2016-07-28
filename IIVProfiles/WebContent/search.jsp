@@ -68,14 +68,14 @@
 						<form class="sky-form" name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
 							<div class="input-group">
 								<input type="hidden" name="command" value="search">
-								<input type="text" name="keyword" class="form-control" placeholder="Search words with major.">
+								<input type="text" name="keyword" class="form-control" placeholder="Search">
 								<span class="input-group-btn">
 									<button class="btn-u btn-u-lg" type="submit"><i class="fa fa-search"></i></button>
 								</span>
 							</div>	
 							<section>
 								<div class="inline-group">
-									<label class="radio"><input type="radio" name="field" value="CONCAT(MAJOR,MAJORCLASS)"><i class="rounded-x"></i><span class="color-light">Major</span></label>
+									<label class="radio"><input type="radio" name="field" value="CONCAT(MAJOR,MAJORCLASS)" checked><i class="rounded-x"></i><span class="color-light">Major</span></label>
 									<label class="radio"><input type="radio" name="field" value="CONCAT(FIRSTNAME,LASTNAME)"><i class="rounded-x"></i><span class="color-light">Name</span></label>
 									<label class="radio"><input type="radio" name="field" value="TEAM.NAME"><i class="rounded-x"></i><span class="color-light">Team</span></label>
 									<label class="radio"><input type="radio" name="field" value="CONCAT(EXPERTISE,EXPERIENCE)"><i class="rounded-x"></i><span class="color-light">Skill</span></label>
