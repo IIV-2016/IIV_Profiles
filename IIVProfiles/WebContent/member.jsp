@@ -168,17 +168,21 @@
 										BOOKMARK
 									</h2>
 								</div>
-								<form action="<%=request.getContextPath()%>/bookmark.do" method="post">
-									<input type="hidden" name="command" value="registration">
-									<input type="hidden" name="likedMemberNumber" value="<%=volunteer.getNumber()%>">
-									<button class="btn-u btn-brd btn-brd-hover rounded-4x btn-u-dark btn-u-xs" type="submit">Register</button>
-								</form>
-								<form action="<%=request.getContextPath()%>/bookmark.do?command=cancel" method="post">
-									<input type="hidden" name="command" value="cancel">
-									<input type="hidden" name="likedMemberNumber" value="<%=volunteer.getNumber()%>">
-									<input type="hidden" name="memberNumber" value="${member.number}">
-									<button class="btn-u btn-u-sm rounded-3x btn-brd-hover btn-u-light" type="submit"> Cancel </button>
-								</form>
+								<%
+									if(checkBookmark){
+								%>
+									<a href="<%=request.getContextPath()%>/bookmark.do?command=cancel&likedMemberNumber=<%=volunteer.getNumber()%>">	
+										<h1><i class="fa fa-toggle-on color-green"></i></h1>
+									</a>
+								<%
+									}else{
+								%>
+									<a href="<%=request.getContextPath()%>/bookmark.do?command=registration&likedMemberNumber=<%=volunteer.getNumber()%>">	
+										<h1><i class="fa fa-toggle-off"></i></h1>
+									</a>
+								<%
+									}
+								%>
 								<hr/>
 							</div>
 						</div>
