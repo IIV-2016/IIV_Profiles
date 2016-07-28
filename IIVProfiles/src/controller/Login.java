@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.MemberDAO;
+import model.dao.VolunteerDAO;
 import model.domain.VolunteerBean; 
 
 @SuppressWarnings("serial")
@@ -29,14 +30,14 @@ public class Login extends HttpServlet {
 	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		request.setCharacterEncoding("euc-kr");
 		String command = request.getParameter("command");
-		String url = null;
+		SecurityUtil securityUtil = null;
 		
 		if(command == null){
 			command = "login";
 		}		
 		
 		if(command.equals("login")){
-			SecurityUtil securityUtil = new SecurityUtil();
+			securityUtil = new SecurityUtil();
 			
 			String id = request.getParameter("id");
 			String password = request.getParameter("password");
@@ -49,13 +50,17 @@ public class Login extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("member", member);
 					session.setAttribute("memberNumber", member.getNumber());
-					response.sendRedirect("volunteer.do");
-					return;
+					
+					if(!member.getPasswordRenew()){
+						response.sendRedirect("setting.jsp");
+					}else{
+						response.sendRedirect("volunteer.do");
+					}
 				}else{
-					response.sendRedirect("login.jsp");
+					response.sendRedirect("error.jsp");
 				}
 			}catch(Exception e){
-				response.sendRedirect("login.jsp");
+				response.sendRedirect("error.jsp");
 			}
 			
 		}else if(command.equals("logout")){			
@@ -65,6 +70,20 @@ public class Login extends HttpServlet {
 				response.sendRedirect("volunteer.do");
 			}catch(Exception e){
 				response.sendRedirect("error.jsp");
+			}
+		}else if(command.equals("updatePassword")){
+			HttpSession session = request.getSession();
+			int memberNumber = (int)session.getAttribute("memberNumber");
+			String password = request.getParameter("password");
+			String encryptedPassword = securityUtil.encryptSHA256(password);  
+			boolean result = MemberDAO.updatePassword(memberNumber, encryptedPassword);
+			
+			if(result){
+				response.sendRedirect("volunteer.do");
+				return;
+			}else{
+				response.sendRedirect("error.jsp");
+				return;
 			}
 		}
 	}

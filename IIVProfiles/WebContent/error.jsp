@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-	<title>404 Error Page 4 | Unify - Responsive Website Template</title>
+	<title>404 Error Page 6 | Unify - Responsive Website Template</title>
 
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -31,62 +33,57 @@
 	<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
 
 	<!-- CSS Page Style -->
-	<link rel="stylesheet" href="assets/css/pages/page_404_error4.css">
+	<link rel="stylesheet" href="assets/css/pages/page_404_error6.css">
 
 	<!-- CSS Customization -->
 	<link rel="stylesheet" href="assets/css/custom.css">
+	<c:choose>
+	  	<c:when test="${empty member}">
+			<%@include file="./header.jsp"%>
+		</c:when>
+		<c:otherwise>
+			<%@include file="./header2.jsp"%>
+		</c:otherwise>
+	</c:choose>		
 </head>
 
 <body>
-	<!--=== Error V5 ===-->
-	<div class="container valign__middle">
-		<!--Error Block-->
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-				<div class="error-v5">
-					<a class="logo-a" href="#"><img alt="" src="assets/img/logo1-default.png" class="logo"></a>
-					<h1>That's an error!</h1>
-					<span class="sorry">The requested URL was not found on this server.<br> That's all we know.</span>
-					<br>
-					<span><a href="#">Back home</a></span>
+	<div class="wrapper">
+		<!--=== Error V7 ===-->
+		<div class="error-bg">
+			<div class="container">
+				<!--Error Block-->
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="error-v7">
+							<h1>That's an error!</h1>
+							<span class="sorry">The requested URL was not found on this server.</span>
+							<strong class="h1">Error</strong>
+						</div>
+					</div>
 				</div>
-			</div>
+			</div><!--/container-->
+		</div><!--/error-bg-->
+			<%@include file="./footer.jsp"%>
 		</div>
-	</div><!--/container-->
-	<!--End Error Block-->
+		<!-- JS Global Compulsory -->
+		<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+		
+		<!-- JS Implementing Plugins -->
+		<script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
+		<script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
 
-	<!--=== Sticky Footer ===-->
-	<div class="container sticky-footer">
-		<p class="copyright-space">
-			2016 &copy; All Rights Reserved. Unify Template by <a href="http://htmlstream.com/" target="_blank" class="color-green">Htmlstream</a>
-		</p>
-	</div>
-	<!--=== End Sticky Footer ===-->
+		<!-- JS Page Level -->
+		<script type="text/javascript" src="assets/js/app.js"></script>
 
-	<!-- JS Global Compulsory -->
-	<script src="assets/plugins/jquery/jquery.min.js"></script>
-	<script src="assets/plugins/jquery/jquery-migrate.min.js"></script>
-	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-	<!-- JS Implementing Plugins -->
-	<script src="assets/plugins/back-to-top.js"></script>
-	<script src="assets/plugins/backstretch/jquery.backstretch.min.js"></script>
-
-	<!-- JS Page Level -->
-	<script src="assets/js/app.js"></script>
-
-	<script>
-		jQuery(document).ready(function() {
-			App.init();
-		});
-		$.backstretch([
-			"assets/img/error/error-v5.jpg"
-			])
-	</script>
-	<!--[if lt IE 9]>
-	<script src="assets/plugins/respond.js"></script>
-	<script src="assets/plugins/html5shiv.js"></script>
-	<script src="assets/plugins/placeholder-IE-fixes.js"></script>
-	<![endif]-->
-</body>
+		<script type="text/javascript" src="assets/js/header_fix.js"></script>
+		
+		<!--[if lt IE 9]>
+		<script src="assets/plugins/respond.js"></script>
+		<script src="assets/plugins/html5shiv.js"></script>
+		<script src="assets/plugins/placeholder-IE-fixes.js"></script>
+		<![endif]-->
+	</body>
 </html>
