@@ -37,12 +37,19 @@ public class Bookmark extends HttpServlet {
 		}		
 		
 		if(command.equals("registration")){
+			HttpSession session = request.getSession();
+			int memberNumber = (int)session.getAttribute("memberNumber");
 			int likedMemberNumber = Integer.parseInt(request.getParameter("likedMemberNumber"));
-			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
+			boolean checkResult = false;
+			boolean addResult = false;
 			
-			VolunteerBean member = MemberDAO.checkLikedMember(likedMemberNumber, memberNumber);
+			checkResult = MemberDAO.checkLikedMember(likedMemberNumber, memberNumber);
 			
-			if(member != null){
+			if(!checkResult){
+				addResult = MemberDAO.addLikedMember(likedMemberNumber,memberNumber);
+			}
+			
+			if(addResult){
 				response.sendRedirect("volunteer.do?command=member&memberNumber=" + likedMemberNumber);
 				return;
 			}else{

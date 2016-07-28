@@ -4,6 +4,7 @@
 <%
 	VolunteerBean volunteer = (VolunteerBean) request.getAttribute("volunteer");
 	VolunteerBean member = (VolunteerBean) session.getAttribute("member");
+	boolean checkBookmark = (boolean)request.getAttribute("checkBookmark");
 %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -167,10 +168,9 @@
 										BOOKMARK
 									</h2>
 								</div>
-								<form action="<%=request.getContextPath()%>/bookmark.do?command=registration" method="post">
+								<form action="<%=request.getContextPath()%>/bookmark.do" method="post">
 									<input type="hidden" name="command" value="registration">
 									<input type="hidden" name="likedMemberNumber" value="<%=volunteer.getNumber()%>">
-									<input type="hidden" name="memberNumber" value="${member.number}">
 									<button class="btn-u btn-brd btn-brd-hover rounded-4x btn-u-dark btn-u-xs" type="submit">Register</button>
 								</form>
 								<form action="<%=request.getContextPath()%>/bookmark.do?command=cancel" method="post">
