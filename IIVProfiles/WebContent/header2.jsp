@@ -30,7 +30,7 @@
 				<li class="dropdown">
 					<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> MyPage </a>
 						<ul class="dropdown-menu" >
-							<li><a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=${member.number}">My Information</a></li>
+							<li><a href="<%=request.getContextPath()%>/volunteer.do?command=mypage">My Information</a></li>
 							<li><a href="<%=request.getContextPath()%>/bookmark.do?command=loadBookmark&memberNumber=${member.number}">My Bookmark</a></li>
 						</ul>
 				</li>

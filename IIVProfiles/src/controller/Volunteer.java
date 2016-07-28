@@ -8,6 +8,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.VolunteerDAO;
 import model.domain.TeamBean;
@@ -120,6 +121,14 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 				response.sendRedirect("error.jsp");
 				return;
 			}
+		}else if(command.equals("mypage")){
+			HttpSession session = request.getSession();
+			VolunteerBean volunteer = VolunteerDAO.readMember((int)session.getAttribute("memberNumber"));
+			request.setAttribute("volunteer", volunteer);
+			RequestDispatcher rd = request.getRequestDispatcher("member.jsp");
+			rd.forward(request, response);
+			
+			return;
 		}
 	}
 }
