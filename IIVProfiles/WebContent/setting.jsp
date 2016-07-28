@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="model.domain.VolunteerBean"%>
+<%
+	VolunteerBean member = (VolunteerBean) session.getAttribute("member");
+%>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -40,7 +44,7 @@
 					<p>Please enter new password.</p>
 				</div>
 				<form action="<%=request.getContextPath()%>/login.do" method="post">
-					<input type="hidden" name="command" value="login">
+					<input type="hidden" name="command" value="updatePassword">
 					<div class="input-group margin-bottom-20">
 						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
 						<input type="text" class="form-control" name="password" placeholder="New Password Setting">

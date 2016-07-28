@@ -16,14 +16,16 @@ public class VolunteerBean {
 	private String image;
 	private int teamNumber;
 	private String password;
+	private boolean passwordRenew;
 	private TeamBean team;
 
 	public VolunteerBean() { }
 
-	public VolunteerBean(int number, String firstname, String lastname) {
+	public VolunteerBean(int number, String firstname, String lastname, boolean passwordRenew) {
 		this.number = number;
 		this.firstname = firstname;
 		this.lastname = lastname;
+		this.passwordRenew = passwordRenew;
 	}
 
 	public VolunteerBean(int number, String firstname, String lastname, String birth, String gender, String university,
@@ -64,24 +66,6 @@ public class VolunteerBean {
 		this.image = image;
 		this.teamNumber = teamNumber;
 		this.team = team;
-	}
-	
-	public VolunteerBean(int number, String firstname, String lastname, String birth, String gender, String university,
-			String majorclass, String major, String expertise, String experience, String role, String email,
-			String image) {
-		this.number = number;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.birth = birth;
-		this.gender = gender;
-		this.university = university;
-		this.majorclass = majorclass;
-		this.major = major;
-		this.expertise = expertise;
-		this.experience = experience;
-		this.role = role;
-		this.email = email;
-		this.image = image;
 	}
 	
 	public VolunteerBean(int number) {
@@ -215,6 +199,14 @@ public class VolunteerBean {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public boolean getPasswordRenew() {
+		return passwordRenew;
+	}
+
+	public void setPasswordRenew(boolean passwordRenew) {
+		this.passwordRenew = passwordRenew;
 	}
 
 	@Override

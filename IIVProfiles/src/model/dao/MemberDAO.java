@@ -33,24 +33,51 @@ public class MemberDAO{
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
+		VolunteerBean volunteer = null;
 		
 		try{
 			con = source.getConnection();
-			pstmt = con.prepareStatement("SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME FROM MEMBER WHERE EMAIL = ? AND PASSWORD = ?");
+			pstmt = con.prepareStatement("SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, PASSWORD_RENEW FROM MEMBER WHERE EMAIL = ? AND PASSWORD = ?");
 			pstmt.setString(1, id);
 			pstmt.setString(2, password);
 			rset = pstmt.executeQuery();
 			
 			if (rset.next()) {
-				return new VolunteerBean(rset.getInt(1), rset.getString(2), rset.getString(3));
+				volunteer =  new VolunteerBean(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getBoolean(4));
 			}
-			
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
 			close(rset, pstmt, con);
 		}
-		return null;
+		return volunteer;
+	}
+	
+	public static boolean updatePassword(int memberNumber, String password){
+		Connection con = null;	
+		PreparedStatement pstmt = null;
+		boolean result = false;
+		String sql = "UPDATE MEMBER SET PASSWORD = ?, PASSWORD_RENEW = ? WHERE NUMBER = ?";
+		
+		try{
+			con = source.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, password);
+		    pstmt.setBoolean(2, true);
+		    pstmt.setInt(3, memberNumber);
+			pstmt.executeUpdate();
+			int count = pstmt.executeUpdate();
+			
+			if(count != 0){
+				result = true;
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			close(pstmt, con);
+		}
+		return result;
 	}
 	
 	public static VolunteerBean checkLikedMember(int likedMemberNumber, int memberNumber){
