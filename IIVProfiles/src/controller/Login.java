@@ -1,4 +1,5 @@
 package controller;
+import security.SecurityUtil;
 
 import java.io.IOException;
 
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.MemberDAO;
-import model.domain.VolunteerBean;
+import model.domain.VolunteerBean; 
 
 @SuppressWarnings("serial")
 public class Login extends HttpServlet {
@@ -35,11 +36,15 @@ public class Login extends HttpServlet {
 		}		
 		
 		if(command.equals("login")){
+			SecurityUtil securityUtil = new SecurityUtil();
+			
 			String id = request.getParameter("id");
 			String password = request.getParameter("password");
 			
+			String encryptedPassword = securityUtil.encryptSHA256(password);  
+			
 			try{
-				VolunteerBean member = MemberDAO.checkMember(id, password);
+				VolunteerBean member = MemberDAO.checkMember(id, encryptedPassword);
 				if(member != null){
 					HttpSession session = request.getSession();
 					session.setAttribute("member", member);
