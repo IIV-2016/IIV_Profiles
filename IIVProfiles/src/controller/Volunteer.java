@@ -62,7 +62,6 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			return;
 		}else if(command.equals("member")){
 			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
-
 			VolunteerBean volunteer = VolunteerDAO.readMember(memberNumber);
 			request.setAttribute("volunteer", volunteer);
 			RequestDispatcher rd = request.getRequestDispatcher("member.jsp");

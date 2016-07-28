@@ -32,6 +32,7 @@
 						<ul class="dropdown-menu" >
 							<li><a href="<%=request.getContextPath()%>/volunteer.do?command=mypage">My Information</a></li>
 							<li><a href="<%=request.getContextPath()%>/bookmark.do?command=loadBookmark&memberNumber=${member.number}">My Bookmark</a></li>
+							<li><a href="<%=request.getContextPath()%>/setting.jsp">Setting</a></li>
 						</ul>
 				</li>
 			</ul>
