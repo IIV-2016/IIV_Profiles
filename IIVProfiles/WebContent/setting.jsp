@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="model.domain.VolunteerBean"%>
+<%
+	VolunteerBean member = (VolunteerBean) session.getAttribute("member");
+%>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 	<head>
-		<title>Log In | International ICT Volunteers</title>
+		<title>Setting Password | International ICT Volunteers</title>
 	
 		<!-- Meta -->
 		<meta charset="utf-8">
@@ -36,22 +40,23 @@
 		<div class="container">
 			<div class="reg-block">
 				<div class="reg-block-header">
-					<h2>Log In</h2>
+					<h2>Password Setting</h2>
+					<p>Please enter new password.</p>
 				</div>
 				<form action="<%=request.getContextPath()%>/login.do" method="post">
-					<input type="hidden" name="command" value="login">
-					<div class="input-group margin-bottom-20">
-						<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-						<input type="text" class="form-control" name="id" placeholder="Email">
-					</div>
+					<input type="hidden" name="command" value="updatePassword">
 					<div class="input-group margin-bottom-20">
 						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-						<input type="text" class="form-control" name="password" placeholder="Password">
+						<input type="text" class="form-control" name="password" placeholder="New Password Setting">
+					</div>
+					<div class="input-group margin-bottom-20">
+						<span class="input-group-addon"><i class="fa fa-check-square-o"></i></span>
+						<input type="text" class="form-control" name="passwordCheck" placeholder="Re-type new Password">
 					</div>
 					<hr>
 					<div class="row">
 						<div class="col-md-10 col-md-offset-1">
-							<button type="submit" class="btn-u btn-block">Log In</button>
+							<button type="submit" class="btn-u btn-block">Save</button>
 						</div>
 					</div>
 				</form>
