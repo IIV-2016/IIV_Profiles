@@ -8,33 +8,7 @@
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
-	<head>
-		<script>
-		function passwordCheck() {
-			var emailTxt = document.getElementById("checkEmailTxt").innerText;
-			var password = document.getElementById("password");
-			var passwordCheck = document.getElementById("passwordCheck");
-
-			if (password.value.length == 0) {
-				alert("Please enter your password");
-				password.focus();
-				return false;
-			}
-			if (passwordCheck.value.length == 0) {
-				alert("Please reenter your password");
-				passwordCheck.focus();
-				return false;
-			}
-	
-			if ((password.value) != (passwordCheck.value)) {
-				alert("Please check your password");
-				passwordCheck.focus();
-				return false;
-			}
-			return true;
-		}
-		</script>
-		
+	<head>		
 		<title>Setting Password | International ICT Volunteers</title>
 	
 		<!-- Meta -->
@@ -69,7 +43,7 @@
 					<h2>Password Setting</h2>
 					<p>Please enter new password.</p>
 				</div>
-				<form action="<%=request.getContextPath()%>/login.do" method="post">
+				<form name="passwordForm" action="<%=request.getContextPath()%>/login.do" method="post">
 					<input type="hidden" name="command" value="updatePassword">
 					<div class="input-group margin-bottom-20">
 						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
@@ -82,7 +56,7 @@
 					<hr>
 					<div class="row">
 						<div class="col-md-10 col-md-offset-1">
-							<button type="submit" class="btn-u btn-block" onclick="return passwordCheck()">Save</button>
+							<button type="button" class="btn-u btn-block" onclick="checkSubmit()">Save</button>
 						</div>
 					</div>
 				</form>
@@ -109,6 +83,36 @@
 					duration: 7000
 				});
 		</script>
+		<script>
+		function passwordCheck() {
+			var password = document.getElementById("password");
+			var passwordCheck = document.getElementById("passwordCheck");
+
+			if (password.value.length == 0) {
+				alert("Please enter your password");
+				password.focus();
+				return false;
+			}
+			if (passwordCheck.value.length == 0) {
+				alert("Please reenter your password");
+				passwordCheck.focus();
+				return false;
+			}
+	
+			if ((password.value) != (passwordCheck.value)) {
+				alert("Please check your password");
+				passwordCheck.focus();
+				return false;
+			}
+			return true;
+		}
+		
+		function checkSubmit(){
+		    if(passwordCheck()){
+		        document.passwordForm.submit();
+		    }
+		}
+		</script>		
 		<!--[if lt IE 9]>
 		<script src="assets/plugins/respond.js"></script>
 		<script src="assets/plugins/html5shiv.js"></script>
