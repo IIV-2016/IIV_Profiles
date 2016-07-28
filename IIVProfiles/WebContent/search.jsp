@@ -43,6 +43,7 @@
 		<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
 		<link rel="stylesheet" href="assets/css/sky-forms.css">
 		<link rel="stylesheet" href="assets/css/custom-sky-forms.css">
+		<link rel="stylesheet" href="assets/css/animate.css">
 		
 		<link rel="stylesheet" href="assets/css/text.css">
 		<link rel="stylesheet" href="assets/css/header_fix.css">
@@ -145,12 +146,7 @@
 							</div>
 						</div>
 						<div class="overflow-h">
-							<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%>
-							<span class="rating">
-									<input type="radio" name="stars-rating" id="stars-rating-1">
-									<label for="stars-rating-5"><i class="fa fa-star"></i></label>
-							</span>
-							</h3>
+							<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h3>
 						</div>
 						<ul class="list-unstyled">
 							<li><div class="text-line"><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></div></li>
@@ -172,6 +168,7 @@
 		<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 		<!-- JS Implementing Plugins -->
 		<script type="text/javascript" src="assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
 		<!-- JS Page Level -->
 		<script type="text/javascript" src="assets/js/app.js"></script>
 		<script type="text/javascript" src="assets/js/plugins/cube-portfolio/cube-portfolio-4.js"></script>

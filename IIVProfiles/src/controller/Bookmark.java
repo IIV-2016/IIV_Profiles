@@ -56,23 +56,41 @@ public class Bookmark extends HttpServlet {
 				response.sendRedirect("member.jsp");
 			}
 		}else if(command.equals("loadBookmark")){
-			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
+			String likedMemberNumber = request.getParameter("likedMemberNumber");
+			String memberNumber = request.getParameter("memberNumber");
 			
-			VolunteerBean[] volunteer = VolunteerDAO.readLikedMember(memberNumber);	
-			ArrayList<String> tempList = new ArrayList<String>();
-			ArrayList<String> searchCountryList;
-			
-			for(int i = 0; i < volunteer.length ; i++){
-				tempList.add(volunteer[i].getTeam().getCountry());
+			try{
+				VolunteerBean member = MemberDAO.deleteLikedMember(likedMemberNumber, memberNumber);
+				if(member != null){
+					HttpSession session = request.getSession();
+					session.setAttribute("likedMember", member);
+					session.setAttribute("memberNumber", member.getNumber());
+					response.sendRedirect("volunteer.do");
+					return;
+				}else{
+					response.sendRedirect("member.jsp");
+				}
+			}catch(Exception e){
+				response.sendRedirect("member.jsp");
 			}
-			searchCountryList = new ArrayList<String>(new HashSet<String>(tempList));
+		}else if(command.equals("cancel")){
+			String likedMemberNumber = request.getParameter("likedMemberNumber");
+			String memberNumber = request.getParameter("memberNumber");
 			
-			request.setAttribute("list", volunteer);
-			request.setAttribute("searchCountryList", searchCountryList);
-			RequestDispatcher rd = request.getRequestDispatcher("bookmarkList.jsp");
-			rd.forward(request, response);
-			
-			return;
+			try{
+				VolunteerBean member = MemberDAO.addLikedMember(likedMemberNumber, memberNumber);
+				if(member != null){
+					HttpSession session = request.getSession();
+					session.setAttribute("likedMember", member);
+					session.setAttribute("memberNumber", member.getNumber());
+					response.sendRedirect("volunteer.do");
+					return;
+				}else{
+					response.sendRedirect("member.jsp");
+				}
+			}catch(Exception e){
+				response.sendRedirect("member.jsp");
+			}
 		}
 	}
 }

@@ -74,6 +74,27 @@ public class MemberDAO{
 		return null;
 	}
 	
+	public static VolunteerBean deleteLikedMember(String likedMemberNumber, String memberNumber){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try{
+			con = source.getConnection();
+			pstmt = con.prepareStatement("DELETE FROM BOOKMARK WHERE VALUES(? , ");
+			pstmt.setInt(1, Integer.parseInt(likedMemberNumber));
+			pstmt.setInt(2, Integer.parseInt(memberNumber));
+			pstmt.executeUpdate();
+			
+			return new VolunteerBean(Integer.parseInt(likedMemberNumber));
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			close(pstmt, con);
+		}
+		return null;
+	}
+	
 	public static void close(Statement stmt, Connection con){
 		try{
 			if(stmt != null){
