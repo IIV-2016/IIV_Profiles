@@ -40,13 +40,14 @@ public class Bookmark extends HttpServlet {
 			int likedMemberNumber = Integer.parseInt(request.getParameter("likedMemberNumber"));
 			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
 			
-			VolunteerBean member = MemberDAO.addLikedMember(likedMemberNumber, memberNumber);
+			VolunteerBean member = MemberDAO.checkLikedMember(likedMemberNumber, memberNumber);
 			
 			if(member != null){
 				response.sendRedirect("volunteer.do?command=member&memberNumber=" + likedMemberNumber);
 				return;
 			}else{
-				
+				response.sendRedirect("volunteer.do");
+				return;
 			}
 		}else if(command.equals("loadBookmark")){
 			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
