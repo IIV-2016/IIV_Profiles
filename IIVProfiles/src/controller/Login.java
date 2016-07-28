@@ -30,14 +30,13 @@ public class Login extends HttpServlet {
 	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		request.setCharacterEncoding("euc-kr");
 		String command = request.getParameter("command");
-		SecurityUtil securityUtil = null;
 		
 		if(command == null){
 			command = "login";
 		}		
 		
 		if(command.equals("login")){
-			securityUtil = new SecurityUtil();
+			SecurityUtil securityUtil = new SecurityUtil();
 			
 			String id = request.getParameter("id");
 			String password = request.getParameter("password");
@@ -72,6 +71,7 @@ public class Login extends HttpServlet {
 				response.sendRedirect("error.jsp");
 			}
 		}else if(command.equals("updatePassword")){
+			SecurityUtil securityUtil = new SecurityUtil();
 			HttpSession session = request.getSession();
 			int memberNumber = (int)session.getAttribute("memberNumber");
 			String password = request.getParameter("password");

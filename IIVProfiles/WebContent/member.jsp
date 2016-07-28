@@ -171,7 +171,13 @@
 									<input type="hidden" name="command" value="registration">
 									<input type="hidden" name="likedMemberNumber" value="<%=volunteer.getNumber()%>">
 									<input type="hidden" name="memberNumber" value="${member.number}">
-									<button class="btn-u btn-brd btn-brd-hover rounded-4x btn-u-dark btn-u-xs" type="submit">Registration</button>
+									<button class="btn-u btn-brd btn-brd-hover rounded-4x btn-u-dark btn-u-xs" type="submit">Register</button>
+								</form>
+								<form action="<%=request.getContextPath()%>/bookmark.do?command=cancel" method="post">
+									<input type="hidden" name="command" value="cancel">
+									<input type="hidden" name="likedMemberNumber" value="<%=volunteer.getNumber()%>">
+									<input type="hidden" name="memberNumber" value="${member.number}">
+									<button class="btn-u btn-u-sm rounded-3x btn-brd-hover btn-u-light" type="submit"> Cancel </button>
 								</form>
 								<hr/>
 							</div>
