@@ -2,6 +2,7 @@ package controller;
 import security.SecurityUtil;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,6 +38,7 @@ public class Login extends HttpServlet {
 		
 		if(command.equals("login")){
 			SecurityUtil securityUtil = new SecurityUtil();
+			PrintWriter out = response.getWriter();
 			
 			String id = request.getParameter("id");
 			String password = request.getParameter("password");
@@ -56,7 +58,10 @@ public class Login extends HttpServlet {
 						response.sendRedirect("volunteer.do");
 					}
 				}else{
-					response.sendRedirect("error.jsp");
+					out.println("<script type=\"text/javascript\">");
+					out.println("alert('User or password incorrect');");
+					out.println("location='login.jsp';");
+					out.println("</script>");
 				}
 			}catch(Exception e){
 				response.sendRedirect("error.jsp");
