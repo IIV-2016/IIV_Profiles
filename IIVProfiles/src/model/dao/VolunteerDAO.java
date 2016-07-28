@@ -141,13 +141,13 @@ public class VolunteerDAO{
 		return volunteer;
 	}
 	
-	public static VolunteerBean[] searchMajor(String keyword){
+	public static VolunteerBean[] searchKeyword(String field, String keyword){
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		VolunteerBean[] list  = null;
 		ArrayList alist = new ArrayList();
-		String sql="SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, ROLE, EMAIL, IMAGE, TEAM.NUMBER FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND MAJOR LIKE CONCAT('%', ?, '%')";	
+		String sql="SELECT MEMBER.NUMBER, FIRSTNAME, LASTNAME, BIRTH , GENDER, UNIVERSITY, MAJORCLASS, MAJOR, EXPERTISE, EXPERIENCE, ROLE, EMAIL, IMAGE, TEAM.NUMBER FROM MEMBER, TEAM WHERE MEMBER.TEAM_NUMBER = TEAM.NUMBER AND " + field + " LIKE CONCAT('%', ?, '%')";	
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);

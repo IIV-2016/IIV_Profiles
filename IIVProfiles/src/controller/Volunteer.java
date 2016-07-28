@@ -69,8 +69,9 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			
 			return;
 		}else if(command.equals("search")){
-			String keyword = request.getParameter("major");
-			VolunteerBean[] volunteer = VolunteerDAO.searchMajor(keyword);
+			String field = request.getParameter("field");
+			String keyword = request.getParameter("keyword");
+			VolunteerBean[] volunteer = VolunteerDAO.searchKeyword(field, keyword);
 			ArrayList<String> tempList = new ArrayList<String>();
 			ArrayList<String> searchCountryList;
 			for(int i = 0; i <volunteer.length ; i++){
