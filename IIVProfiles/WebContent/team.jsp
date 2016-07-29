@@ -73,7 +73,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="container content">
+			<div class="container content margin-bottom-50">
 				<%
 					VolunteerBean volunteer = null;
 					for (int i = 0; i < teamList.length; i++) {

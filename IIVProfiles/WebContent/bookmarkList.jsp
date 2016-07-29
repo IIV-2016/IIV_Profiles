@@ -56,7 +56,7 @@
 	</head>
 	<body>
 	<div class="wrap">
-		<div class="footer_content">
+		<div class="footer_content margin-bottom-50">
 			<div class="search-block parallaxBg">
 				<div class="container">
 					<div class="col-md-6 col-md-offset-3">
