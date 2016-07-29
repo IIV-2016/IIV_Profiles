@@ -71,10 +71,6 @@
 						<%
 							if (list == null || searchCountryList.size() == 0) {
 						%>
-						<div class="heading heading-v1 margin-bottom">
-							<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
-							<h4>We can't find your bookmarks.<h4>
-						</div>	
 						<%
 							} else {
 						%>
@@ -94,6 +90,17 @@
 						%>
 					</div>
 				</div>
+				<%
+					if (list == null || searchCountryList.size() == 0) {
+				%>
+				<div class="heading heading-v1 margin-bottom">
+					<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
+					<h4>We can't find your bookmarks.<h4>
+				</div>
+				<%
+					}else{
+				%>
+		
 				<div id="grid-container" class="cbp-l-grid-agency">
 				<%
 						for (int i = 0; i < list.length; i++) {
@@ -121,6 +128,7 @@
 					</div>
 					<%
 						}
+					}
 					%>					
 				</div>
 			</div>

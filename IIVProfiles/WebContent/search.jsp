@@ -157,7 +157,7 @@
 								<div class="easy-block-v1">
 									<div class="easy-block-v1-badge rgba-default"><%=volunteer.getRole()%></div>
 									<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">	
-									<img src="<%=volunteer.getImage()%>" alt="">
+									<img src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%>">
 									</a>
 								</div>
 							</div>
