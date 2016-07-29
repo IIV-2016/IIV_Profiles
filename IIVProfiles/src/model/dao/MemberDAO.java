@@ -80,12 +80,12 @@ public class MemberDAO{
 		return result;
 	}
 	
-	public static VolunteerBean checkLikedMember(int likedMemberNumber, int memberNumber){
+	public static boolean checkLikedMember(int likedMemberNumber, int memberNumber){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		VolunteerBean volunteer  = null;
-		
+		boolean result = false;
+
 		try{
 			con = source.getConnection();
 			pstmt = con.prepareStatement("SELECT COUNT(LIKE_MEMBER_NUMBER) FROM BOOKMARK WHERE MEMBER_NUMBER = ? AND LIKE_MEMBER_NUMBER = ?");
@@ -95,9 +95,9 @@ public class MemberDAO{
 			
 			if (rset.next()){
 				if (rset.getInt(1) == 0) {
-					volunteer = new VolunteerBean(addLikedMember(likedMemberNumber,memberNumber));
+					result = false;
 				} else {
-					return null;
+					result = true;
 				}	
 			}
 		}catch(SQLException e){
@@ -105,49 +105,57 @@ public class MemberDAO{
 		}finally{
 			close(rset, pstmt, con);
 		}
-		return volunteer;
+		return result;
 	}
 	
-	public static int addLikedMember(int likedMemberNumber, int memberNumber){
-		Connection con = null;
+	public static boolean addLikedMember(int likedMemberNumber, int memberNumber){
+		Connection con = null;	
 		PreparedStatement pstmt = null;
+		boolean result = false;
+		String sql = "INSERT INTO BOOKMARK(LIKE_MEMBER_NUMBER, MEMBER_NUMBER) VALUES(? , ?)";
+
+		try {
+			con = source.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, likedMemberNumber);
+			pstmt.setInt(2, memberNumber);
+			int count = pstmt.executeUpdate();
+			
+			if(count != 0){
+				result = true;
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(pstmt, con);
+		}
+		return result;
+	}
+	
+	public static boolean deleteLikedMember(int likedMemberNumber, int memberNumber){
+		Connection con = null;	
+		PreparedStatement pstmt = null;
+		boolean result = false;
+		String sql = "DELETE FROM BOOKMARK WHERE LIKE_MEMBER_NUMBER = ? AND MEMBER_NUMBER = ?";
 		
 		try{
 			con = source.getConnection();
-			pstmt = con.prepareStatement("INSERT INTO BOOKMARK(LIKE_MEMBER_NUMBER, MEMBER_NUMBER) VALUES(? , ?)");
+			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, likedMemberNumber);
 			pstmt.setInt(2, memberNumber);
-			pstmt.executeUpdate();
+			int count = pstmt.executeUpdate();
 			
-			return likedMemberNumber;
+			if(count != 0){
+				result = true;
+			}
 			
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
 			close(pstmt, con);
 		}
-		return likedMemberNumber;
-	}
-	
-	public static VolunteerBean deleteLikedMember(int likedMemberNumber, int memberNumber){
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		
-		try{
-			con = source.getConnection();
-			pstmt = con.prepareStatement("DELETE FROM BOOKMARK WHERE LIKE_MEMBER_NUMBER = ? AND MEMBER_NUMBER = ?");
-			pstmt.setInt(1, likedMemberNumber);
-			pstmt.setInt(2, memberNumber);
-			pstmt.executeUpdate();
-			
-			return new VolunteerBean(likedMemberNumber);
-			
-		}catch(SQLException e){
-			e.printStackTrace();
-		}finally{
-			close(pstmt, con);
-		}
-		return null;
+		return result;
 	}
 	
 	public static void close(Statement stmt, Connection con){

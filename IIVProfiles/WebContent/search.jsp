@@ -8,6 +8,10 @@
 	ArrayList<String> searchCountryList = (ArrayList<String>) request.getAttribute("searchCountryList");
 	VolunteerBean volunteer = null;
 	String check = (String)request.getAttribute("check");
+	String field = (String)request.getAttribute("field");
+	if(field == null){
+		field = "CONCAT(MAJOR,MAJORCLASS)";
+	}
 %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -16,6 +20,19 @@
 <html lang="en">
 <!--<![endif]-->
 	<head>
+		<script language=javascript>
+	    function radioCheck(){
+			var element = document.getElementsByName("field");
+		    for (var i = 0; i < element.length; i++){
+		    	element[0].checked == true;
+		        if (element[i].value == '<%=field%>'){
+		            element[i].checked = true;
+		        }
+		    }
+	    }
+	   	
+	    window.onload = radioCheck;
+		</script>
 		<title>Search | International ICT Volunteers</title>
 		
 		<!-- Meta -->
@@ -75,7 +92,7 @@
 							</div>	
 							<section>
 								<div class="inline-group">
-									<label class="radio"><input type="radio" name="field" value="CONCAT(MAJOR,MAJORCLASS)" checked><i class="rounded-x"></i><span class="color-light">Major</span></label>
+									<label class="radio"><input type="radio" name="field" value="CONCAT(MAJOR,MAJORCLASS)"><i class="rounded-x"></i><span class="color-light">Major</span></label>
 									<label class="radio"><input type="radio" name="field" value="CONCAT(FIRSTNAME,LASTNAME)"><i class="rounded-x"></i><span class="color-light">Name</span></label>
 									<label class="radio"><input type="radio" name="field" value="TEAM.NAME"><i class="rounded-x"></i><span class="color-light">Team</span></label>
 									<label class="radio"><input type="radio" name="field" value="CONCAT(EXPERTISE,EXPERIENCE)"><i class="rounded-x"></i><span class="color-light">Skill</span></label>
@@ -140,7 +157,7 @@
 								<div class="easy-block-v1">
 									<div class="easy-block-v1-badge rgba-default"><%=volunteer.getRole()%></div>
 									<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">	
-									<img src="<%=volunteer.getImage()%>" alt="">
+									<img src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%>">
 									</a>
 								</div>
 							</div>
