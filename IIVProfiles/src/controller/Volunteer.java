@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.MemberDAO;
 import model.dao.VolunteerDAO;
 import model.domain.TeamBean;
 import model.domain.VolunteerBean;
@@ -61,14 +62,18 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			
 			return;
 		}else if(command.equals("member")){
+			HttpSession session = request.getSession();
 			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
 			VolunteerBean volunteer = VolunteerDAO.readMember(memberNumber);
+			boolean checkBookmark = MemberDAO.checkLikedMember(memberNumber, (int)session.getAttribute("memberNumber"));
 			request.setAttribute("volunteer", volunteer);
+			request.setAttribute("checkBookmark", checkBookmark);
 			RequestDispatcher rd = request.getRequestDispatcher("member.jsp");
 			rd.forward(request, response);
 			
 			return;
 		}else if(command.equals("search")){
+			HttpSession session = request.getSession();
 			String field = request.getParameter("field");
 			String keyword = request.getParameter("keyword");
 			VolunteerBean[] volunteer = VolunteerDAO.searchKeyword(field, keyword);
@@ -81,6 +86,7 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			request.setAttribute("list", volunteer);
 			request.setAttribute("searchCountryList", searchCountryList);
 			request.setAttribute("check", "result");
+			request.setAttribute("field", field);
 			RequestDispatcher rd = request.getRequestDispatcher("search.jsp");
 			rd.forward(request, response);
 			

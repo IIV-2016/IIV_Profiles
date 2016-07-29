@@ -71,10 +71,6 @@
 						<%
 							if (list == null || searchCountryList.size() == 0) {
 						%>
-						<div class="heading heading-v1 margin-bottom">
-							<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
-							<h4>We can't find your bookmarks.<h4>
-						</div>	
 						<%
 							} else {
 						%>
@@ -94,6 +90,17 @@
 						%>
 					</div>
 				</div>
+				<%
+					if (list == null || searchCountryList.size() == 0) {
+				%>
+				<div class="heading heading-v1 margin-bottom">
+					<h2><span aria-hidden="true" class="icon-magnifier"></span></h2>
+					<h4>We can't find your bookmarks.<h4>
+				</div>
+				<%
+					}else{
+				%>
+		
 				<div id="grid-container" class="cbp-l-grid-agency">
 				<%
 						for (int i = 0; i < list.length; i++) {
@@ -105,29 +112,23 @@
 								<div class="easy-block-v1">
 									<div class="easy-block-v1-badge rgba-default"><%=volunteer.getRole()%></div>
 									<a href="<%=request.getContextPath()%>/volunteer.do?command=member&memberNumber=<%=volunteer.getNumber()%>">	
-									<img src="<%=volunteer.getImage()%>" alt="">
+									<img src="<%=volunteer.getImage()%>" alt="<%=volunteer.getFirstname()%> <%=volunteer.getLastname()%>">
 									</a>
 								</div>
 							</div>
 						</div>
 						<div class="overflow-h">
+							<h5><a href="<%=request.getContextPath()%>/bookmark.do?command=cancel&likedMemberNumber=<%=volunteer.getNumber()%>"><i class="pull-right color-green fa fa-star"></i></a></h5>
 							<h3><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h3>
 						</div>
 						<ul class="list-unstyled">
 							<li><div class="text-line"><span class="color-green">Country:</span> <%=volunteer.getTeam().getCountry()%></div></li>
 							<li><div class="text-line"><span class="color-green">Major:</span> <%=volunteer.getMajor()%></div></li>
 						</ul>
-						<div class="col-md-6 progress-box md-margin-bottom-50">
-							<form action="<%=request.getContextPath()%>/bookmark.do" method="post">
-									<input type="hidden" name="command" value="cancel">
-									<input type="hidden" name="likedMemberNumber" value="<%=volunteer.getNumber()%>">
-									<input type="hidden" name="memberNumber" value="${member.number}">
-									<button class="btn-u btn-brd rounded btn-u-default btn-u-xs" type="button">Cancel</button>
-							</form>
-						</div>
 					</div>
 					<%
 						}
+					}
 					%>					
 				</div>
 			</div>
