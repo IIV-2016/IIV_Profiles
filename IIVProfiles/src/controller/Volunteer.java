@@ -64,8 +64,12 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 		}else if(command.equals("member")){
 			HttpSession session = request.getSession();
 			int memberNumber = Integer.parseInt(request.getParameter("memberNumber"));
+			boolean checkBookmark = false;
 			VolunteerBean volunteer = VolunteerDAO.readMember(memberNumber);
-			boolean checkBookmark = MemberDAO.checkLikedMember(memberNumber, (int)session.getAttribute("memberNumber"));
+			VolunteerBean member = (VolunteerBean)session.getAttribute("member");
+			if(member != null){
+				checkBookmark = MemberDAO.checkLikedMember(memberNumber, member.getNumber());
+			}
 			request.setAttribute("volunteer", volunteer);
 			request.setAttribute("checkBookmark", checkBookmark);
 			RequestDispatcher rd = request.getRequestDispatcher("member.jsp");

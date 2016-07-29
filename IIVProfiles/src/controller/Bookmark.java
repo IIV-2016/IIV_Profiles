@@ -50,7 +50,7 @@ public class Bookmark extends HttpServlet {
 			}
 			
 			if(addResult){
-				boolean checkBookmark = MemberDAO.checkLikedMember((int)session.getAttribute("memberNumber"), memberNumber);
+				boolean checkBookmark = MemberDAO.checkLikedMember(likedMemberNumber, memberNumber);
 				request.setAttribute("checkBookmark", checkBookmark);
 				String referer= request.getHeader("referer");
 
@@ -87,7 +87,7 @@ public class Bookmark extends HttpServlet {
 			boolean result = MemberDAO.deleteLikedMember(likedMemberNumber, memberNumber);
 			
 			if(result){
-				boolean checkBookmark = MemberDAO.checkLikedMember((int)session.getAttribute("memberNumber"), memberNumber);
+				boolean checkBookmark = MemberDAO.checkLikedMember(likedMemberNumber, memberNumber);
 				request.setAttribute("checkBookmark", checkBookmark);
 				String referer= request.getHeader("referer");
 				response.sendRedirect(referer);
