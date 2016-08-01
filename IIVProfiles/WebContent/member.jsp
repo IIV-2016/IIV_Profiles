@@ -5,6 +5,7 @@
 	VolunteerBean volunteer = (VolunteerBean) request.getAttribute("volunteer");
 	VolunteerBean member = (VolunteerBean) session.getAttribute("member");
 	boolean checkBookmark = (boolean)request.getAttribute("checkBookmark");
+	String referer = request.getHeader("referer");
 %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -67,8 +68,7 @@
 					<div class="container">
 						<h1 class="pull-left"><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h1>
 						<ul class="pull-right breadcrumb">
-							<li><a href="<%=request.getContextPath()%>/volunteer.do?command=read&year=<%=volunteer.getTeam().getYear()%>">Year</a></li>
-							<li><a href="<%=request.getContextPath()%>/volunteer.do?command=team&country=<%=volunteer.getTeam().getCountry()%>&year=<%=volunteer.getTeam().getYear()%>">Country</a></li>
+							<li><a href="<%=referer%>">Before</a></li>
 							<li class="color-green">Member</li>
 						</ul>
 					</div>
