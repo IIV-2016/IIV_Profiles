@@ -46,6 +46,10 @@
 				<form name="passwordForm" action="<%=request.getContextPath()%>/login.do" method="post">
 					<input type="hidden" name="command" value="updatePassword">
 					<div class="input-group margin-bottom-20">
+						<span class="input-group-addon"><i class="fa fa-unlock"></i></span>
+						<input type="text" class="form-control" name="currentPassword" id="currentPassword" placeholder="Current Password">
+					</div>					
+					<div class="input-group margin-bottom-20">
 						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
 						<input type="text" class="form-control" name="password" id="password" placeholder="New Password Setting">
 					</div>
@@ -112,6 +116,21 @@
 		        document.passwordForm.submit();
 		    }
 		}
+		
+	    $.ajax({
+	        url:"goUrl.do",
+	        type:'GET',
+	        data: allData,
+	        success:function(data){
+	            alert("완료!");
+	            window.opener.location.reload();
+	            self.close();
+	        },
+	        error:function(jqXHR, textStatus, errorThrown){
+	            alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
+	            self.close();
+	        }
+	    });
 		</script>		
 		<!--[if lt IE 9]>
 		<script src="assets/plugins/respond.js"></script>

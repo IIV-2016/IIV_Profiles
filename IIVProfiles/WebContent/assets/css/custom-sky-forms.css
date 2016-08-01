@@ -144,7 +144,7 @@
 .sky-form .toggle i,
 .sky-form .icon-append,
 .sky-form .icon-prepend {
-  border-color: #bbb;
+  border-color: rgba(255, 255, 255, 0);
 }
 .sky-form .toggle i:before {
   background-color: #999;  
@@ -283,7 +283,7 @@
 .sky-form .input:hover input,
 .sky-form .select:hover select,
 .sky-form .textarea:hover textarea {
-	border-color: #999;
+	border-color: #dedede;
 }
 
 .sky-form .radio:hover i,

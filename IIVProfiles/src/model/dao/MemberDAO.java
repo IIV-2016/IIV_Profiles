@@ -158,6 +158,29 @@ public class MemberDAO{
 		return result;
 	}
 	
+	public static int checkPassword(int memberNumber){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		try{
+			con = source.getConnection();
+			pstmt = con.prepareStatement("SELECT PASSWORD FROM MEMBER WHERE NUMBER = ?");
+			pstmt.setInt(1, memberNumber);
+
+			rset = pstmt.executeQuery();
+			
+			if (rset.next()){
+				return rset.getInt(1);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			close(rset, pstmt, con);
+		}
+		return 0;
+	}
+	
 	public static void close(Statement stmt, Connection con){
 		try{
 			if(stmt != null){

@@ -67,9 +67,9 @@
 					<div class="container">
 						<h1 class="pull-left"><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h1>
 						<ul class="pull-right breadcrumb">
-							<li><a href="#IIVMEMBER">IIV MEMBER</a></li>
-							<li><a href="#PERSONALINFORMATION">PERSONAL INFORMATION</a></li>
-							<li><a href="#MYSKILLS">MY SKILLS</a></li>
+							<li><a href="<%=request.getContextPath()%>/volunteer.do?command=read&year=<%=volunteer.getTeam().getYear()%>">Year</a></li>
+							<li><a href="<%=request.getContextPath()%>/volunteer.do?command=team&country=<%=volunteer.getTeam().getCountry()%>&year=<%=volunteer.getTeam().getYear()%>">Country</a></li>
+							<li class="color-green">Member</li>
 						</ul>
 					</div>
 				</div>

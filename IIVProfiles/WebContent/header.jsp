@@ -6,7 +6,7 @@
 		</button>
 		<div class="topbar">
 			<ul class="loginbar pull-right">
-				<li><i class="fa fa-user"></i> <a href="<%=request.getContextPath()%>/login.jsp">Login</a></li>
+				<li><i class="fa fa-user"></i> <a href="<%=request.getContextPath()%>/login.jsp" class="margin-right-10"> Login </a></li>
 			</ul>
 		</div>		
 	</div>

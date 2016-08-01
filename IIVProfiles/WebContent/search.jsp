@@ -21,17 +21,17 @@
 <!--<![endif]-->
 	<head>
 		<script language=javascript>
-	    function radioCheck(){
+	    function selectboxCheck(){
 			var element = document.getElementsByName("field");
 		    for (var i = 0; i < element.length; i++){
-		    	element[0].checked == true;
+		    	element[0].selected == true;
 		        if (element[i].value == '<%=field%>'){
-		            element[i].checked = true;
+		            element[i].selected = true;
 		        }
 		    }
 	    }
 	   	
-	    window.onload = radioCheck;
+	    window.onload = selectboxCheck;
 		</script>
 		<title>Search | International ICT Volunteers</title>
 		
@@ -82,23 +82,30 @@
 				<div class="container">
 					<div class="col-md-6 col-md-offset-3">
 						<h1>IIV PROFILES <span class="color-green">SEARCH</span></h1>
-						<form class="sky-form" name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">
-							<div class="input-group">
-								<input type="hidden" name="command" value="search">
-								<input type="text" name="keyword" class="form-control" placeholder="Search">
-								<span class="input-group-btn">
-									<button class="btn-u btn-u-lg" type="submit"><i class="fa fa-search"></i></button>
-								</span>
-							</div>	
-							<section>
-								<div class="inline-group">
-									<label class="radio"><input type="radio" name="field" value="CONCAT(MAJOR,MAJORCLASS)"><i class="rounded-x"></i><span class="color-light">Major</span></label>
-									<label class="radio"><input type="radio" name="field" value="CONCAT(FIRSTNAME,LASTNAME)"><i class="rounded-x"></i><span class="color-light">Name</span></label>
-									<label class="radio"><input type="radio" name="field" value="TEAM.NAME"><i class="rounded-x"></i><span class="color-light">Team</span></label>
-									<label class="radio"><input type="radio" name="field" value="CONCAT(EXPERTISE,EXPERIENCE)"><i class="rounded-x"></i><span class="color-light">Skill</span></label>
-									<label class="radio"><input type="radio" name="field" value="COUNTRY"><i class="rounded-x"></i><span class="color-light">Country</span></label>
+						<form class="sky-form" name="search" method="get" action="<%=request.getContextPath()%>/volunteer.do">	
+							<input type="hidden" name="command" value="search">
+							<div class="row">
+								<div class="col-sm-3 margin-bottom-20" style="padding-left: 5px; padding-right: 5px;">
+									<label class="select form-control">
+										<select name="field">
+											<option value="CONCAT(MAJOR,MAJORCLASS)" selected>Major</option>
+											<option value="CONCAT(FIRSTNAME,LASTNAME)">Name</option>
+											<option value="TEAM.NAME">Team</option>
+											<option value="CONCAT(EXPERTISE,EXPERIENCE)">Skill</option>
+											<option value="COUNTRY">Country</option>
+										</select>
+										<i></i>
+									</label>
 								</div>
-							</section>		
+								<div class="col-sm-9" style="padding-left: 5px; padding-right: 5px;">
+									<div class="input-group">
+										<input type="text" name="keyword" class="form-control" placeholder="Search">
+										<span class="input-group-btn">
+											<button class="btn-u btn-u-lg" type="submit"><i class="fa fa-search"></i></button>
+										</span>
+									</div>
+								</div>
+							</div>
 						</form>
 					</div>
 				</div>
