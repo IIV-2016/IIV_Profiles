@@ -158,7 +158,7 @@ public class MemberDAO{
 		return result;
 	}
 	
-	public static int checkPassword(int memberNumber){
+	public static String checkPassword(int memberNumber){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -171,14 +171,14 @@ public class MemberDAO{
 			rset = pstmt.executeQuery();
 			
 			if (rset.next()){
-				return rset.getInt(1);
+				return rset.getString(1);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
 			close(rset, pstmt, con);
 		}
-		return 0;
+		return null;
 	}
 	
 	public static void close(Statement stmt, Connection con){

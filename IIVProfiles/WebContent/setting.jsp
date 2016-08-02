@@ -28,7 +28,6 @@
 		<link rel="stylesheet" href="assets/css/style.css">
 	
 		<!-- CSS Implementing Plugins -->
-		<link rel="stylesheet" href="assets/plugins/animate.css">
 		<link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
 		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
 	
@@ -45,10 +44,11 @@
 				</div>
 				<form name="passwordForm" action="<%=request.getContextPath()%>/login.do" method="post">
 					<input type="hidden" name="command" value="updatePassword">
-					<div class="input-group margin-bottom-20">
+					<div class="input-group margin-bottom-5">
 						<span class="input-group-addon"><i class="fa fa-unlock"></i></span>
 						<input type="text" class="form-control" name="currentPassword" id="currentPassword" placeholder="Current Password">
-					</div>					
+					</div>
+					<div class="color-red margin-bottom-5 pull-right" id="checkResult">&nbsp;&nbsp;</div>			
 					<div class="input-group margin-bottom-20">
 						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
 						<input type="text" class="form-control" name="password" id="password" placeholder="New Password Setting">
@@ -70,15 +70,10 @@
 		<!--=== End Content Part ===-->
 	
 		<!-- JS Global Compulsory -->
-		<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/jquery/jquery.js"></script>
 		<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/backstretch/jquery.backstretch.min.js"></script>
-		<script type="text/javascript">
-			jQuery(document).ready(function() {
-				App.init();
-			});
-		</script>
 		<script type="text/javascript">
 			$.backstretch([
 				"assets/img/iiv.jpg",
@@ -117,20 +112,29 @@
 		    }
 		}
 		
-	    $.ajax({
-	        url:"goUrl.do",
-	        type:'GET',
-	        data: allData,
-	        success:function(data){
-	            alert("완료!");
-	            window.opener.location.reload();
-	            self.close();
-	        },
-	        error:function(jqXHR, textStatus, errorThrown){
-	            alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
-	            self.close();
-	        }
-	    });
+		$(document).ready(function(){
+			$('#currentPassword').blur(function(){
+			    $.ajax({
+			        url:'<%=request.getContextPath()%>/login.do?command=checkCurrentPassword',
+			        type:"POST",
+			        data: {
+			        	"currentPassword" : $('#currentPassword').val()
+			        },
+			        success:function(data){
+			        	var result = data;
+			            if($.trim(data) == "true"){
+			            }else if($.trim(data) == "false"){
+			            	$('#checkResult').html('<i class="fa fa-exclamation-circle"></i> Password did not match.');
+			            }
+			        },
+			        error:function(jqXHR, textStatus, errorThrown){
+			            alert("error\n" + textStatus + " : " + errorThrown);
+			            self.close();
+			        }
+			    });	
+			});
+		});
+
 		</script>		
 		<!--[if lt IE 9]>
 		<script src="assets/plugins/respond.js"></script>

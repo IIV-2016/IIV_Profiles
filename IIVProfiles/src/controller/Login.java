@@ -75,6 +75,23 @@ public class Login extends HttpServlet {
 			}catch(Exception e){
 				response.sendRedirect("error.jsp");
 			}
+		}else if(command.equals("checkCurrentPassword")){
+			SecurityUtil securityUtil = new SecurityUtil();
+			PrintWriter out = response.getWriter();
+			String currentPassword = request.getParameter("currentPassword");
+			try{
+				HttpSession session = request.getSession();
+				int memberNumber = (int)session.getAttribute("memberNumber");
+				String password = MemberDAO.checkPassword(memberNumber);
+				String encryptedPassword = securityUtil.encryptSHA256(currentPassword);
+				if(encryptedPassword.equals(password)){
+					out.println("true");
+				}else{
+					out.println("false");
+				}
+			}catch(Exception e){
+				response.sendRedirect("error.jsp");
+			}
 		}
 	}
 }
