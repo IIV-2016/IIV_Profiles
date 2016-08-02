@@ -36,6 +36,18 @@
 	</head>
 	
 	<body>
+  	<c:choose>
+ 		<c:when test="${empty member}">
+  		<div class="container content">
+			<div class="heading heading-v1 margin-bottom">
+				<h2><i class="fa fa-ban"></i></h2>
+				<h4>Non-members Access  Restriction.</h4>
+			</div>
+		</div>
+		<br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br>
+	</c:when>
+	<c:otherwise>
 		<div class="container">
 			<div class="reg-block">
 				<div class="reg-block-header">
@@ -65,9 +77,7 @@
 					</div>
 				</form>
 			</div>
-			<!--End Reg Block-->
-		</div><!--/container-->
-		<!--=== End Content Part ===-->
+		</div>
 	
 		<!-- JS Global Compulsory -->
 		<script type="text/javascript" src="assets/plugins/jquery/jquery.js"></script>
@@ -84,9 +94,16 @@
 		</script>
 		<script>
 		function passwordCheck() {
+			var currentPasswordCheck = document.getElementById("checkResult").innerText;
 			var password = document.getElementById("password");
 			var passwordCheck = document.getElementById("passwordCheck");
-
+			
+			if (currentPasswordCheck != '&nbsp;&nbsp;'){
+				alert("Please check your current password");
+				currentPassword.focus();
+				return false;
+			}
+			
 			if (password.value.length == 0) {
 				alert("Please enter your password");
 				password.focus();
@@ -123,8 +140,9 @@
 			        success:function(data){
 			        	var result = data;
 			            if($.trim(data) == "true"){
+			            	$('#checkResult').html('&nbsp;&nbsp;');
 			            }else if($.trim(data) == "false"){
-			            	$('#checkResult').html('<i class="fa fa-exclamation-circle"></i> Password did not match.');
+			            	$('#checkResult').html('<i class="fa fa-exclamation-circle"></i> Current Password did not match.');
 			            }
 			        },
 			        error:function(jqXHR, textStatus, errorThrown){
@@ -141,5 +159,7 @@
 		<script src="assets/plugins/html5shiv.js"></script>
 		<script src="assets/plugins/placeholder-IE-fixes.js"></script>
 		<![endif]-->
+		</c:otherwise>
+	</c:choose>
 	</body>
 </html>
