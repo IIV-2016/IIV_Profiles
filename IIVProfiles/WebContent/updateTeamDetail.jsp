@@ -74,7 +74,7 @@
 					<br><br><br><br><br><br><br><br>
 				</c:when>				
 				<c:otherwise>				
-				<form action="<%=request.getContextPath()%>/volunteer.do" method="post">
+				<form action="<%=request.getContextPath()%>/volunteer.do" method="post" id="frm">
 					<input type="hidden" name="command" value="updateTeamDetail">
 					<input type="hidden" name="teamNumber" value="<%=team.getNumber()%>">
 					<div class="breadcrumbs">
@@ -86,33 +86,25 @@
 							</ul>
 						</div>
 					</div>
-					<div class="container content-sm">
+					<div class="container content margin-bottom-50">
 						<div class="row about-me">
-							<div class="col-sm-8">
+							<div class="col-sm-9">
 								<div>
 									<div class="headline-left margin-bottom-30">
 										<h2 class="headline-brd heading-md">Introduce</h2>
 									</div>
-									<textarea class="form-control" rows="20" cols="50" name="introduce"><%=team.getIntroduce()%></textarea>
-									<hr/>
 								</div>
-							</div>					
+							</div>	
+							<textarea class="form-control" name="introduce" id="smarteditor"><%=team.getIntroduce()%></textarea>
+							<hr/>				
 						</div>
 					</div>		
 					<div class="call-action-v2 parallaxBg">
 						<div class="container">
-							<button class="btn-u" type="submit">save</button>
+							<button class="btn-u" id="savebutton" type="submit">save</button>
 						</div>
 					</div>
 				</form>
-				
-				<form action="<%=request.getContextPath()%>/volunteer.do" method="post" id="frm">
-					<input type="hidden" name="command" value="updateTeamDetail">
-					<input type="hidden" name="teamNumber" value="<%=team.getNumber()%>">
-				    <textarea class="form-control" name="introduce" id="smarteditor" rows="10" cols="100"><%=team.getIntroduce()%></textarea>
-				    <input class="btn-u" type="submit" id="savebutton" value="save" />
-				</form>	
-				
 				</c:otherwise>
 			</c:choose>
 			<%@include file="./footer.jsp"%>
@@ -150,7 +142,7 @@
 			        sSkinURI: "se2/SmartEditor2Skin.html", 
 			        htParams : {
 			            bUseToolbar : true,             
-			            bUseVerticalResizer : true,
+			            bUseVerticalResizer : false,
 			            bUseModeChanger : false, 
 			        }
 			    });
