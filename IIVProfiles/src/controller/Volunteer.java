@@ -138,6 +138,26 @@ public class Volunteer extends javax.servlet.http.HttpServlet {
 			rd.forward(request, response);
 			
 			return;
+		}else if(command.equals("updateTeamDetailForm")){
+			int teamNumber = Integer.parseInt(request.getParameter("teamNumber"));
+			TeamBean team = VolunteerDAO.readTeamByNumber(teamNumber);
+			request.setAttribute("team", team);
+			RequestDispatcher rd = request.getRequestDispatcher("updateTeamDetail.jsp");
+			rd.forward(request, response);
+			
+			return;
+		}else if(command.equals("updateTeamDetail")){
+			int teamNumber = Integer.parseInt(request.getParameter("teamNumber"));
+			String introduce = request.getParameter("introduce");
+			Boolean result = VolunteerDAO.updateTeamDetail(teamNumber, introduce);
+			
+			if(result){
+				response.sendRedirect("volunteer.do?command=teamDetail&teamNumber=" + teamNumber);
+				return;
+			}else{
+				response.sendRedirect("error.jsp");
+				return;
+			}
 		}
 	}
 }

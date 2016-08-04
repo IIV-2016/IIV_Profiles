@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="model.domain.VolunteerBean"%>
+<%@ page import="model.domain.TeamBean"%>
 <%
-	VolunteerBean volunteer = (VolunteerBean) request.getAttribute("volunteer");
 	String referer = request.getHeader("referer");
+	VolunteerBean member = (VolunteerBean) session.getAttribute("member");
+	TeamBean team = (TeamBean) request.getAttribute("team");
 %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -61,7 +63,7 @@
 					<br><br><br><br><br><br><br><br>
 					<br><br><br><br><br><br><br><br>
 				</c:when>
-		  		<c:when test="${member.number != volunteer.number}">
+		  		<c:when test="${member.teamNumber != team.number}">
 			  		<div class="container content">
 						<div class="heading heading-v1 margin-bottom">
 							<h2><i class="fa fa-ban"></i></h2>
@@ -72,12 +74,12 @@
 					<br><br><br><br><br><br><br><br>
 				</c:when>				
 				<c:otherwise>
-			<form action="<%=request.getContextPath()%>/volunteer.do?command=update" method="post">
-				<input type="hidden" name="command" value="update">
-				<input type="hidden" name="memberNumber" value="<%=volunteer.getNumber()%>">
+			<form action="<%=request.getContextPath()%>/volunteer.do" method="post">
+				<input type="hidden" name="command" value="updateTeamDetail">
+				<input type="hidden" name="teamNumber" value="<%=team.getNumber()%>">
 				<div class="breadcrumbs">
 					<div class="container">
-						<h1 class="pull-left"><%=volunteer.getTeam().getName()%></h1>
+						<h1 class="pull-left"><%=team.getName()%></h1>
 						<ul class="pull-right breadcrumb">
 							<li><a href="<%=referer%>">Before</a></li>
 							<li class="color-green">Introduce</li>
@@ -89,9 +91,9 @@
 						<div class="col-sm-8">
 							<div>
 								<div class="headline-left margin-bottom-30">
-									<h2 class="headline-brd heading-md">T</h2>
+									<h2 class="headline-brd heading-md">Introduce</h2>
 								</div>
-								<input class="form-control" type="text" name="introduce" value="<%=volunteer.getTeam().getIntroduce()%>">
+								<input class="form-control" type="text" name="introduce" value="<%=team.getIntroduce()%>">
 								<hr/>
 							</div>
 						</div>					

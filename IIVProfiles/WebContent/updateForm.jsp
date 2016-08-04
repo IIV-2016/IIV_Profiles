@@ -73,7 +73,7 @@
 					<br><br><br><br><br><br><br><br>
 				</c:when>				
 				<c:otherwise>
-			<form action="<%=request.getContextPath()%>/volunteer.do?command=update" method="post">
+			<form action="<%=request.getContextPath()%>/volunteer.do" method="post">
 				<input type="hidden" name="command" value="update">
 				<input type="hidden" name="memberNumber" value="<%=volunteer.getNumber()%>">
 				<div class="breadcrumbs">

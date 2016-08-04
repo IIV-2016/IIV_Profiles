@@ -5,6 +5,7 @@
 <%@ page import="model.domain.TeamBean"%>
 <%
 	TeamBean team = (TeamBean) request.getAttribute("team");
+	VolunteerBean member = (VolunteerBean) session.getAttribute("member");
 %>
 
 <!DOCTYPE html>
@@ -50,7 +51,7 @@
 			</c:otherwise>
 		</c:choose>	
 	</head>
-	<body class="header-fixed"> 
+	<body class="header-fixed">
 		<div class="wrapper">
 			<div class="breadcrumbs">
 				<div class="container">
@@ -64,9 +65,17 @@
 			</div>
 			<div class="container content">
 				<div class="heading heading-v1 margin-bottom-40">
-					<h2>Introduce</h2><br>
-
-					
+					<h2>Introduce</h2>
+					<%
+						if(member != null && team.getNumber() == member.getTeamNumber()){
+					%>
+					<a href="<%=request.getContextPath()%>/volunteer.do?command=updateTeamDetailForm&teamNumber=<%=team.getNumber() %>">
+						<span class="pull-right"><h4><i class="fa fa-pencil color-green"></i></h4></span>
+					</a>
+					<%
+						}
+					%>
+					<br>
 					<%=team.getIntroduce() %>
 				</div>
 				<div class="margin-bottom-50">

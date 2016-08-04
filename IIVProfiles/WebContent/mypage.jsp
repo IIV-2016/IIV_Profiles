@@ -152,7 +152,6 @@
 							<div class="col-md-6 progress-box md-margin-bottom-50">
 								<div class="headline-left margin-bottom-30">
 									<h2 class="headline-brd heading-md">
-		
 										<a href="<%=request.getContextPath()%>/volunteer.do?command=updateForm&memberNumber=<%=volunteer.getNumber()%>">
 											<span class="pull-right"><h4><i class="fa fa-pencil color-green"></i></h4></span>
 										</a>

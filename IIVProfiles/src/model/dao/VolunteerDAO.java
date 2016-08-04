@@ -272,6 +272,32 @@ public class VolunteerDAO{
 		return result;
 	}
 	
+	public static boolean updateTeamDetail(int teamNumber, String introduce){
+		Connection con = null;	
+		PreparedStatement pstmt = null;
+		boolean result = false;
+		String sql = "UPDATE TEAM SET INTRODUCE = ? WHERE NUMBER = ?";
+		
+		try{
+			con = source.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,introduce);
+		    pstmt.setInt(2, teamNumber);
+			pstmt.executeUpdate();
+			int count = pstmt.executeUpdate();
+			
+			if(count != 0){
+				result = true;
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			close(pstmt, con);
+		}
+		return result;
+	}
+	
 	public static void close(Statement stmt, Connection con){
 		try{
 			if(stmt != null){
