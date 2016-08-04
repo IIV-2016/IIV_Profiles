@@ -73,38 +73,46 @@
 					<br><br><br><br><br><br><br><br>
 					<br><br><br><br><br><br><br><br>
 				</c:when>				
-				<c:otherwise>
-			<form action="<%=request.getContextPath()%>/volunteer.do" method="post">
-				<input type="hidden" name="command" value="updateTeamDetail">
-				<input type="hidden" name="teamNumber" value="<%=team.getNumber()%>">
-				<div class="breadcrumbs">
-					<div class="container">
-						<h1 class="pull-left"><%=team.getName()%></h1>
-						<ul class="pull-right breadcrumb">
-							<li><a href="<%=referer%>">Before</a></li>
-							<li class="color-green">Introduce</li>
-						</ul>
+				<c:otherwise>				
+				<form action="<%=request.getContextPath()%>/volunteer.do" method="post">
+					<input type="hidden" name="command" value="updateTeamDetail">
+					<input type="hidden" name="teamNumber" value="<%=team.getNumber()%>">
+					<div class="breadcrumbs">
+						<div class="container">
+							<h1 class="pull-left"><%=team.getName()%></h1>
+							<ul class="pull-right breadcrumb">
+								<li><a href="<%=referer%>">Before</a></li>
+								<li class="color-green">Introduce</li>
+							</ul>
+						</div>
 					</div>
-				</div>
-				<div class="container content-sm">
-					<div class="row about-me">
-						<div class="col-sm-8">
-							<div>
-								<div class="headline-left margin-bottom-30">
-									<h2 class="headline-brd heading-md">Introduce</h2>
+					<div class="container content-sm">
+						<div class="row about-me">
+							<div class="col-sm-8">
+								<div>
+									<div class="headline-left margin-bottom-30">
+										<h2 class="headline-brd heading-md">Introduce</h2>
+									</div>
+									<textarea class="form-control" rows="20" cols="50" name="introduce"><%=team.getIntroduce()%></textarea>
+									<hr/>
 								</div>
-								<input class="form-control" type="text" name="introduce" value="<%=team.getIntroduce()%>">
-								<hr/>
-							</div>
-						</div>					
+							</div>					
+						</div>
+					</div>		
+					<div class="call-action-v2 parallaxBg">
+						<div class="container">
+							<button class="btn-u" type="submit">save</button>
+						</div>
 					</div>
-				</div>		
-				<div class="call-action-v2 parallaxBg">
-					<div class="container">
-						<button class="btn-u" type="submit">save</button>
-					</div>
-				</div>
 				</form>
+				
+				<form action="<%=request.getContextPath()%>/volunteer.do" method="post" id="frm">
+					<input type="hidden" name="command" value="updateTeamDetail">
+					<input type="hidden" name="teamNumber" value="<%=team.getNumber()%>">
+				    <textarea class="form-control" name="introduce" id="smarteditor" rows="10" cols="100"><%=team.getIntroduce()%></textarea>
+				    <input class="btn-u" type="submit" id="savebutton" value="save" />
+				</form>	
+				
 				</c:otherwise>
 			</c:choose>
 			<%@include file="./footer.jsp"%>
@@ -133,9 +141,29 @@
 				StyleSwitcher.initStyleSwitcher();
 				OwlRecentWorks.initOwlRecentWorksV1();
 			});
+			
+			$(function(){
+			    var editor_object = [];
+			    nhn.husky.EZCreator.createInIFrame({
+			        oAppRef: editor_object,
+			        elPlaceHolder: "smarteditor",
+			        sSkinURI: "se2/SmartEditor2Skin.html", 
+			        htParams : {
+			            bUseToolbar : true,             
+			            bUseVerticalResizer : true,
+			            bUseModeChanger : false, 
+			        }
+			    });
+
+			    $("#savebutton").click(function(){
+			        editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
+			        $("#frm").submit();
+			    })
+			})
 		</script>
 		
 		<script type="text/javascript" src="assets/js/header_fix.js"></script>
+		<script type="text/javascript" src="se2/js/HuskyEZCreator.js" charset="utf-8"></script>
 		<!--[if lt IE 9]>
 		<script src="assets/plugins/respond.js"></script>
 		<script src="assets/plugins/html5shiv.js"></script>
