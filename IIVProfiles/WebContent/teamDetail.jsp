@@ -64,7 +64,10 @@
 			</div>
 			<div class="container content">
 				<div class="heading heading-v1 margin-bottom-40">
-					<h2><%=team.getIntroduce() %> To be continued</h2>
+					<h2>Introduce</h2><br>
+
+					
+					<%=team.getIntroduce() %>
 				</div>
 				<div class="margin-bottom-50">
 						<div class="box-shadow shadow-effect-2">
@@ -99,7 +102,7 @@
 				</section>
 				<section id="video">
 					<div class="heading heading-v1 margin-bottom-40">
-						<h2>Introduction Video</h2>
+						<h2>Video</h2>
 					</div>
 					<div class="margin-bottom-60">
 						<div class="responsive-video">

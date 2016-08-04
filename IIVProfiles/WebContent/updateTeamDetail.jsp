@@ -3,7 +3,6 @@
 <%@ page import="model.domain.VolunteerBean"%>
 <%
 	VolunteerBean volunteer = (VolunteerBean) request.getAttribute("volunteer");
-	int memberNumber = (int) session.getAttribute("memberNumber");
 	String referer = request.getHeader("referer");
 %>
 <!DOCTYPE html>
@@ -78,10 +77,10 @@
 				<input type="hidden" name="memberNumber" value="<%=volunteer.getNumber()%>">
 				<div class="breadcrumbs">
 					<div class="container">
-						<h1 class="pull-left"><%=volunteer.getFirstname()%> <%=volunteer.getLastname()%></h1>
+						<h1 class="pull-left"><%=volunteer.getTeam().getName()%></h1>
 						<ul class="pull-right breadcrumb">
 							<li><a href="<%=referer%>">Before</a></li>
-							<li class="color-green">My Skill</li>
+							<li class="color-green">Introduce</li>
 						</ul>
 					</div>
 				</div>
@@ -90,21 +89,12 @@
 						<div class="col-sm-8">
 							<div>
 								<div class="headline-left margin-bottom-30">
-									<h2 class="headline-brd heading-md">MY Expertise</h2>
+									<h2 class="headline-brd heading-md">T</h2>
 								</div>
-								<input class="form-control" type="text" name="expertise" value="<%=volunteer.getExpertise()%>">
+								<input class="form-control" type="text" name="introduce" value="<%=volunteer.getTeam().getIntroduce()%>">
 								<hr/>
 							</div>
-						</div>
-						<div class="col-sm-8">
-							<div>
-								<div class="headline-left margin-bottom-30">
-									<h2 class="headline-brd heading-md">MY Experience</h2>
-								</div>
-								<input class="form-control" type="text" name="experience" value="<%=volunteer.getExperience()%>">
-								<hr/>
-							</div>
-						</div>						
+						</div>					
 					</div>
 				</div>		
 				<div class="call-action-v2 parallaxBg">
