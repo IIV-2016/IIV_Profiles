@@ -95,6 +95,22 @@
 					</div>
 				</div><!--/end team v5-->
 			</div>
+			<div class="call-action-v2 parallaxBg">
+				<div class="container">
+					<ul class="list-inline">
+						<li>
+							<a href="https://github.com/IIV-2016/IIV_Profiles">
+								<h1><i class="fa fa-github"></i></h1>
+							</a>
+						</li>
+						<li>
+							<a href="mailto:iiv.itu.2016@gmail.com">
+								<h1><i class="fa fa-google"></i></h1>
+							</a>
+						</li>
+					</ul>				
+				</div>
+			</div>
 		</div>
 		<%@include file="./footer.jsp"%>
 	
