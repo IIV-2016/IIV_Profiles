@@ -138,15 +138,14 @@
 								<p>
 									<h5 class="heading-xs">
 										<i class="fa fa-angle-right color-green"></i>
-										University<span class="pull-right"><%=volunteer.getUniversity()%></span>
+										Major<span class="pull-right"><%=volunteer.getMajor()%></span>
 									</h5>
 								</p>
 								<p>
 									<h5 class="heading-xs">
-										<i class="fa fa-angle-right color-green"></i>
-										Major<span class="pull-right"><%=volunteer.getMajor()%></span>
+										&nbsp;&nbsp;<span class="pull-right">&nbsp;&nbsp;</span>
 									</h5>
-								</p>
+								</p>								
 								<hr>
 							</div>
 							<section id="MYSKILLS"></section>
